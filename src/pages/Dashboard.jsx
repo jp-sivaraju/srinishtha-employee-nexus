@@ -1,10 +1,11 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AppLayout } from '../components/layout/AppLayout';
 import { PageHeader } from '../components/ui/PageHeader';
 import { Card } from '../components/ui/Card';
 import { Calendar, FileText, HelpCircle, Users, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // Simple Line Chart component using Canvas API
 const LineChart = ({ data, color = '#9b87f5', height = 100, width = 200 }) => {
@@ -50,10 +51,26 @@ const LineChart = ({ data, color = '#9b87f5', height = 100, width = 200 }) => {
 };
 
 const Dashboard = () => {
-  const user = JSON.parse(localStorage.getItem('currentUser'));
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
   
   useEffect(() => {
     document.title = 'Dashboard | Srinishtha Hub';
+    
+    // Get user from localStorage and handle null case
+    const storedUser = localStorage.getItem('currentUser');
+    if (!storedUser) {
+      navigate('/login');
+      return;
+    }
+    
+    try {
+      const parsedUser = JSON.parse(storedUser);
+      setUser(parsedUser);
+    } catch (error) {
+      console.error('Error parsing user data:', error);
+      navigate('/login');
+    }
 
     // Initialize animation for elements
     const animateElements = () => {
@@ -75,7 +92,7 @@ const Dashboard = () => {
     };
     
     animateElements();
-  }, []);
+  }, [navigate]);
 
   const quickLinks = [
     { id: 1, title: 'Leave Application', icon: Calendar, route: '/hr-zone', color: 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400' },
@@ -86,6 +103,18 @@ const Dashboard = () => {
 
   // Dummy data for the chart
   const projectProgress = [10, 25, 15, 30, 20, 40, 35, 55, 45, 60, 70];
+
+  // If user is null, show a loading state
+  if (!user) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-primary-500 mx-auto mb-4"></div>
+          <p className="text-gray-600 dark:text-gray-400">Loading dashboard...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <AppLayout>
