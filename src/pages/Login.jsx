@@ -28,7 +28,7 @@ const Login = () => {
       const userData = {
         name: email.split('@')[0],
         email,
-        role: 'Developer', // Default role
+        role: 'Admin', // Changed from 'Developer' to 'Admin' to give access to all menu items
         avatar: null
       };
       
