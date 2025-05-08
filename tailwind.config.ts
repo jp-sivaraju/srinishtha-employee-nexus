@@ -87,6 +87,18 @@ export default {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
       },
+      gradients: {
+        // Add some predefined gradients that can be referenced in your CSS
+        'primary': 'linear-gradient(135deg, #9b87f5 0%, #7E69AB 100%)',
+        'secondary': 'linear-gradient(135deg, #aa97fb 0%, #6a4f98 100%)',
+        'sunset': 'linear-gradient(135deg, #ee9ca7 0%, #ffdde1 100%)',
+        'blue-purple': 'linear-gradient(90deg, hsla(221, 45%, 73%, 1) 0%, hsla(220, 78%, 29%, 1) 100%)',
+        'pastel-green': 'linear-gradient(90deg, hsla(139, 70%, 75%, 1) 0%, hsla(63, 90%, 76%, 1) 100%)',
+      },
+      backgroundImage: {
+        'gradient-primary': 'linear-gradient(135deg, #9b87f5 0%, #7E69AB 100%)',
+        'gradient-secondary': 'linear-gradient(135deg, #aa97fb 0%, #6a4f98 100%)',
+      },
       keyframes: {
         'accordion-down': {
           from: { height: '0' },
@@ -123,5 +135,9 @@ export default {
       }
     }
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    // Note: @tailwindcss/gradients doesn't exist, so we're removing it
+    // Tailwind already supports gradients with the bg-gradient-* classes
+  ],
 } satisfies Config;
