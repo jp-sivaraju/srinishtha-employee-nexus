@@ -13,6 +13,8 @@ import KnowledgeBase from "./pages/KnowledgeBase";
 import BrandAssets from "./pages/BrandAssets";
 import Finance from "./pages/Finance";
 import Regional from "./pages/Regional";
+import Performance from "./pages/Performance";
+import Pmo from "./pages/Pmo";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +32,8 @@ const App = () => (
           <Route path="/hr-zone" element={<HrZone />} />
           <Route path="/it-helpdesk" element={<ItHelpdesk />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/performance" element={<Performance />} />
+          <Route path="/pmo" element={<Pmo />} />
           <Route path="/knowledge-base" element={<KnowledgeBase />} />
           <Route path="/brand-assets" element={<BrandAssets />} />
           <Route path="/finance" element={<Finance />} />

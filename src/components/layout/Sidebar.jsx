@@ -11,7 +11,9 @@ import {
   DollarSign,
   Plane,
   Menu,
-  X
+  X,
+  BarChart2,
+  Target
 } from 'lucide-react';
 
 // Define navigation items with role permissions
@@ -20,7 +22,7 @@ const navigationItems = [
     name: 'Dashboard',
     path: '/dashboard',
     icon: Home,
-    allowedRoles: ['Admin', 'HR', 'Manager', 'Developer', 'Intern']
+    allowedRoles: ['Admin', 'HR', 'Manager', 'Developer', 'Intern', 'Finance', 'Assessor']
   },
   { 
     name: 'HR Zone',
@@ -32,19 +34,31 @@ const navigationItems = [
     name: 'IT Helpdesk',
     path: '/it-helpdesk',
     icon: HelpCircle,
-    allowedRoles: ['Admin', 'HR', 'Manager', 'Developer', 'Intern'] 
+    allowedRoles: ['Admin', 'HR', 'Manager', 'Developer', 'Intern', 'Finance', 'Assessor'] 
   },
   { 
     name: 'Projects & Tasks',
     path: '/projects',
     icon: Folder,
-    allowedRoles: ['Admin', 'Manager', 'Developer', 'Intern'] 
+    allowedRoles: ['Admin', 'Manager', 'Developer', 'Intern', 'Assessor'] 
+  },
+  { 
+    name: 'Performance Tracker',
+    path: '/performance',
+    icon: BarChart2,
+    allowedRoles: ['Admin', 'HR', 'Manager', 'Assessor'] 
+  },
+  {
+    name: 'PMO / Execution',
+    path: '/pmo',
+    icon: Target,
+    allowedRoles: ['Admin', 'Manager', 'Assessor']
   },
   { 
     name: 'Knowledge Base',
     path: '/knowledge-base',
     icon: Book,
-    allowedRoles: ['Admin', 'HR', 'Manager', 'Developer', 'Intern'] 
+    allowedRoles: ['Admin', 'HR', 'Manager', 'Developer', 'Intern', 'Finance', 'Assessor'] 
   },
   { 
     name: 'Brand Assets',
@@ -56,13 +70,13 @@ const navigationItems = [
     name: 'Finance Tools',
     path: '/finance',
     icon: DollarSign,
-    allowedRoles: ['Admin', 'HR', 'Manager'] 
+    allowedRoles: ['Admin', 'HR', 'Manager', 'Finance'] 
   },
   { 
     name: 'Regional & Travel',
     path: '/regional',
     icon: Plane,
-    allowedRoles: ['Admin', 'HR', 'Manager', 'Developer', 'Intern'] 
+    allowedRoles: ['Admin', 'HR', 'Manager', 'Developer', 'Intern', 'Finance', 'Assessor'] 
   }
 ];
 

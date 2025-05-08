@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
@@ -11,10 +10,12 @@ import {
   Moon, 
   Sun, 
   LogOut,
-  Menu
+  Menu,
+  Calendar,
+  Target
 } from 'lucide-react';
 
-const availableRoles = ['Admin', 'HR', 'Manager', 'Developer', 'Intern'];
+const availableRoles = ['Admin', 'HR', 'Manager', 'Developer', 'Intern', 'Finance', 'Assessor'];
 
 export const Navbar = ({ user, toggleSidebar }) => {
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
@@ -89,6 +90,12 @@ export const Navbar = ({ user, toggleSidebar }) => {
             </button>
             <button className="text-gray-500 hover:text-primary-500" title="Directory">
               <Users size={20} />
+            </button>
+            <button className="text-gray-500 hover:text-primary-500" title="Calendar">
+              <Calendar size={20} />
+            </button>
+            <button className="text-gray-500 hover:text-primary-500" title="My Goals">
+              <Target size={20} />
             </button>
           </div>
 
