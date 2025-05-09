@@ -84,7 +84,10 @@ export default {
         sm: 'calc(var(--radius) - 4px)'
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Poppins', 'Inter', 'sans-serif'],
+        montserrat: ['Montserrat', 'Inter', 'sans-serif'],
+        poppins: ['Poppins', 'Inter', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
       },
       gradients: {
         // Add some predefined gradients that can be referenced in your CSS
@@ -135,8 +138,9 @@ export default {
           '50%': { opacity: 0.7 }
         },
         'float': {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-10px)' }
+          '0%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+          '100%': { transform: 'translateY(0)' }
         }
       },
       animation: {

@@ -1,5 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -96,11 +98,21 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
     overflow-x: hidden;
+    font-family: 'Poppins', 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', 'Inter', sans-serif;
   }
 
   /* Modern glass effect */
   .glass {
     @apply bg-white/20 dark:bg-gray-800/20 backdrop-blur-lg border border-white/10 dark:border-gray-700/30;
+  }
+
+  /* Improved glass card effect */
+  .glass-card {
+    @apply bg-white/70 dark:bg-gray-800/70 backdrop-blur-lg border border-white/20 dark:border-gray-700/30 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300;
   }
 
   .parallax-header {
@@ -169,6 +181,23 @@
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-primary-600;
   }
+  
+  /* Floating animation */
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
 }
 
 @layer components {
@@ -183,5 +212,27 @@
   .card-hover-effect {
     @apply transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary-200/20;
   }
+  
+  /* Gradient buttons */
+  .btn-gradient-primary {
+    @apply bg-gradient-to-r from-primary-600 to-primary-400 hover:from-primary-500 hover:to-primary-300 text-white font-medium py-2 px-4 rounded-md transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+  }
+  
+  .btn-gradient-secondary {
+    @apply bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-500 hover:to-blue-300 text-white font-medium py-2 px-4 rounded-md transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+  }
+  
+  /* Improved card styles */
+  .feature-card {
+    @apply bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1;
+  }
+  
+  /* Gradient backgrounds */
+  .bg-gradient-cool {
+    @apply bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500;
+  }
+  
+  .bg-gradient-warm {
+    @apply bg-gradient-to-br from-orange-500 via-pink-500 to-red-500;
+  }
 }
-

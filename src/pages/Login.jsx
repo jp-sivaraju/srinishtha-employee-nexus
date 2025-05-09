@@ -2,6 +2,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useToast } from '../components/ui/Toast';
+import GradientText from '../components/ui/GradientText';
+import ModernButton from '../components/ui/ModernButton';
+import GlassContainer from '../components/ui/GlassContainer';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -40,18 +43,36 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-100 to-primary-300 dark:from-gray-900 dark:to-gray-800 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-400 via-primary-200 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-700 py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary-300 rounded-full blur-3xl opacity-30 translate-y-1/2 -translate-x-1/2"></div>
+        
+        {/* Floating circles */}
+        <div className="absolute top-1/4 left-1/4 w-12 h-12 rounded-full bg-gradient-to-br from-yellow-300 to-yellow-500 animate-float opacity-50"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-8 h-8 rounded-full bg-gradient-to-br from-pink-300 to-pink-500 animate-float opacity-50" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute top-2/3 left-1/2 w-16 h-16 rounded-full bg-gradient-to-br from-blue-300 to-blue-500 animate-float opacity-40" style={{ animationDelay: '2.8s' }}></div>
+      </div>
+      
+      <div className="max-w-md w-full space-y-8 relative z-10">
         <div className="text-center">
-          <h2 className="mt-6 text-center text-3xl font-bold text-gray-900 dark:text-white bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">
-            Welcome to Srinishtha Hub
+          <h2 className="text-center text-4xl font-bold mb-2">
+            <GradientText gradient="blue-purple" weight="bold" className="font-montserrat">
+              Welcome to Srinishtha Hub
+            </GradientText>
           </h2>
-          <p className="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">
+          <p className="text-center text-lg text-gray-600 dark:text-gray-300 font-light">
             Employee Portal
           </p>
         </div>
 
-        <div className="mt-8 bg-white/80 dark:bg-gray-800/90 backdrop-blur-sm py-8 px-4 shadow-2xl rounded-xl border border-gray-100 dark:border-gray-700 sm:px-10 transition-all duration-300 hover:shadow-primary-200/50">
+        <GlassContainer 
+          blur="xl"
+          opacity="medium"
+          rounded="xl"
+          className="py-8 px-4 shadow-2xl sm:px-10 transition-all duration-300 hover:shadow-primary-200/50"
+        >
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
@@ -66,7 +87,7 @@ const Login = () => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700/60 dark:text-white transition-all duration-300"
+                  className="appearance-none block w-full px-4 py-3 border border-gray-300/50 dark:border-gray-600/50 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500/50 dark:bg-gray-700/40 dark:text-white transition-all duration-300"
                   placeholder="you@srinishtha.com"
                 />
               </div>
@@ -85,7 +106,7 @@ const Login = () => {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700/60 dark:text-white transition-all duration-300"
+                  className="appearance-none block w-full px-4 py-3 border border-gray-300/50 dark:border-gray-600/50 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500/50 dark:bg-gray-700/40 dark:text-white transition-all duration-300"
                 />
               </div>
             </div>
@@ -107,31 +128,32 @@ const Login = () => {
 
               <div className="text-sm">
                 <a href="#" className="font-medium text-primary-600 hover:text-primary-500 dark:text-primary-400 transition-colors">
-                  Forgot your password?
+                  Forgot password?
                 </a>
               </div>
             </div>
 
             <div>
-              <button
+              <ModernButton
                 type="submit"
                 disabled={isLoading}
-                className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-md text-sm font-medium text-white bg-gradient-to-r from-primary-600 to-primary-400 hover:from-primary-500 hover:to-primary-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transform transition-all duration-300 hover:-translate-y-0.5 ${
-                  isLoading ? 'opacity-70 cursor-not-allowed' : ''
-                }`}
+                fullWidth
+                withGlow
+                withAnimation
+                className="py-3"
               >
                 {isLoading ? 'Signing in...' : 'Sign in'}
-              </button>
+              </ModernButton>
             </div>
           </form>
 
           <div className="mt-6">
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-300 dark:border-gray-600"></div>
+                <div className="w-full border-t border-gray-300/30 dark:border-gray-600/30"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 bg-opacity-80 dark:bg-opacity-80">
+                <span className="px-2 bg-white/60 dark:bg-gray-800/60 text-gray-500 dark:text-gray-400">
                   Demo credentials
                 </span>
               </div>
@@ -143,6 +165,11 @@ const Login = () => {
               </p>
             </div>
           </div>
+        </GlassContainer>
+        
+        {/* Brand ribbon */}
+        <div className="text-center mt-8 text-sm text-gray-500 dark:text-gray-400">
+          <p>© 2025 Srinishtha. All rights reserved.</p>
         </div>
       </div>
       <ToastContainer />
