@@ -1,4 +1,3 @@
-
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ["class"],
@@ -29,23 +28,33 @@ export default {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: '#9b87f5',
+          DEFAULT: '#c792ea', // Night Owl purple
           foreground: '#FFFFFF',
-          100: '#f5f2ff',
-          200: '#e4deff',
-          300: '#c6baff',
-          400: '#aa97fb',
-          500: '#9b87f5',
-          600: '#7E69AB',
-          700: '#6a4f98',
-          800: '#53407a',
-          900: '#3c2d5d'
+          100: '#eee7fc',
+          200: '#dfd1f9',
+          300: '#c7acf5',
+          400: '#c792ea', // Night Owl purple
+          500: '#9b71c7',
+          600: '#7d59a6',
+          700: '#614787',
+          800: '#483566',
+          900: '#2c1e44'
         },
         secondary: {
-          DEFAULT: '#7E69AB',
+          DEFAULT: '#80cbc4', // Night Owl teal
           foreground: '#FFFFFF',
         },
-        dark: '#1A1F2C',
+        dark: {
+          DEFAULT: '#011627', // Night Owl background
+          lighter: '#152b3d',
+          light: '#1d3b53',
+        },
+        accent: {
+          DEFAULT: '#f78c6c', // Night Owl orange
+          yellow: '#ffd700', // Night Owl yellow
+          blue: '#82aaff', // Night Owl blue
+          aqua: '#7fdbca', // Night Owl aqua
+        },
         neutral: '#8E9196',
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
@@ -88,25 +97,27 @@ export default {
         montserrat: ['Montserrat', 'Inter', 'sans-serif'],
         poppins: ['Poppins', 'Inter', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
+        fira: ['Fira Code', 'monospace'], // Developer-friendly font
       },
       gradients: {
         // Add some predefined gradients that can be referenced in your CSS
-        'primary': 'linear-gradient(135deg, #9b87f5 0%, #7E69AB 100%)',
-        'secondary': 'linear-gradient(135deg, #aa97fb 0%, #6a4f98 100%)',
-        'sunset': 'linear-gradient(135deg, #ee9ca7 0%, #ffdde1 100%)',
-        'blue-purple': 'linear-gradient(90deg, hsla(221, 45%, 73%, 1) 0%, hsla(220, 78%, 29%, 1) 100%)',
-        'pastel-green': 'linear-gradient(90deg, hsla(139, 70%, 75%, 1) 0%, hsla(63, 90%, 76%, 1) 100%)',
+        'primary': 'linear-gradient(135deg, #c792ea 0%, #7d59a6 100%)',
+        'secondary': 'linear-gradient(135deg, #82aaff 0%, #5079cc 100%)',
+        'sunset': 'linear-gradient(135deg, #f78c6c 0%, #e05252 100%)',
+        'blue-purple': 'linear-gradient(90deg, #82aaff 0%, #c792ea 100%)',
+        'night-owl': 'linear-gradient(to right, #011627 0%, #1d3b53 100%)',
       },
       backgroundImage: {
-        'gradient-primary': 'linear-gradient(135deg, #9b87f5 0%, #7E69AB 100%)',
-        'gradient-secondary': 'linear-gradient(135deg, #aa97fb 0%, #6a4f98 100%)',
-        'gradient-blue-purple': 'linear-gradient(90deg, hsla(221, 45%, 73%, 1) 0%, hsla(220, 78%, 29%, 1) 100%)',
-        'gradient-pastel': 'linear-gradient(90deg, hsla(139, 70%, 75%, 1) 0%, hsla(63, 90%, 76%, 1) 100%)',
-        'gradient-sunset': 'linear-gradient(135deg, #ee9ca7 0%, #ffdde1 100%)',
+        'gradient-primary': 'linear-gradient(135deg, #c792ea 0%, #7d59a6 100%)',
+        'gradient-secondary': 'linear-gradient(135deg, #82aaff 0%, #5079cc 100%)',
+        'gradient-blue-purple': 'linear-gradient(90deg, #82aaff 0%, #c792ea 100%)',
+        'gradient-night-owl': 'linear-gradient(to right, #011627 0%, #1d3b53 100%)',
+        'gradient-sunset': 'linear-gradient(135deg, #f78c6c 0%, #e05252 100%)',
       },
       boxShadow: {
-        'glow-primary': '0 0 20px rgba(155, 135, 245, 0.5)',
-        'glow-white': '0 0 15px rgba(255, 255, 255, 0.5)',
+        'glow-primary': '0 0 20px rgba(199, 146, 234, 0.5)',
+        'glow-blue': '0 0 15px rgba(130, 170, 255, 0.5)',
+        'glow-white': '0 0 15px rgba(255, 255, 255, 0.3)',
       },
       keyframes: {
         'accordion-down': {

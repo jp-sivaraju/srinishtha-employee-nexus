@@ -19,10 +19,10 @@ const ModernButton = ({
   const baseClasses = "inline-flex items-center justify-center gap-2 font-medium rounded-md transition-all duration-300";
   
   const variantClasses = {
-    primary: "bg-gradient-to-r from-primary-600 to-primary-400 text-white hover:from-primary-500 hover:to-primary-300",
-    secondary: "bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600",
-    outline: "border-2 border-primary-400 text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-gray-800",
-    ghost: "text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-gray-800",
+    primary: "bg-gradient-to-r from-primary-500 to-primary-400 text-white hover:from-primary-400 hover:to-primary-300",
+    secondary: "bg-accent-blue text-white hover:bg-accent-blue/90",
+    outline: "border-2 border-primary-400 text-primary-400 hover:bg-primary-400/10",
+    ghost: "text-primary-400 hover:bg-primary-400/10",
     danger: "bg-gradient-to-r from-red-600 to-red-400 text-white hover:from-red-500 hover:to-red-300",
   };
   
@@ -33,7 +33,7 @@ const ModernButton = ({
   };
   
   const animationClasses = withAnimation ? "transform hover:-translate-y-0.5 active:translate-y-0" : "";
-  const glowClasses = withGlow ? "shadow-md hover:shadow-lg hover:shadow-primary-300/30" : "";
+  const glowClasses = withGlow ? "shadow-md hover:shadow-lg hover:shadow-primary-400/30" : "";
   const disabledClasses = disabled ? "opacity-60 cursor-not-allowed" : "cursor-pointer";
   const widthClasses = fullWidth ? "w-full" : "";
   

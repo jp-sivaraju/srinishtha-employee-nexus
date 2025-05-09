@@ -19,9 +19,9 @@ const GlassContainer = ({
   };
   
   const opacityClasses = {
-    light: 'bg-white/10 dark:bg-gray-900/10',
-    medium: 'bg-white/30 dark:bg-gray-900/30',
-    heavy: 'bg-white/50 dark:bg-gray-900/50',
+    light: 'bg-white/10 dark:bg-dark/10',
+    medium: 'bg-white/30 dark:bg-dark/30',
+    heavy: 'bg-white/50 dark:bg-dark/50',
   };
   
   const roundedClasses = {
@@ -33,7 +33,7 @@ const GlassContainer = ({
     full: 'rounded-full',
   };
 
-  const borderClasses = border ? 'border border-white/20 dark:border-gray-800/30' : '';
+  const borderClasses = border ? 'border border-white/20 dark:border-white/5' : '';
   const paddingClasses = padding ? 'p-6' : '';
   
   return (
