@@ -11,12 +11,12 @@ const HrZone = () => {
 
   return (
     <AppLayout>
-      <div className="px-6 mx-auto">
+      <div className="px-6 pb-6 mx-auto">
         <HrHeroSection />
-
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-          {/* Sidebar Navigation */}
-          <div className="md:col-span-3">
+        
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mt-6">
+          {/* Sidebar Navigation - Hidden on mobile */}
+          <div className="hidden md:block md:col-span-3">
             <HrSidebar activeTab={activeTab} setActiveTab={setActiveTab} />
           </div>
 

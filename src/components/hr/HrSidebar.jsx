@@ -18,8 +18,8 @@ const HrSidebar = ({ activeTab, setActiveTab }) => {
   ];
 
   return (
-    <GlassContainer className="p-4">
-      <GradientText as="h3" className="text-xl font-semibold mb-4" gradient="night-owl">
+    <GlassContainer className="p-4 shadow-lg border border-white/10" blur="md" opacity="medium">
+      <GradientText as="h3" className="text-xl font-semibold mb-4" gradient="blue-purple">
         HR Management
       </GradientText>
       <nav>
@@ -30,11 +30,13 @@ const HrSidebar = ({ activeTab, setActiveTab }) => {
                 onClick={() => setActiveTab(item.id)}
                 className={`flex items-center w-full px-3 py-2 rounded-md transition-all ${
                   activeTab === item.id
-                    ? 'bg-primary-500/20 text-white shadow-sm shadow-primary-500/20'
-                    : 'text-primary-300 hover:bg-primary-800/50 hover:text-primary-200'
+                    ? 'bg-primary-500/30 text-white shadow-lg shadow-primary-500/20 font-medium'
+                    : 'text-white hover:bg-primary-600/40 hover:text-white/90'
                 }`}
               >
-                <span className="mr-3">{item.icon}</span>
+                <span className={`mr-3 ${activeTab === item.id ? 'text-white' : 'text-primary-200'}`}>
+                  {item.icon}
+                </span>
                 <span>{item.label}</span>
               </button>
             </li>
