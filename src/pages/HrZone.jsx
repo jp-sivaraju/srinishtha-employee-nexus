@@ -2,9 +2,25 @@
 import React, { useState } from 'react';
 import { AppLayout } from '../components/layout/AppLayout';
 import { PageHeader } from '../components/ui/PageHeader';
-import { Card } from '../components/ui/Card';
-import { Calendar, FileText, User, Check } from 'lucide-react';
-import { useToast } from '../components/ui/Toast';
+import { 
+  Calendar, 
+  FileText, 
+  User, 
+  Check, 
+  Users, 
+  Award, 
+  BookOpen, 
+  DollarSign
+} from 'lucide-react';
+import { useToast } from '../hooks/use-toast';
+import { toast } from '../components/ui/sonner';
+import GlassContainer from '../components/ui/GlassContainer';
+import GradientText from '../components/ui/GradientText';
+import EmployeeDirectory from '../components/hr/EmployeeDirectory';
+import RecruitmentDashboard from '../components/hr/RecruitmentDashboard';
+import TrainingDevelopment from '../components/hr/TrainingDevelopment';
+import CompensationBenefits from '../components/hr/CompensationBenefits';
+import PerformanceReviews from '../components/hr/PerformanceReviews';
 
 const HrZone = () => {
   const [leaveForm, setLeaveForm] = useState({
@@ -13,8 +29,7 @@ const HrZone = () => {
     leaveType: 'annual',
     reason: ''
   });
-  const [activeTab, setActiveTab] = useState('leave');
-  const { showToast, ToastContainer } = useToast();
+  const [activeTab, setActiveTab] = useState('dashboard');
 
   const holidays = [
     { date: 'January 1, 2025', name: 'New Year\'s Day', type: 'Public Holiday' },
@@ -51,7 +66,7 @@ const HrZone = () => {
 
   const handleLeaveSubmit = (e) => {
     e.preventDefault();
-    showToast('Leave request submitted successfully!', 'success');
+    toast.success('Leave request submitted successfully!');
     setLeaveForm({
       startDate: '',
       endDate: '',
@@ -60,329 +75,411 @@ const HrZone = () => {
     });
   };
 
+  const renderTabContent = () => {
+    switch (activeTab) {
+      case 'dashboard':
+        return (
+          <div className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              <div className="bg-primary-900/20 p-4 rounded-lg border border-primary-400/20 shadow-lg flex items-center">
+                <div className="bg-primary-400/30 p-3 rounded-md mr-4">
+                  <Users className="text-primary-100 h-6 w-6" />
+                </div>
+                <div>
+                  <p className="text-sm text-primary-300">Total Employees</p>
+                  <p className="text-2xl font-bold text-white">248</p>
+                </div>
+              </div>
+              
+              <div className="bg-primary-900/20 p-4 rounded-lg border border-primary-400/20 shadow-lg flex items-center">
+                <div className="bg-primary-400/30 p-3 rounded-md mr-4">
+                  <Calendar className="text-primary-100 h-6 w-6" />
+                </div>
+                <div>
+                  <p className="text-sm text-primary-300">Leave Requests</p>
+                  <p className="text-2xl font-bold text-white">12</p>
+                </div>
+              </div>
+              
+              <div className="bg-primary-900/20 p-4 rounded-lg border border-primary-400/20 shadow-lg flex items-center">
+                <div className="bg-primary-400/30 p-3 rounded-md mr-4">
+                  <Award className="text-primary-100 h-6 w-6" />
+                </div>
+                <div>
+                  <p className="text-sm text-primary-300">New Hires (Month)</p>
+                  <p className="text-2xl font-bold text-white">8</p>
+                </div>
+              </div>
+              
+              <div className="bg-primary-900/20 p-4 rounded-lg border border-primary-400/20 shadow-lg flex items-center">
+                <div className="bg-primary-400/30 p-3 rounded-md mr-4">
+                  <BookOpen className="text-primary-100 h-6 w-6" />
+                </div>
+                <div>
+                  <p className="text-sm text-primary-300">Training Hours</p>
+                  <p className="text-2xl font-bold text-white">156</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <GlassContainer>
+                <div className="p-6">
+                  <div className="flex justify-between items-center mb-4">
+                    <GradientText as="h2" className="text-xl font-semibold" gradient="night-owl">
+                      Leave Management
+                    </GradientText>
+                  </div>
+                  
+                  <form onSubmit={handleLeaveSubmit} className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-medium text-primary-200 mb-1">Leave Type</label>
+                      <select
+                        name="leaveType"
+                        value={leaveForm.leaveType}
+                        onChange={handleLeaveFormChange}
+                        className="w-full p-2 border border-primary-400/30 rounded-md shadow-sm bg-primary-900/50 text-white focus:ring-primary-500 focus:border-primary-500"
+                        required
+                      >
+                        <option value="annual">Annual Leave</option>
+                        <option value="sick">Sick Leave</option>
+                        <option value="personal">Personal Leave</option>
+                        <option value="bereavement">Bereavement Leave</option>
+                        <option value="unpaid">Unpaid Leave</option>
+                      </select>
+                    </div>
+                    
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-medium text-primary-200 mb-1">Start Date</label>
+                        <input
+                          type="date"
+                          name="startDate"
+                          value={leaveForm.startDate}
+                          onChange={handleLeaveFormChange}
+                          className="w-full p-2 border border-primary-400/30 rounded-md shadow-sm bg-primary-900/50 text-white focus:ring-primary-500 focus:border-primary-500"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-primary-200 mb-1">End Date</label>
+                        <input
+                          type="date"
+                          name="endDate"
+                          value={leaveForm.endDate}
+                          onChange={handleLeaveFormChange}
+                          className="w-full p-2 border border-primary-400/30 rounded-md shadow-sm bg-primary-900/50 text-white focus:ring-primary-500 focus:border-primary-500"
+                          required
+                        />
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-primary-200 mb-1">Reason</label>
+                      <textarea
+                        name="reason"
+                        value={leaveForm.reason}
+                        onChange={handleLeaveFormChange}
+                        rows="3"
+                        className="w-full p-2 border border-primary-400/30 rounded-md shadow-sm bg-primary-900/50 text-white focus:ring-primary-500 focus:border-primary-500"
+                        placeholder="Please provide a reason for your leave request"
+                        required
+                      ></textarea>
+                    </div>
+                    
+                    <div className="flex justify-end">
+                      <button
+                        type="submit"
+                        className="px-4 py-2 bg-primary-600 text-white rounded-md hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+                      >
+                        Submit Request
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </GlassContainer>
+              
+              <GlassContainer>
+                <div className="p-6">
+                  <div className="flex justify-between items-center mb-4">
+                    <GradientText as="h2" className="text-xl font-semibold" gradient="night-owl">
+                      Leave Balance
+                    </GradientText>
+                  </div>
+                  
+                  <div className="space-y-6">
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <p className="text-sm text-primary-300">Annual Leave</p>
+                        <p className="text-xl font-semibold text-white">18 days remaining</p>
+                      </div>
+                      <div className="w-16 h-16 rounded-full border-4 border-green-400/30 flex items-center justify-center">
+                        <span className="text-sm font-bold text-green-400">18/24</span>
+                      </div>
+                    </div>
+                    
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <p className="text-sm text-primary-300">Sick Leave</p>
+                        <p className="text-xl font-semibold text-white">6 days remaining</p>
+                      </div>
+                      <div className="w-16 h-16 rounded-full border-4 border-blue-400/30 flex items-center justify-center">
+                        <span className="text-sm font-bold text-blue-400">6/10</span>
+                      </div>
+                    </div>
+                    
+                    <div className="pt-4 border-t border-primary-700 mt-4">
+                      <h4 className="font-medium text-primary-200 mb-2">Recent Leave History</h4>
+                      <ul className="space-y-2">
+                        <li className="text-sm text-primary-100">
+                          <span className="font-medium">Sick Leave:</span> April 10-11, 2025
+                        </li>
+                        <li className="text-sm text-primary-100">
+                          <span className="font-medium">Annual Leave:</span> March 15-22, 2025
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </GlassContainer>
+            </div>
+          </div>
+        );
+        
+      case 'directory':
+        return <EmployeeDirectory />;
+        
+      case 'recruitment':
+        return <RecruitmentDashboard />;
+        
+      case 'training':
+        return <TrainingDevelopment />;
+        
+      case 'compensation':
+        return <CompensationBenefits />;
+        
+      case 'performance':
+        return <PerformanceReviews />;
+        
+      case 'holidays':
+        return (
+          <GlassContainer className="p-6">
+            <GradientText as="h2" className="text-2xl font-semibold mb-6" gradient="night-owl">
+              Holiday Calendar 2025
+            </GradientText>
+            <div className="overflow-x-auto">
+              <table className="min-w-full divide-y divide-primary-700">
+                <thead className="bg-primary-900/50">
+                  <tr>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-primary-300 uppercase tracking-wider">
+                      Date
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-primary-300 uppercase tracking-wider">
+                      Holiday
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-primary-300 uppercase tracking-wider">
+                      Type
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="bg-primary-900/20 divide-y divide-primary-800">
+                  {holidays.map((holiday, index) => (
+                    <tr 
+                      key={index}
+                      className="hover:bg-primary-800/30 cursor-pointer"
+                    >
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-primary-100">
+                        {holiday.date}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                        {holiday.name}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm">
+                        <span className="px-2 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300 text-xs">
+                          {holiday.type}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </GlassContainer>
+        );
+        
+      case 'attendance':
+        return (
+          <GlassContainer className="p-6">
+            <GradientText as="h2" className="text-2xl font-semibold mb-6" gradient="night-owl">
+              Attendance Logs
+            </GradientText>
+            <div className="overflow-x-auto">
+              <table className="min-w-full divide-y divide-primary-700">
+                <thead className="bg-primary-900/50">
+                  <tr>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-primary-300 uppercase tracking-wider">
+                      Date
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-primary-300 uppercase tracking-wider">
+                      Check In
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-primary-300 uppercase tracking-wider">
+                      Check Out
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-primary-300 uppercase tracking-wider">
+                      Status
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="bg-primary-900/20 divide-y divide-primary-800">
+                  {attendanceLogs.map((log, index) => (
+                    <tr 
+                      key={index}
+                      className="hover:bg-primary-800/30"
+                    >
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-primary-100">
+                        {log.date}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                        {log.checkIn}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                        {log.checkOut}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm">
+                        <span className={`px-2 py-1 rounded-full ${
+                          log.status === 'Present' 
+                            ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300' 
+                            : log.status === 'Absent'
+                              ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300'
+                              : 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300'
+                        } text-xs`}>
+                          {log.status}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </GlassContainer>
+        );
+        
+      case 'onboarding':
+        return (
+          <GlassContainer className="p-6">
+            <GradientText as="h2" className="text-2xl font-semibold mb-6" gradient="night-owl">
+              New Hire Onboarding Checklist
+            </GradientText>
+            <div className="space-y-6">
+              <div className="relative">
+                <div className="overflow-hidden h-2 text-xs flex bg-primary-800 rounded">
+                  <div style={{ width: '60%' }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-primary-500"></div>
+                </div>
+                <div className="mt-2 text-right text-sm text-primary-300">
+                  3 of 5 completed (60%)
+                </div>
+              </div>
+              
+              <ul className="space-y-4">
+                {onBoardingSteps.map((step) => (
+                  <li key={step.id} className="flex items-start">
+                    <div className={`h-5 w-5 rounded-full mr-3 flex-shrink-0 mt-0.5 ${
+                      step.completed ? 'bg-primary-500' : 'bg-primary-800'
+                    }`}>
+                      {step.completed && (
+                        <Check className="h-5 w-5 text-white" />
+                      )}
+                    </div>
+                    <div className="flex-1">
+                      <p className={`text-sm font-medium ${
+                        step.completed 
+                          ? 'text-primary-200 line-through' 
+                          : 'text-white'
+                      }`}>
+                        {step.title}
+                      </p>
+                      {!step.completed && (
+                        <button className="mt-1 text-xs text-primary-400 hover:underline">
+                          Mark as complete
+                        </button>
+                      )}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              
+              <div className="pt-4 border-t border-primary-700">
+                <h4 className="font-medium text-primary-200 mb-2">Notes</h4>
+                <p className="text-sm text-primary-300">
+                  The training sessions are scheduled for next week. Your team manager will provide more details soon.
+                </p>
+              </div>
+            </div>
+          </GlassContainer>
+        );
+        
+      default:
+        return <div>Select a tab</div>;
+    }
+  };
+
+  const navItems = [
+    { id: 'dashboard', label: 'Dashboard', icon: <FileText size={18} /> },
+    { id: 'directory', label: 'Employee Directory', icon: <Users size={18} /> },
+    { id: 'recruitment', label: 'Recruitment', icon: <User size={18} /> },
+    { id: 'training', label: 'Training & Development', icon: <BookOpen size={18} /> },
+    { id: 'compensation', label: 'Compensation', icon: <DollarSign size={18} /> },
+    { id: 'performance', label: 'Performance', icon: <Award size={18} /> },
+    { id: 'holidays', label: 'Holidays', icon: <Calendar size={18} /> },
+    { id: 'attendance', label: 'Attendance', icon: <Check size={18} /> },
+    { id: 'onboarding', label: 'Onboarding', icon: <User size={18} /> }
+  ];
+
   return (
     <AppLayout>
       <div className="px-6 mx-auto">
         <PageHeader
           title="HR Zone"
-          description="Manage your leaves, view holidays, and access HR resources"
+          description="Comprehensive HR Management System for your organization"
           withParallax={true}
         />
 
-        <div className="mb-6">
-          <div className="border-b border-gray-200 dark:border-gray-700">
-            <nav className="flex -mb-px">
-              <button
-                onClick={() => setActiveTab('leave')}
-                className={`py-4 px-6 font-medium text-sm border-b-2 ${
-                  activeTab === 'leave'
-                    ? 'border-primary-500 text-primary-600 dark:text-primary-400'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-gray-300'
-                }`}
-              >
-                Leave Application
-              </button>
-              <button
-                onClick={() => setActiveTab('holidays')}
-                className={`py-4 px-6 font-medium text-sm border-b-2 ${
-                  activeTab === 'holidays'
-                    ? 'border-primary-500 text-primary-600 dark:text-primary-400'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-gray-300'
-                }`}
-              >
-                Holiday Calendar
-              </button>
-              <button
-                onClick={() => setActiveTab('attendance')}
-                className={`py-4 px-6 font-medium text-sm border-b-2 ${
-                  activeTab === 'attendance'
-                    ? 'border-primary-500 text-primary-600 dark:text-primary-400'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-gray-300'
-                }`}
-              >
-                Attendance
-              </button>
-              <button
-                onClick={() => setActiveTab('onboarding')}
-                className={`py-4 px-6 font-medium text-sm border-b-2 ${
-                  activeTab === 'onboarding'
-                    ? 'border-primary-500 text-primary-600 dark:text-primary-400'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-gray-300'
-                }`}
-              >
-                New Hire Checklist
-              </button>
-            </nav>
-          </div>
-        </div>
-
-        {activeTab === 'leave' && (
-          <div className="grid gap-6 mb-8 md:grid-cols-2">
-            <Card title="Apply for Leave" icon={Calendar} animateOnScroll={true}>
-              <form onSubmit={handleLeaveSubmit}>
-                <div className="mb-4">
-                  <label className="block text-gray-700 dark:text-gray-300 text-sm font-medium mb-2">
-                    Leave Type
-                  </label>
-                  <select
-                    name="leaveType"
-                    value={leaveForm.leaveType}
-                    onChange={handleLeaveFormChange}
-                    className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700"
-                    required
-                  >
-                    <option value="annual">Annual Leave</option>
-                    <option value="sick">Sick Leave</option>
-                    <option value="personal">Personal Leave</option>
-                    <option value="bereavement">Bereavement Leave</option>
-                    <option value="unpaid">Unpaid Leave</option>
-                  </select>
-                </div>
-                <div className="grid grid-cols-2 gap-4 mb-4">
-                  <div>
-                    <label className="block text-gray-700 dark:text-gray-300 text-sm font-medium mb-2">
-                      Start Date
-                    </label>
-                    <input
-                      type="date"
-                      name="startDate"
-                      value={leaveForm.startDate}
-                      onChange={handleLeaveFormChange}
-                      className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-700 dark:text-gray-300 text-sm font-medium mb-2">
-                      End Date
-                    </label>
-                    <input
-                      type="date"
-                      name="endDate"
-                      value={leaveForm.endDate}
-                      onChange={handleLeaveFormChange}
-                      className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700"
-                      required
-                    />
-                  </div>
-                </div>
-                <div className="mb-4">
-                  <label className="block text-gray-700 dark:text-gray-300 text-sm font-medium mb-2">
-                    Reason
-                  </label>
-                  <textarea
-                    name="reason"
-                    value={leaveForm.reason}
-                    onChange={handleLeaveFormChange}
-                    rows="3"
-                    className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700"
-                    placeholder="Please provide a reason for your leave request"
-                    required
-                  ></textarea>
-                </div>
-                <div className="flex justify-end">
-                  <button
-                    type="submit"
-                    className="px-4 py-2 bg-primary-600 text-white rounded-md hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-                  >
-                    Submit Request
-                  </button>
-                </div>
-              </form>
-            </Card>
-
-            <Card title="Leave Balance" icon={FileText} animateOnScroll={true}>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <div>
-                    <p className="text-sm font-medium text-gray-600 dark:text-gray-400">Annual Leave</p>
-                    <p className="text-lg font-semibold text-gray-900 dark:text-white">18 days remaining</p>
-                  </div>
-                  <div className="w-16 h-16 rounded-full border-4 border-green-200 flex items-center justify-center">
-                    <span className="text-sm font-bold text-green-600">18/24</span>
-                  </div>
-                </div>
-                
-                <div className="flex justify-between items-center">
-                  <div>
-                    <p className="text-sm font-medium text-gray-600 dark:text-gray-400">Sick Leave</p>
-                    <p className="text-lg font-semibold text-gray-900 dark:text-white">6 days remaining</p>
-                  </div>
-                  <div className="w-16 h-16 rounded-full border-4 border-blue-200 flex items-center justify-center">
-                    <span className="text-sm font-bold text-blue-600">6/10</span>
-                  </div>
-                </div>
-                
-                <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
-                  <h4 className="font-medium text-gray-800 dark:text-white mb-2">Recent Leave History</h4>
-                  <ul className="space-y-2">
-                    <li className="text-sm text-gray-600 dark:text-gray-400">
-                      <span className="font-medium">Sick Leave:</span> April 10-11, 2025
-                    </li>
-                    <li className="text-sm text-gray-600 dark:text-gray-400">
-                      <span className="font-medium">Annual Leave:</span> March 15-22, 2025
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </Card>
-          </div>
-        )}
-
-        {activeTab === 'holidays' && (
-          <div className="mb-8">
-            <Card title="Holiday Calendar 2025" icon={Calendar} animateOnScroll={true}>
-              <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                  <thead className="bg-gray-50 dark:bg-gray-800">
-                    <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                        Date
-                      </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                        Holiday
-                      </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                        Type
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                    {holidays.map((holiday, index) => (
-                      <tr 
-                        key={index}
-                        className="hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer group"
-                        title={`${holiday.name} - ${holiday.type}`}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+          {/* Sidebar Navigation */}
+          <div className="md:col-span-3">
+            <GlassContainer className="p-4">
+              <GradientText as="h3" className="text-xl font-semibold mb-4" gradient="night-owl">
+                HR Management
+              </GradientText>
+              <nav>
+                <ul className="space-y-2">
+                  {navItems.map(item => (
+                    <li key={item.id}>
+                      <button
+                        onClick={() => setActiveTab(item.id)}
+                        className={`flex items-center w-full px-3 py-2 rounded-md transition-colors ${
+                          activeTab === item.id
+                            ? 'bg-primary-500/20 text-white'
+                            : 'text-primary-300 hover:bg-primary-800/50 hover:text-primary-200'
+                        }`}
                       >
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-300">
-                          {holiday.date}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-300">
-                          {holiday.name}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm">
-                          <span className="px-2 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100 text-xs">
-                            {holiday.type}
-                          </span>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </Card>
-          </div>
-        )}
-
-        {activeTab === 'attendance' && (
-          <div className="mb-8">
-            <Card title="Attendance Logs" icon={User} animateOnScroll={true}>
-              <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                  <thead className="bg-gray-50 dark:bg-gray-800">
-                    <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                        Date
-                      </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                        Check In
-                      </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                        Check Out
-                      </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                        Status
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                    {attendanceLogs.map((log, index) => (
-                      <tr 
-                        key={index}
-                        className="hover:bg-gray-50 dark:hover:bg-gray-700"
-                      >
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-300">
-                          {log.date}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-300">
-                          {log.checkIn}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-300">
-                          {log.checkOut}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm">
-                          <span className={`px-2 py-1 rounded-full ${
-                            log.status === 'Present' 
-                              ? 'bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100' 
-                              : log.status === 'Absent'
-                                ? 'bg-red-100 text-red-800 dark:bg-red-800 dark:text-red-100'
-                                : 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
-                          } text-xs`}>
-                            {log.status}
-                          </span>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </Card>
-          </div>
-        )}
-
-        {activeTab === 'onboarding' && (
-          <div className="mb-8">
-            <Card title="New Hire Onboarding Checklist" icon={Check} animateOnScroll={true}>
-              <div className="space-y-6">
-                <div className="relative">
-                  <div className="overflow-hidden h-2 text-xs flex bg-gray-200 dark:bg-gray-700 rounded">
-                    <div style={{ width: '60%' }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-primary-500"></div>
-                  </div>
-                  <div className="mt-2 text-right text-sm text-gray-600 dark:text-gray-400">
-                    3 of 5 completed (60%)
-                  </div>
-                </div>
-                
-                <ul className="space-y-3">
-                  {onBoardingSteps.map((step) => (
-                    <li key={step.id} className="flex items-start">
-                      <div className={`h-5 w-5 rounded-full mr-3 flex-shrink-0 mt-0.5 ${
-                        step.completed ? 'bg-primary-500' : 'bg-gray-200 dark:bg-gray-700'
-                      }`}>
-                        {step.completed && (
-                          <Check className="h-5 w-5 text-white" />
-                        )}
-                      </div>
-                      <div className="flex-1">
-                        <p className={`text-sm font-medium ${
-                          step.completed 
-                            ? 'text-gray-700 dark:text-gray-300 line-through' 
-                            : 'text-gray-900 dark:text-white'
-                        }`}>
-                          {step.title}
-                        </p>
-                        {!step.completed && (
-                          <button className="mt-1 text-xs text-primary-600 dark:text-primary-400 hover:underline">
-                            Mark as complete
-                          </button>
-                        )}
-                      </div>
+                        <span className="mr-3">{item.icon}</span>
+                        <span>{item.label}</span>
+                      </button>
                     </li>
                   ))}
                 </ul>
-                
-                <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
-                  <h4 className="font-medium text-gray-800 dark:text-white mb-2">Notes</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
-                    The training sessions are scheduled for next week. Your team manager will provide more details soon.
-                  </p>
-                </div>
-              </div>
-            </Card>
+              </nav>
+            </GlassContainer>
           </div>
-        )}
+
+          {/* Main Content */}
+          <div className="md:col-span-9">
+            {renderTabContent()}
+          </div>
+        </div>
       </div>
-      <ToastContainer />
     </AppLayout>
   );
 };
