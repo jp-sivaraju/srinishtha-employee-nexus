@@ -5,6 +5,7 @@ import { useToast } from '../components/ui/Toast';
 import GradientText from '../components/ui/GradientText';
 import ModernButton from '../components/ui/ModernButton';
 import GlassContainer from '../components/ui/GlassContainer';
+import { Sparkle } from 'lucide-react';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -44,10 +45,29 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-dark bg-gradient-to-br from-dark to-dark-light text-white py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Code-inspired background elements */}
+      {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden z-0">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent-blue/10 rounded-full blur-3xl"></div>
+        {/* Glowing circles */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent-blue/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/4 w-60 h-60 bg-accent-aqua/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '3s' }}></div>
+        
+        {/* Animated particles/stars */}
+        {[...Array(20)].map((_, i) => (
+          <div 
+            key={i} 
+            className="absolute rounded-full bg-white animate-pulse-slow"
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              width: `${Math.random() * 3 + 1}px`,
+              height: `${Math.random() * 3 + 1}px`,
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${Math.random() * 10 + 5}s`,
+              opacity: Math.random() * 0.7 + 0.3
+            }}
+          ></div>
+        ))}
 
         {/* Code snippets */}
         <div className="absolute top-10 left-10 font-fira text-accent-blue opacity-30 text-sm">
@@ -64,19 +84,24 @@ const Login = () => {
       <div className="max-w-md w-full space-y-8 relative z-10">
         <div className="text-center">
           <h2 className="text-center text-4xl font-bold mb-2">
-            <GradientText gradient="blue-purple" weight="bold" className="font-montserrat">
+            <GradientText gradient="rainbow" weight="bold" className="font-montserrat" animate={true}>
               Srinishtha Hub
             </GradientText>
           </h2>
-          <p className="text-center text-lg text-gray-300 font-light font-fira">
-            Employee Portal
-          </p>
+          <div className="flex items-center justify-center gap-2 text-center">
+            <Sparkle size={16} className="text-accent-yellow animate-pulse" />
+            <p className="text-center text-lg text-gray-300 font-light font-fira">
+              Employee Portal
+            </p>
+            <Sparkle size={16} className="text-accent-yellow animate-pulse" />
+          </div>
         </div>
 
         <GlassContainer 
           blur="xl"
           opacity="medium"
           rounded="xl"
+          shine={true}
           className="py-8 px-4 shadow-2xl sm:px-10 transition-all duration-300 border-white/10 bg-dark-lighter/70"
         >
           <form className="space-y-6" onSubmit={handleSubmit}>
@@ -133,7 +158,7 @@ const Login = () => {
               </div>
 
               <div className="text-sm">
-                <a href="#" className="font-medium text-primary-400 hover:text-primary-300 transition-colors">
+                <a href="#" className="font-medium text-primary-400 hover:text-primary-300 transition-colors shine-effect">
                   Forgot password?
                 </a>
               </div>
@@ -146,7 +171,9 @@ const Login = () => {
                 fullWidth
                 withGlow
                 withAnimation
-                className="py-3 bg-gradient-primary shadow-glow-primary"
+                withShine
+                variant="glow"
+                className="py-3"
               >
                 {isLoading ? 'Signing in...' : 'Sign in'}
               </ModernButton>
@@ -173,9 +200,9 @@ const Login = () => {
           </div>
         </GlassContainer>
         
-        {/* Brand ribbon */}
-        <div className="text-center mt-8 text-sm text-gray-400">
-          <p>© 2025 Srinishtha. All rights reserved.</p>
+        {/* Brand ribbon with neon effect */}
+        <div className="text-center mt-8 text-sm">
+          <p className="text-gray-400 neon-text">© 2025 Srinishtha. All rights reserved.</p>
         </div>
       </div>
       <ToastContainer />

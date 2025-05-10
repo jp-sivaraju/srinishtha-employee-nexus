@@ -8,7 +8,8 @@ const GlassContainer = ({
   opacity = 'medium', // light, medium, heavy
   border = true,
   rounded = 'lg', // none, sm, md, lg, xl, full
-  padding = true
+  padding = true,
+  shine = false
 }) => {
   
   const blurClasses = {
@@ -35,6 +36,7 @@ const GlassContainer = ({
 
   const borderClasses = border ? 'border border-white/20 dark:border-white/5' : '';
   const paddingClasses = padding ? 'p-6' : '';
+  const shineClasses = shine ? 'relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:translate-x-[-200%] hover:before:translate-x-[200%] before:transition-all before:duration-1000 before:ease-in-out' : '';
   
   return (
     <div className={`
@@ -43,6 +45,8 @@ const GlassContainer = ({
       ${roundedClasses[rounded]}
       ${borderClasses}
       ${paddingClasses}
+      ${shineClasses}
+      shadow-lg hover:shadow-xl transition-all duration-300
       ${className}
     `}>
       {children}
