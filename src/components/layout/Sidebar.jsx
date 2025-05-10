@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
   Home,
@@ -13,7 +13,14 @@ import {
   Menu,
   X,
   BarChart2,
-  Target
+  Target,
+  ChevronDown,
+  ChevronRight,
+  Calendar,
+  Clock,
+  UserPlus,
+  Award,
+  BookOpen
 } from 'lucide-react';
 
 // Define navigation items with role permissions
@@ -28,7 +35,44 @@ const navigationItems = [
     name: 'HR Zone',
     path: '/hr-zone',
     icon: Users, 
-    allowedRoles: ['Admin', 'HR', 'Manager']
+    allowedRoles: ['Admin', 'HR', 'Manager'],
+    submenu: [
+      { 
+        name: 'Employee Directory', 
+        path: '/hr-zone?tab=directory', 
+        icon: Users 
+      },
+      { 
+        name: 'Recruitment', 
+        path: '/hr-zone?tab=recruitment', 
+        icon: UserPlus 
+      },
+      { 
+        name: 'Training', 
+        path: '/hr-zone?tab=training', 
+        icon: BookOpen 
+      },
+      { 
+        name: 'Compensation', 
+        path: '/hr-zone?tab=compensation', 
+        icon: DollarSign 
+      },
+      { 
+        name: 'Performance', 
+        path: '/hr-zone?tab=performance', 
+        icon: Award 
+      },
+      { 
+        name: 'Attendance', 
+        path: '/hr-zone?tab=attendance', 
+        icon: Clock 
+      },
+      { 
+        name: 'Holidays', 
+        path: '/hr-zone?tab=holidays', 
+        icon: Calendar 
+      }
+    ]
   },
   { 
     name: 'IT Helpdesk',
@@ -82,6 +126,12 @@ const navigationItems = [
 
 export const Sidebar = ({ collapsed, toggleSidebar, userRole }) => {
   const location = useLocation();
+  const [openSubmenus, setOpenSubmenus] = useState({});
+  
+  // Check if the current route is the HR Zone or a subpath
+  const isHrZonePath = location.pathname === '/hr-zone';
+  const searchParams = new URLSearchParams(location.search);
+  const currentTab = searchParams.get('tab');
   
   // Filter navigation items based on user role
   const filteredNavigation = navigationItems.filter(item => 
@@ -91,6 +141,32 @@ export const Sidebar = ({ collapsed, toggleSidebar, userRole }) => {
   const isActive = (path) => {
     return location.pathname === path;
   };
+
+  const isSubActive = (path) => {
+    const basePathMatch = location.pathname === '/hr-zone';
+    
+    // Extract tab from path
+    const submenuTab = path.split('=')[1];
+    
+    return basePathMatch && currentTab === submenuTab;
+  };
+
+  const toggleSubmenu = (itemName) => {
+    setOpenSubmenus(prev => ({
+      ...prev,
+      [itemName]: !prev[itemName]
+    }));
+  };
+
+  // Auto-open HR submenu if we're on an HR page
+  React.useEffect(() => {
+    if (isHrZonePath && !openSubmenus['HR Zone']) {
+      setOpenSubmenus(prev => ({
+        ...prev,
+        'HR Zone': true
+      }));
+    }
+  }, [isHrZonePath]);
 
   return (
     <aside 
@@ -118,21 +194,72 @@ export const Sidebar = ({ collapsed, toggleSidebar, userRole }) => {
             <ul className="space-y-1">
               {filteredNavigation.map((item) => (
                 <li key={item.name}>
-                  <Link
-                    to={item.path}
-                    className={`${
-                      isActive(item.path)
-                        ? 'bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400'
-                        : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
-                    } group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-all`}
-                  >
-                    <item.icon
+                  {item.submenu ? (
+                    <div>
+                      <button
+                        onClick={() => toggleSubmenu(item.name)}
+                        className={`${
+                          isActive(item.path)
+                            ? 'bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400'
+                            : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
+                        } w-full group flex items-center justify-between px-2 py-2 text-sm font-medium rounded-md transition-all`}
+                      >
+                        <div className="flex items-center">
+                          <item.icon
+                            className={`${
+                              isActive(item.path) ? 'text-primary-500' : 'text-gray-400 group-hover:text-gray-500'
+                            } ${collapsed ? 'mx-auto' : 'mr-3'} flex-shrink-0 h-5 w-5 transition-colors`}
+                          />
+                          {!collapsed && <span>{item.name}</span>}
+                        </div>
+                        {!collapsed && (
+                          openSubmenus[item.name] ? 
+                            <ChevronDown size={16} /> : 
+                            <ChevronRight size={16} />
+                        )}
+                      </button>
+                      
+                      {!collapsed && openSubmenus[item.name] && (
+                        <ul className="mt-1 space-y-1 pl-6">
+                          {item.submenu.map(subItem => (
+                            <li key={subItem.name}>
+                              <Link
+                                to={subItem.path}
+                                className={`${
+                                  isSubActive(subItem.path)
+                                    ? 'bg-primary-50 dark:bg-primary-900/50 text-primary-600 dark:text-primary-400'
+                                    : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700/50'
+                                } group flex items-center px-2 py-1.5 text-xs font-medium rounded-md transition-all`}
+                              >
+                                <subItem.icon
+                                  className={`${
+                                    isSubActive(subItem.path) ? 'text-primary-500' : 'text-gray-400 group-hover:text-gray-500'
+                                  } mr-2 flex-shrink-0 h-4 w-4 transition-colors`}
+                                />
+                                <span>{subItem.name}</span>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      to={item.path}
                       className={`${
-                        isActive(item.path) ? 'text-primary-500' : 'text-gray-400 group-hover:text-gray-500'
-                      } ${collapsed ? 'mx-auto' : 'mr-3'} flex-shrink-0 h-5 w-5 transition-colors`}
-                    />
-                    {!collapsed && <span>{item.name}</span>}
-                  </Link>
+                        isActive(item.path)
+                          ? 'bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400'
+                          : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
+                      } group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-all`}
+                    >
+                      <item.icon
+                        className={`${
+                          isActive(item.path) ? 'text-primary-500' : 'text-gray-400 group-hover:text-gray-500'
+                        } ${collapsed ? 'mx-auto' : 'mr-3'} flex-shrink-0 h-5 w-5 transition-colors`}
+                      />
+                      {!collapsed && <span>{item.name}</span>}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
