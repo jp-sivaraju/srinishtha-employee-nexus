@@ -39,7 +39,12 @@ const HrTabContent = ({ activeTab }) => {
   };
 
   return (
-    <GlassContainer className="p-6 animate-fade-in border border-white/10" blur="sm" opacity="light">
+    <GlassContainer 
+      className="p-6 animate-fade-in shadow-lg rounded-xl" 
+      blur="md" 
+      opacity="medium"
+      border={true}
+    >
       {renderTabContent()}
     </GlassContainer>
   );

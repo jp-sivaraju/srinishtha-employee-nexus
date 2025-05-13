@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { AppLayout } from '../components/layout/AppLayout';
 import HrHeroSection from '../components/hr/HrHeroSection';
 import HrSidebar from '../components/hr/HrSidebar';
@@ -11,13 +11,15 @@ const HrZone = () => {
 
   return (
     <AppLayout>
-      <div className="px-6 pb-6 mx-auto">
+      <div className="px-4 md:px-6 pb-6 mx-auto max-w-[1400px] w-full">
         <HrHeroSection />
         
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mt-6">
-          {/* Sidebar Navigation - Hidden on mobile */}
-          <div className="hidden md:block md:col-span-3">
-            <HrSidebar activeTab={activeTab} setActiveTab={setActiveTab} />
+          {/* Sidebar Navigation */}
+          <div className="md:col-span-3">
+            <div className="sticky top-4">
+              <HrSidebar activeTab={activeTab} setActiveTab={setActiveTab} />
+            </div>
           </div>
 
           {/* Main Content */}
