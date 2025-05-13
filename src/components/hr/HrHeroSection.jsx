@@ -7,9 +7,9 @@ import ModernButton from '../ui/ModernButton';
 
 const HrHeroSection = () => {
   return (
-    <div className="relative overflow-hidden rounded-xl shadow-xl">
+    <div className="relative overflow-hidden rounded-xl shadow-xl mb-6">
       {/* Background with gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary-700 to-primary-400"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-primary-700 via-primary-600 to-primary-500"></div>
       
       {/* Background patterns */}
       <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))]"></div>

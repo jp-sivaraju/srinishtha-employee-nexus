@@ -19,7 +19,7 @@ const HrSidebar = ({ activeTab, setActiveTab }) => {
 
   return (
     <GlassContainer 
-      className="p-4 shadow-lg rounded-xl border border-white/20" 
+      className="p-4 shadow-lg rounded-xl border border-primary-500/30" 
       blur="md" 
       opacity="medium"
     >
@@ -34,7 +34,7 @@ const HrSidebar = ({ activeTab, setActiveTab }) => {
                 onClick={() => setActiveTab(item.id)}
                 className={`flex items-center w-full px-3 py-2.5 rounded-lg transition-all ${
                   activeTab === item.id
-                    ? 'bg-primary-500/40 text-white font-medium shadow-md'
+                    ? 'bg-primary-500/40 text-white font-medium shadow-md shadow-primary-500/20'
                     : 'text-white hover:bg-primary-500/20 hover:text-white'
                 }`}
               >
