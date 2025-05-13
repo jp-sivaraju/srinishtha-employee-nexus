@@ -7,24 +7,24 @@ import ModernButton from '../components/ui/ModernButton';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-dark bg-gradient-to-br from-dark to-dark-light text-white">
+    <div className="min-h-screen bg-gradient-to-br from-red-950 to-black text-white">
       {/* Hero section with code-like elements */}
       <div className="relative overflow-hidden pt-16 pb-20">
         {/* Abstract code-like background elements */}
         <div className="absolute inset-0 opacity-20 z-0">
-          <div className="absolute top-10 left-10 font-fira text-accent-blue opacity-50 text-sm">
+          <div className="absolute top-10 left-10 font-fira text-red-400 opacity-50 text-sm">
             import &#123; Srinishtha &#125; from 'employee-portal';
           </div>
-          <div className="absolute top-20 left-20 font-fira text-accent-aqua opacity-50 text-sm">
+          <div className="absolute top-20 left-20 font-fira text-white opacity-50 text-sm">
             const App = () =&gt; &#123;
           </div>
-          <div className="absolute top-[120px] left-40 font-fira text-primary opacity-50 text-sm">
+          <div className="absolute top-[120px] left-40 font-fira text-red-500 opacity-50 text-sm">
             return &lt;Portal /&gt;
           </div>
-          <div className="absolute top-[150px] left-20 font-fira text-accent-blue opacity-50 text-sm">
+          <div className="absolute top-[150px] left-20 font-fira text-white opacity-50 text-sm">
             &#125;;
           </div>
-          <div className="absolute bottom-20 right-20 font-fira text-accent-yellow opacity-50 text-sm">
+          <div className="absolute bottom-20 right-20 font-fira text-red-300 opacity-50 text-sm">
             // Employee experience redefined
           </div>
         </div>
@@ -33,20 +33,21 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center mb-12">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              <GradientText gradient="blue-purple" weight="bold" className="font-montserrat">
+              <GradientText gradient="sunset" weight="bold" className="font-montserrat" animate={true}>
                 Srinishtha Hub
               </GradientText>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-8">
+            <p className="text-xl md:text-2xl text-gray-100 mb-8">
               Your comprehensive employee portal designed with a developer's precision
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link to="/login">
                 <ModernButton 
                   size="large" 
+                  variant="danger"
                   withGlow 
                   withAnimation
-                  className="bg-gradient-primary shadow-glow-primary"
+                  className="shadow-glow"
                 >
                   Access Portal
                 </ModernButton>
@@ -55,7 +56,7 @@ const Index = () => {
                 <ModernButton 
                   variant="outline" 
                   size="large"
-                  className="border-primary-400 text-primary-400 hover:bg-primary-400/10"
+                  className="border-red-400 text-red-400 hover:bg-red-400/10"
                 >
                   View Features
                 </ModernButton>
@@ -73,21 +74,21 @@ const Index = () => {
               title: "HR Resources",
               description: "Access all your HR tools and resources in one place.",
               icon: "// <HR />",
-              iconColor: "text-accent-blue",
-              gradient: "blue-purple"
+              iconColor: "text-white",
+              gradient: "sunset"
             },
             {
               title: "Project Management",
               description: "Stay on top of deadlines and collaborate effectively.",
               icon: "// <Project />",
-              iconColor: "text-accent-aqua",
-              gradient: "primary"
+              iconColor: "text-red-300",
+              gradient: "danger"
             },
             {
               title: "Knowledge Base",
               description: "Find answers and share insights with your team.",
               icon: "// <Knowledge />",
-              iconColor: "text-accent-yellow",
+              iconColor: "text-red-200",
               gradient: "sunset"
             }
           ].map((item, index) => (
@@ -98,7 +99,7 @@ const Index = () => {
               blur="lg"
               border={true}
               rounded="lg"
-              className="border-white/5 backdrop-blur-xl bg-dark-lighter/50"
+              className="border-red-500/20 backdrop-blur-xl bg-black/50"
             >
               <div className="font-fira text-sm mb-4 opacity-70 font-mono">
                 <span className={item.iconColor}>{item.icon}</span>
@@ -108,7 +109,7 @@ const Index = () => {
                   {item.title}
                 </GradientText>
               </h3>
-              <p className="text-gray-300">
+              <p className="text-gray-200">
                 {item.description}
               </p>
             </GlassContainer>
@@ -121,41 +122,42 @@ const Index = () => {
             <GlassContainer
               opacity="medium"
               blur="xl"
-              className="border-white/10 bg-dark-lighter/70 p-6"
+              className="border-red-500/20 bg-black/70 p-6"
             >
               <div className="font-fira text-sm text-left">
                 <div className="flex items-center gap-2 mb-4 text-neutral">
-                  <span className="h-3 w-3 rounded-full bg-accent inline-block"></span>
-                  <span className="h-3 w-3 rounded-full bg-accent-yellow inline-block"></span>
-                  <span className="h-3 w-3 rounded-full bg-accent-aqua inline-block"></span>
+                  <span className="h-3 w-3 rounded-full bg-red-500 inline-block"></span>
+                  <span className="h-3 w-3 rounded-full bg-red-300 inline-block"></span>
+                  <span className="h-3 w-3 rounded-full bg-white inline-block"></span>
                   <span className="text-gray-400">employee-portal.js</span>
                 </div>
                 
-                <p><span className="text-accent-blue">import</span> <span className="text-accent-aqua">&#123; useState &#125;</span> <span className="text-accent-blue">from</span> <span className="text-primary">'react'</span>;</p>
-                <p><span className="text-accent-blue">import</span> <span className="text-accent-aqua">Portal</span> <span className="text-accent-blue">from</span> <span className="text-primary">'./components/Portal'</span>;</p>
+                <p><span className="text-white">import</span> <span className="text-red-300">&#123; useState &#125;</span> <span className="text-white">from</span> <span className="text-red-500">'react'</span>;</p>
+                <p><span className="text-white">import</span> <span className="text-red-300">Portal</span> <span className="text-white">from</span> <span className="text-red-500">'./components/Portal'</span>;</p>
                 <p></p>
-                <p><span className="text-accent-blue">const</span> <span className="text-accent-yellow">EmployeePortal</span> <span className="text-white">=</span> <span className="text-accent-blue">() =&gt;</span> <span className="text-white">&#123;</span></p>
-                <p className="ml-4"><span className="text-accent-blue">const</span> <span className="text-white">[</span><span className="text-accent-aqua">user</span><span className="text-white">, </span><span className="text-accent-yellow">setUser</span><span className="text-white">]</span> <span className="text-white">=</span> <span className="text-accent-blue">useState</span><span className="text-white">(</span><span className="text-accent-blue">null</span><span className="text-white">);</span></p>
-                <p className="ml-4"><span className="text-accent-blue">return</span> <span className="text-white">(</span></p>
-                <p className="ml-8"><span className="text-accent-blue">&lt;</span><span className="text-accent-yellow">div</span> <span className="text-accent-aqua">className</span><span className="text-white">=</span><span className="text-primary">"portal"</span><span className="text-accent-blue">&gt;</span></p>
-                <p className="ml-12"><span className="text-accent-blue">&lt;</span><span className="text-accent-yellow">Portal</span> <span className="text-accent-aqua">user</span><span className="text-white">=</span><span className="text-white">&#123;</span><span className="text-accent-aqua">user</span><span className="text-white">&#125;</span> <span className="text-accent-aqua">setUser</span><span className="text-white">=</span><span className="text-white">&#123;</span><span className="text-accent-yellow">setUser</span><span className="text-white">&#125;</span> <span className="text-accent-blue">/&gt;</span></p>
-                <p className="ml-8"><span className="text-accent-blue">&lt;/</span><span className="text-accent-yellow">div</span><span className="text-accent-blue">&gt;</span></p>
+                <p><span className="text-white">const</span> <span className="text-red-300">EmployeePortal</span> <span className="text-white">=</span> <span className="text-white">() =&gt;</span> <span className="text-white">&#123;</span></p>
+                <p className="ml-4"><span className="text-white">const</span> <span className="text-white">[</span><span className="text-red-300">user</span><span className="text-white">, </span><span className="text-red-300">setUser</span><span className="text-white">]</span> <span className="text-white">=</span> <span className="text-white">useState</span><span className="text-white">(</span><span className="text-white">null</span><span className="text-white">);</span></p>
+                <p className="ml-4"><span className="text-white">return</span> <span className="text-white">(</span></p>
+                <p className="ml-8"><span className="text-white">&lt;</span><span className="text-red-300">div</span> <span className="text-red-200">className</span><span className="text-white">=</span><span className="text-red-500">"portal"</span><span className="text-white">&gt;</span></p>
+                <p className="ml-12"><span className="text-white">&lt;</span><span className="text-red-300">Portal</span> <span className="text-red-200">user</span><span className="text-white">=</span><span className="text-white">&#123;</span><span className="text-red-300">user</span><span className="text-white">&#125;</span> <span className="text-red-200">setUser</span><span className="text-white">=</span><span className="text-white">&#123;</span><span className="text-red-300">setUser</span><span className="text-white">&#125;</span> <span className="text-white">/&gt;</span></p>
+                <p className="ml-8"><span className="text-white">&lt;/</span><span className="text-red-300">div</span><span className="text-white">&gt;</span></p>
                 <p><span className="text-white">&#125;;</span></p>
                 <p></p>
-                <p><span className="text-accent-blue">export</span> <span className="text-accent-blue">default</span> <span className="text-accent-yellow">EmployeePortal</span>;</p>
+                <p><span className="text-white">export</span> <span className="text-white">default</span> <span className="text-red-300">EmployeePortal</span>;</p>
               </div>
             </GlassContainer>
           </div>
         </div>
       </div>
       
-      <div className="bg-gradient-to-r from-dark-lighter to-dark-light py-16">
+      <div className="bg-gradient-to-r from-black to-red-950 py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-6">Ready to access your portal?</h2>
           <Link to="/login">
             <ModernButton 
               size="large" 
-              className="bg-gradient-primary shadow-glow-primary"
+              variant="danger"
+              className="shadow-glow-primary"
               withGlow 
               withAnimation
             >

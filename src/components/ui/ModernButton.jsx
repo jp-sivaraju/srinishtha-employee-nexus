@@ -24,7 +24,7 @@ const ModernButton = ({
     secondary: "bg-accent-blue text-white hover:bg-accent-blue/90",
     outline: "border-2 border-primary-400 text-primary-400 hover:bg-primary-400/10",
     ghost: "text-primary-400 hover:bg-primary-400/10",
-    danger: "bg-gradient-to-r from-red-600 to-red-400 text-white hover:from-red-500 hover:to-red-300",
+    danger: "bg-gradient-to-r from-red-700 to-red-500 text-white hover:from-red-600 hover:to-red-400",
     glow: "bg-gradient-to-r from-accent-blue via-primary-400 to-accent-aqua text-white hover:bg-accent-blue/90 border border-white/30",
     neon: "bg-gradient-to-r from-accent-aqua to-primary-300 text-white border border-white/30"
   };
@@ -38,6 +38,7 @@ const ModernButton = ({
   const animationClasses = withAnimation ? "transform hover:-translate-y-0.5 active:translate-y-0" : "";
   const glowClasses = withGlow ? 
     variant === 'glow' ? "shadow-md shadow-accent-blue/30 hover:shadow-lg hover:shadow-accent-blue/50" : 
+    variant === 'danger' ? "shadow-md hover:shadow-lg hover:shadow-red-500/50" :
     "shadow-md hover:shadow-lg hover:shadow-primary-400/30" : "";
   const shineClasses = withShine ? "relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:translate-x-[-200%] hover:before:translate-x-[200%] before:transition-all before:duration-1000 before:ease-in-out" : "";
   
