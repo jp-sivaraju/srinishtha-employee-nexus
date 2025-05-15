@@ -10,7 +10,7 @@ const HrZone = () => {
 
   return (
     <AppLayout>
-      <div className="min-h-screen bg-gradient-to-br from-primary-100/30 to-primary-200/30 dark:from-dark-light dark:to-dark-DEFAULT text-foreground">
+      <div className="min-h-screen bg-white dark:bg-dark text-foreground">
         <div className="px-4 md:px-6 pb-6 mx-auto max-w-[1400px] w-full">
           <HrHeroSection activeTab={activeTab} setActiveTab={setActiveTab} />
           

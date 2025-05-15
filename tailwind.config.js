@@ -28,34 +28,37 @@ export default {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: '#c792ea', // Night Owl purple
+          DEFAULT: '#6B48FF', // Rich modern purple
           foreground: '#FFFFFF',
-          100: '#eee7fc',
-          200: '#dfd1f9',
-          300: '#c7acf5',
-          400: '#c792ea', // Night Owl purple
-          500: '#9b71c7',
-          600: '#7d59a6',
-          700: '#614787',
-          800: '#483566',
-          900: '#2c1e44'
+          100: '#F3F0FF',
+          200: '#E4DCFF',
+          300: '#C5B3FF',
+          400: '#A78BFA', // Lighter purple for status/indicators
+          500: '#8B5CF6',
+          600: '#6B48FF', // Main purple for active elements
+          700: '#5B34EB', 
+          800: '#4A29CC',
+          900: '#3C1F9E'
         },
         secondary: {
-          DEFAULT: '#80cbc4', // Night Owl teal
+          DEFAULT: '#1C2526', // Deep black for contrast
           foreground: '#FFFFFF',
         },
         dark: {
-          DEFAULT: '#011627', // Night Owl background
-          lighter: '#152b3d',
-          light: '#1d3b53',
+          DEFAULT: '#1C2526', // Deep black background
+          lighter: '#2A3132',
+          light: '#364142',
         },
         accent: {
-          DEFAULT: '#f78c6c', // Night Owl orange
-          yellow: '#ffd700', // Night Owl yellow
-          blue: '#82aaff', // Night Owl blue
-          aqua: '#7fdbca', // Night Owl aqua
+          DEFAULT: '#A78BFA', // Lighter purple accent
+          light: '#C5B3FF', 
+          dark: '#6B48FF',
         },
-        neutral: '#8E9196',
+        neutral: {
+          DEFAULT: '#B0B0B0', // Soft gray for subtext
+          light: '#D1D1D1',
+          dark: '#707070',
+        },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))'
@@ -65,7 +68,7 @@ export default {
           foreground: 'hsl(var(--muted-foreground))'
         },
         accent: {
-          DEFAULT: 'hsl(var(--accent))',
+          DEFAULT: '#A78BFA',
           foreground: 'hsl(var(--accent-foreground))'
         },
         popover: {
@@ -77,14 +80,14 @@ export default {
           foreground: 'hsl(var(--card-foreground))'
         },
         sidebar: {
-          DEFAULT: 'hsl(var(--sidebar-background))',
-          foreground: 'hsl(var(--sidebar-foreground))',
-          primary: 'hsl(var(--sidebar-primary))',
-          'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-          accent: 'hsl(var(--sidebar-accent))',
-          'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-          border: 'hsl(var(--sidebar-border))',
-          ring: 'hsl(var(--sidebar-ring))'
+          DEFAULT: '#FFFFFF', // White sidebar
+          foreground: '#1C2526',
+          primary: '#6B48FF',
+          'primary-foreground': '#FFFFFF',
+          accent: '#F3F0FF',
+          'accent-foreground': '#6B48FF',
+          border: '#E4DCFF',
+          ring: '#8B5CF6'
         }
       },
       borderRadius: {
@@ -97,26 +100,21 @@ export default {
         montserrat: ['Montserrat', 'Inter', 'sans-serif'],
         poppins: ['Poppins', 'Inter', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
-        fira: ['Fira Code', 'monospace'], // Developer-friendly font
+        fira: ['Fira Code', 'monospace'],
       },
       gradients: {
-        // Add some predefined gradients that can be referenced in your CSS
-        'primary': 'linear-gradient(135deg, #c792ea 0%, #7d59a6 100%)',
-        'secondary': 'linear-gradient(135deg, #82aaff 0%, #5079cc 100%)',
-        'sunset': 'linear-gradient(135deg, #f78c6c 0%, #e05252 100%)',
-        'blue-purple': 'linear-gradient(90deg, #82aaff 0%, #c792ea 100%)',
-        'night-owl': 'linear-gradient(to right, #011627 0%, #1d3b53 100%)',
+        'primary': 'linear-gradient(135deg, #6B48FF 0%, #A78BFA 100%)',
+        'secondary': 'linear-gradient(135deg, #A78BFA 0%, #C5B3FF 100%)',
+        'dark': 'linear-gradient(90deg, #1C2526 0%, #2A3132 100%)',
       },
       backgroundImage: {
-        'gradient-primary': 'linear-gradient(135deg, #c792ea 0%, #7d59a6 100%)',
-        'gradient-secondary': 'linear-gradient(135deg, #82aaff 0%, #5079cc 100%)',
-        'gradient-blue-purple': 'linear-gradient(90deg, #82aaff 0%, #c792ea 100%)',
-        'gradient-night-owl': 'linear-gradient(to right, #011627 0%, #1d3b53 100%)',
-        'gradient-sunset': 'linear-gradient(135deg, #f78c6c 0%, #e05252 100%)',
+        'gradient-primary': 'linear-gradient(135deg, #6B48FF 0%, #A78BFA 100%)',
+        'gradient-secondary': 'linear-gradient(135deg, #A78BFA 0%, #C5B3FF 100%)',
+        'gradient-dark': 'linear-gradient(90deg, #1C2526 0%, #2A3132 100%)',
       },
       boxShadow: {
-        'glow-primary': '0 0 20px rgba(199, 146, 234, 0.5)',
-        'glow-blue': '0 0 15px rgba(130, 170, 255, 0.5)',
+        'glow-primary': '0 0 20px rgba(107, 72, 255, 0.5)',
+        'glow-purple': '0 0 15px rgba(167, 139, 250, 0.5)',
         'glow-white': '0 0 15px rgba(255, 255, 255, 0.3)',
       },
       keyframes: {

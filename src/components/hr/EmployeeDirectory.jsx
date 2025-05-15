@@ -78,56 +78,56 @@ const EmployeeDirectory = () => {
   };
 
   return (
-    <GlassContainer className="p-6">
+    <div>
       <div className="flex justify-between items-center mb-6">
-        <GradientText as="h2" className="text-2xl font-semibold" gradient="night-owl">
+        <h2 className="text-2xl font-semibold text-secondary dark:text-white">
           Employee Directory
-        </GradientText>
+        </h2>
         <div className="flex gap-2">
           <ModernButton variant="outline" iconLeft={<Filter size={16} />}>
             Filter
           </ModernButton>
-          <ModernButton variant="glow" iconLeft={<UserPlus size={16} />} withGlow>
+          <ModernButton variant="primary" iconLeft={<UserPlus size={16} />} withGlow>
             Add Employee
           </ModernButton>
         </div>
       </div>
       
       <div className="mb-4 relative">
-        <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-500" size={18} />
+        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral" size={18} />
         <Input 
           placeholder="Search employees by name, position, department, or location..." 
-          className="pl-10 bg-primary-900/10 border-primary-500/20 focus:border-primary-500 transition-all"
+          className="pl-10 bg-white dark:bg-dark-lighter border-primary-200 dark:border-dark-lighter focus:border-primary-600"
           value={searchTerm}
           onChange={handleSearch}
         />
       </div>
       
-      <div className="overflow-x-auto rounded-lg border border-primary-700/20 shadow-lg">
+      <div className="overflow-x-auto rounded-lg border border-primary-200 dark:border-dark-lighter shadow-lg">
         <Table className="w-full">
-          <TableHeader className="bg-primary-900/30 backdrop-blur-sm">
+          <TableHeader className="bg-primary-100 dark:bg-dark-lighter">
             <TableRow>
-              <TableHead className="cursor-pointer hover:bg-primary-800/30 transition-colors" onClick={() => requestSort('name')}>
+              <TableHead className="cursor-pointer hover:bg-primary-200/50 dark:hover:bg-dark-light/50 transition-colors" onClick={() => requestSort('name')}>
                 <div className="flex items-center">
                   Name {getSortIcon('name')}
                 </div>
               </TableHead>
-              <TableHead className="cursor-pointer hover:bg-primary-800/30 transition-colors" onClick={() => requestSort('position')}>
+              <TableHead className="cursor-pointer hover:bg-primary-200/50 dark:hover:bg-dark-light/50 transition-colors" onClick={() => requestSort('position')}>
                 <div className="flex items-center">
                   Position {getSortIcon('position')}
                 </div>
               </TableHead>
-              <TableHead className="cursor-pointer hover:bg-primary-800/30 transition-colors" onClick={() => requestSort('department')}>
+              <TableHead className="cursor-pointer hover:bg-primary-200/50 dark:hover:bg-dark-light/50 transition-colors" onClick={() => requestSort('department')}>
                 <div className="flex items-center">
                   Department {getSortIcon('department')}
                 </div>
               </TableHead>
-              <TableHead className="cursor-pointer hover:bg-primary-800/30 transition-colors" onClick={() => requestSort('location')}>
+              <TableHead className="cursor-pointer hover:bg-primary-200/50 dark:hover:bg-dark-light/50 transition-colors" onClick={() => requestSort('location')}>
                 <div className="flex items-center">
                   Location {getSortIcon('location')}
                 </div>
               </TableHead>
-              <TableHead className="cursor-pointer hover:bg-primary-800/30 transition-colors" onClick={() => requestSort('status')}>
+              <TableHead className="cursor-pointer hover:bg-primary-200/50 dark:hover:bg-dark-light/50 transition-colors" onClick={() => requestSort('status')}>
                 <div className="flex items-center">
                   Status {getSortIcon('status')}
                 </div>
@@ -138,7 +138,7 @@ const EmployeeDirectory = () => {
           <TableBody>
             {filteredEmployees.length > 0 ? (
               filteredEmployees.map(employee => (
-                <TableRow key={employee.id} className="cursor-pointer hover:bg-primary-900/20 backdrop-blur-sm transition-all">
+                <TableRow key={employee.id} className="cursor-pointer hover:bg-primary-100/30 dark:hover:bg-dark-light/20 transition-all">
                   <TableCell className="font-medium">{employee.name}</TableCell>
                   <TableCell>{employee.position}</TableCell>
                   <TableCell>{employee.department}</TableCell>
@@ -146,23 +146,27 @@ const EmployeeDirectory = () => {
                   <TableCell>
                     <span className={`px-2 py-1 rounded-full text-xs ${
                       employee.status === 'Active' 
-                        ? 'bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300 border border-green-300/30' 
-                        : 'bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300 border border-amber-300/30'
+                        ? 'bg-accent-light text-primary-700 dark:bg-accent/20 dark:text-accent border border-accent/30' 
+                        : 'bg-neutral-light text-neutral-dark dark:bg-neutral/20 dark:text-neutral-light border border-neutral/30'
                     }`}>
                       {employee.status}
                     </span>
                   </TableCell>
                   <TableCell>
                     <div className="w-full flex items-center gap-2">
-                      <Progress value={employee.progress} className="h-2" />
-                      <span className="text-xs text-primary-300">{employee.progress}%</span>
+                      <Progress 
+                        value={employee.progress} 
+                        className="h-2 bg-primary-100 dark:bg-dark-light" 
+                        indicatorClassName="bg-gradient-to-r from-primary to-accent" 
+                      />
+                      <span className="text-xs text-primary dark:text-accent">{employee.progress}%</span>
                     </div>
                   </TableCell>
                 </TableRow>
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={6} className="text-center py-4 text-gray-500">
+                <TableCell colSpan={6} className="text-center py-4 text-neutral dark:text-neutral-light">
                   No employees found matching your search.
                 </TableCell>
               </TableRow>
@@ -170,7 +174,7 @@ const EmployeeDirectory = () => {
           </TableBody>
         </Table>
       </div>
-    </GlassContainer>
+    </div>
   );
 };
 

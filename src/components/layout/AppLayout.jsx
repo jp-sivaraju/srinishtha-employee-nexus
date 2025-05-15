@@ -27,7 +27,7 @@ export const AppLayout = ({ children }) => {
   if (!currentUser) return null;
 
   return (
-    <div className="flex h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="flex h-screen bg-white dark:bg-dark">
       <Sidebar 
         collapsed={sidebarCollapsed} 
         toggleSidebar={toggleSidebar}

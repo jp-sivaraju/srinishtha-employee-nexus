@@ -20,10 +20,10 @@ const HrHeroSection = ({ activeTab, setActiveTab }) => {
   return (
     <div className="relative overflow-hidden rounded-xl shadow-xl mb-6">
       {/* Background with gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary-700 via-primary-600 to-primary-500 dark:from-primary-900 dark:via-primary-800 dark:to-primary-700"></div>
+      <div className="absolute inset-0 bg-secondary dark:bg-dark-light"></div>
       
       {/* Background patterns */}
-      <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))]"></div>
+      <div className="absolute inset-0 bg-grid-white/5 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))]"></div>
       
       {/* Content */}
       <div className="relative px-6 py-8 md:px-8 md:py-10">
@@ -43,8 +43,8 @@ const HrHeroSection = ({ activeTab, setActiveTab }) => {
               className={`
                 flex items-center px-4 py-2.5 rounded-lg transition-all
                 ${activeTab === item.id
-                  ? 'bg-white/20 text-white font-medium shadow-lg shadow-primary-900/20 scale-105'
-                  : 'bg-transparent hover:bg-white/10 text-white/80 hover:text-white'}
+                  ? 'bg-primary text-white font-medium shadow-lg shadow-primary/20 scale-105'
+                  : 'bg-white/10 hover:bg-white/20 text-white/80 hover:text-white'}
               `}
             >
               <span className="mr-2">{item.icon}</span>
