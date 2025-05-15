@@ -21,6 +21,8 @@ const GradientText = ({
     shine: 'from-white/90 via-primary-300 to-white/90',
     pastel: 'from-accent-yellow via-accent-aqua to-primary-300',
     danger: 'from-red-500 via-red-400 to-white/90',
+    'purple-white': 'from-primary-500 via-primary-300 to-white',
+    'purple-intense': 'from-purple-700 via-purple-500 to-purple-300',
   };
   
   const fontWeightClasses = {

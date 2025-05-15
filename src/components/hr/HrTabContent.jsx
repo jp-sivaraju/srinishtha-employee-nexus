@@ -34,13 +34,13 @@ const HrTabContent = ({ activeTab }) => {
       case 'onboarding':
         return <OnboardingChecklist />;
       default:
-        return <div>Please select a tab from the sidebar</div>;
+        return <HrDashboard />;
     }
   };
 
   return (
     <GlassContainer 
-      className="p-6 animate-fade-in shadow-lg rounded-xl border border-primary-500/30" 
+      className="p-6 animate-fade-in shadow-lg rounded-xl border border-primary-500/30 dark:border-primary-400/20" 
       blur="md" 
       opacity="medium"
       border={true}

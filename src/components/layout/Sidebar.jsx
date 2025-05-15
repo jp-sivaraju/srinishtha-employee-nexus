@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
   Home,
@@ -35,44 +34,8 @@ const navigationItems = [
     name: 'HR Zone',
     path: '/hr-zone',
     icon: Users, 
-    allowedRoles: ['Admin', 'HR', 'Manager'],
-    submenu: [
-      { 
-        name: 'Employee Directory', 
-        path: '/hr-zone?tab=directory', 
-        icon: Users 
-      },
-      { 
-        name: 'Recruitment', 
-        path: '/hr-zone?tab=recruitment', 
-        icon: UserPlus 
-      },
-      { 
-        name: 'Training', 
-        path: '/hr-zone?tab=training', 
-        icon: BookOpen 
-      },
-      { 
-        name: 'Compensation', 
-        path: '/hr-zone?tab=compensation', 
-        icon: DollarSign 
-      },
-      { 
-        name: 'Performance', 
-        path: '/hr-zone?tab=performance', 
-        icon: Award 
-      },
-      { 
-        name: 'Attendance', 
-        path: '/hr-zone?tab=attendance', 
-        icon: Clock 
-      },
-      { 
-        name: 'Holidays', 
-        path: '/hr-zone?tab=holidays', 
-        icon: Calendar 
-      }
-    ]
+    allowedRoles: ['Admin', 'HR', 'Manager']
+    // Removed submenu items to avoid duplication with the HR Zone page content
   },
   { 
     name: 'IT Helpdesk',
@@ -130,8 +93,6 @@ export const Sidebar = ({ collapsed, toggleSidebar, userRole }) => {
   
   // Check if the current route is the HR Zone or a subpath
   const isHrZonePath = location.pathname === '/hr-zone';
-  const searchParams = new URLSearchParams(location.search);
-  const currentTab = searchParams.get('tab');
   
   // Filter navigation items based on user role
   const filteredNavigation = navigationItems.filter(item => 
@@ -142,31 +103,12 @@ export const Sidebar = ({ collapsed, toggleSidebar, userRole }) => {
     return location.pathname === path;
   };
 
-  const isSubActive = (path) => {
-    const basePathMatch = location.pathname === '/hr-zone';
-    
-    // Extract tab from path
-    const submenuTab = path.split('=')[1];
-    
-    return basePathMatch && currentTab === submenuTab;
-  };
-
   const toggleSubmenu = (itemName) => {
     setOpenSubmenus(prev => ({
       ...prev,
       [itemName]: !prev[itemName]
     }));
   };
-
-  // Auto-open HR submenu if we're on an HR page
-  React.useEffect(() => {
-    if (isHrZonePath && !openSubmenus['HR Zone']) {
-      setOpenSubmenus(prev => ({
-        ...prev,
-        'HR Zone': true
-      }));
-    }
-  }, [isHrZonePath]);
 
   return (
     <aside 
@@ -219,21 +161,21 @@ export const Sidebar = ({ collapsed, toggleSidebar, userRole }) => {
                         )}
                       </button>
                       
-                      {!collapsed && openSubmenus[item.name] && (
+                      {!collapsed && openSubmenus[item.name] && item.submenu && (
                         <ul className="mt-1 space-y-1 pl-6">
                           {item.submenu.map(subItem => (
                             <li key={subItem.name}>
                               <Link
                                 to={subItem.path}
                                 className={`${
-                                  isSubActive(subItem.path)
+                                  location.pathname === subItem.path
                                     ? 'bg-primary-50 dark:bg-primary-900/50 text-primary-600 dark:text-primary-400'
                                     : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700/50'
                                 } group flex items-center px-2 py-1.5 text-xs font-medium rounded-md transition-all`}
                               >
                                 <subItem.icon
                                   className={`${
-                                    isSubActive(subItem.path) ? 'text-primary-500' : 'text-gray-400 group-hover:text-gray-500'
+                                    location.pathname === subItem.path ? 'text-primary-500' : 'text-gray-400 group-hover:text-gray-500'
                                   } mr-2 flex-shrink-0 h-4 w-4 transition-colors`}
                                 />
                                 <span>{subItem.name}</span>

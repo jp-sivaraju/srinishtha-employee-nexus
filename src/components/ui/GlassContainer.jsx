@@ -21,8 +21,8 @@ const GlassContainer = ({
   
   const opacityClasses = {
     light: 'bg-white/10 dark:bg-dark/10',
-    medium: 'bg-white/30 dark:bg-dark/30',
-    heavy: 'bg-white/50 dark:bg-dark/50',
+    medium: 'bg-white/30 dark:bg-dark/20',
+    heavy: 'bg-white/50 dark:bg-dark/30',
   };
   
   const roundedClasses = {
@@ -34,7 +34,7 @@ const GlassContainer = ({
     full: 'rounded-full',
   };
 
-  const borderClasses = border ? 'border border-white/20 dark:border-white/5' : '';
+  const borderClasses = border ? 'border border-primary-200 dark:border-primary-800/30' : '';
   const paddingClasses = padding ? 'p-6' : '';
   const shineClasses = shine ? 'relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:translate-x-[-200%] hover:before:translate-x-[200%] before:transition-all before:duration-1000 before:ease-in-out' : '';
   
