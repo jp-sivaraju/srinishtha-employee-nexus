@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Sidebar } from './Sidebar';
 import { Navbar } from './Navbar';
-import { useNavigate } from 'react-router-dom';
 
 export const AppLayout = ({ children }) => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
@@ -27,7 +27,7 @@ export const AppLayout = ({ children }) => {
   if (!currentUser) return null;
 
   return (
-    <div className="flex h-screen bg-white dark:bg-dark">
+    <div className="flex h-screen bg-white">
       <Sidebar 
         collapsed={sidebarCollapsed} 
         toggleSidebar={toggleSidebar}
@@ -42,3 +42,5 @@ export const AppLayout = ({ children }) => {
     </div>
   );
 };
+
+export default AppLayout;
