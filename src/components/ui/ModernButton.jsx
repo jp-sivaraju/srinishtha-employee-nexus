@@ -25,7 +25,7 @@ const ModernButton = ({
     outline: "border-2 border-primary text-primary hover:bg-primary/10",
     ghost: "text-primary hover:bg-primary/10",
     danger: "bg-red-600 text-white hover:bg-red-500",
-    glow: "bg-gradient-to-r from-primary-700 via-primary to-primary-500 text-white border border-white/10",
+    glow: "bg-gradient-to-r from-primary-600 via-primary to-primary-500 text-white border border-white/10",
     light: "bg-white text-secondary hover:bg-gray-100",
     dark: "bg-secondary text-white hover:bg-dark-lighter",
   };

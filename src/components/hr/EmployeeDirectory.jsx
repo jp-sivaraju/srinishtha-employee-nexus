@@ -146,8 +146,8 @@ const EmployeeDirectory = () => {
                   <TableCell>
                     <span className={`px-2 py-1 rounded-full text-xs ${
                       employee.status === 'Active' 
-                        ? 'bg-accent-light text-primary-700 dark:bg-accent/20 dark:text-accent border border-accent/30' 
-                        : 'bg-neutral-light text-neutral-dark dark:bg-neutral/20 dark:text-neutral-light border border-neutral/30'
+                        ? 'bg-primary-400/20 text-primary-600 dark:bg-primary-400/20 dark:text-primary-400 border border-primary-400/30' 
+                        : 'bg-neutral-light/20 text-neutral-dark dark:bg-neutral/20 dark:text-neutral-light border border-neutral/30'
                     }`}>
                       {employee.status}
                     </span>
@@ -157,9 +157,9 @@ const EmployeeDirectory = () => {
                       <Progress 
                         value={employee.progress} 
                         className="h-2 bg-primary-100 dark:bg-dark-light" 
-                        indicatorClassName="bg-gradient-to-r from-primary to-accent" 
+                        indicatorClassName="bg-gradient-to-r from-primary-600 to-primary-400" 
                       />
-                      <span className="text-xs text-primary dark:text-accent">{employee.progress}%</span>
+                      <span className="text-xs text-primary-600 dark:text-primary-400">{employee.progress}%</span>
                     </div>
                   </TableCell>
                 </TableRow>

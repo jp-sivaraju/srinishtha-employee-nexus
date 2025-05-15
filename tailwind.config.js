@@ -1,3 +1,4 @@
+
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ["class"],
@@ -55,9 +56,16 @@ export default {
           dark: '#6B48FF',
         },
         neutral: {
-          DEFAULT: '#B0B0B0', // Soft gray for subtext
-          light: '#D1D1D1',
-          dark: '#707070',
+          DEFAULT: '#666666', // Updated to medium gray for subtext
+          light: '#B0B0B0',
+          dark: '#333333',
+        },
+        chart: {
+          purple: '#6B48FF',
+          lightPurple: '#A78BFA',
+          gray: '#B0B0B0',
+          lightGray: '#D3D3D3',
+          teal: '#4AC7B7',
         },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
