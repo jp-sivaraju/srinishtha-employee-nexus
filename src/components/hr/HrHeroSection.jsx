@@ -1,8 +1,6 @@
 
 import React from 'react';
 import { FileText, Users, UserPlus, BookOpen, DollarSign, Award, Calendar, ClipboardCheck, User } from 'lucide-react';
-import GlassContainer from '../ui/GlassContainer';
-import GradientText from '../ui/GradientText';
 
 const HrHeroSection = ({ activeTab, setActiveTab }) => {
   const navItems = [
@@ -20,7 +18,7 @@ const HrHeroSection = ({ activeTab, setActiveTab }) => {
   return (
     <div className="relative overflow-hidden rounded-xl shadow-xl mb-6">
       {/* Background with deep black */}
-      <div className="absolute inset-0 bg-secondary dark:bg-dark"></div>
+      <div className="absolute inset-0 bg-[#1C2526]"></div>
       
       {/* Background patterns */}
       <div className="absolute inset-0 bg-grid-white/5 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))]"></div>
@@ -41,10 +39,10 @@ const HrHeroSection = ({ activeTab, setActiveTab }) => {
               key={item.id}
               onClick={() => setActiveTab(item.id)}
               className={`
-                flex items-center px-4 py-2.5 rounded-lg transition-all
+                flex items-center px-4 py-2.5 rounded-lg transition-colors
                 ${activeTab === item.id
-                  ? 'bg-primary text-white font-medium shadow-lg shadow-primary/20 scale-105'
-                  : 'bg-white/10 hover:bg-accent/20 text-white/80 hover:text-white'}
+                  ? 'bg-[#6B48FF] text-white font-medium shadow-lg shadow-[#6B48FF]/20'
+                  : 'bg-white/10 hover:bg-[#A78BFA]/20 text-white/80 hover:text-white'}
               `}
             >
               <span className="mr-2">{item.icon}</span>

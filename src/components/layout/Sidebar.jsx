@@ -114,18 +114,18 @@ export const Sidebar = ({ collapsed, toggleSidebar, userRole }) => {
     <aside 
       className={`${
         collapsed ? 'w-16' : 'w-64'
-      } hidden md:block transition-all duration-300 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 z-20`}
+      } hidden md:block transition-all duration-300 bg-white dark:bg-dark border-r border-gray-200 dark:border-dark-lighter z-20`}
     >
       <div className="flex h-full flex-col">
         <div className="flex items-center justify-between h-16 px-4">
           {!collapsed && (
             <Link to="/dashboard" className="flex items-center">
-              <span className="text-xl font-bold text-primary">Srinishtha Hub</span>
+              <span className="text-xl font-bold text-[#6B48FF]">Srinishtha Hub</span>
             </Link>
           )}
           <button 
             onClick={toggleSidebar}
-            className="rounded-md p-1.5 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700"
+            className="rounded-md p-1.5 text-[#666666] hover:bg-gray-100 dark:hover:bg-gray-700"
           >
             {collapsed ? <Menu size={20} /> : <X size={20} />}
           </button>
@@ -142,14 +142,14 @@ export const Sidebar = ({ collapsed, toggleSidebar, userRole }) => {
                         onClick={() => toggleSubmenu(item.name)}
                         className={`${
                           isActive(item.path)
-                            ? 'bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400'
-                            : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
+                            ? 'bg-[#F3F0FF] dark:bg-dark-light text-[#6B48FF] dark:text-[#A78BFA]'
+                            : 'text-[#1C2526] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
                         } w-full group flex items-center justify-between px-2 py-2 text-sm font-medium rounded-md transition-all`}
                       >
                         <div className="flex items-center">
                           <item.icon
                             className={`${
-                              isActive(item.path) ? 'text-primary-500' : 'text-gray-400 group-hover:text-gray-500'
+                              isActive(item.path) ? 'text-[#6B48FF]' : 'text-[#666666] group-hover:text-[#A78BFA]'
                             } ${collapsed ? 'mx-auto' : 'mr-3'} flex-shrink-0 h-5 w-5 transition-colors`}
                           />
                           {!collapsed && <span>{item.name}</span>}
@@ -169,13 +169,13 @@ export const Sidebar = ({ collapsed, toggleSidebar, userRole }) => {
                                 to={subItem.path}
                                 className={`${
                                   location.pathname === subItem.path
-                                    ? 'bg-primary-50 dark:bg-primary-900/50 text-primary-600 dark:text-primary-400'
-                                    : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700/50'
+                                    ? 'bg-[#F3F0FF] dark:bg-dark-light/50 text-[#6B48FF] dark:text-[#A78BFA]'
+                                    : 'text-[#1C2526] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
                                 } group flex items-center px-2 py-1.5 text-xs font-medium rounded-md transition-all`}
                               >
                                 <subItem.icon
                                   className={`${
-                                    location.pathname === subItem.path ? 'text-primary-500' : 'text-gray-400 group-hover:text-gray-500'
+                                    location.pathname === subItem.path ? 'text-[#6B48FF]' : 'text-[#666666] group-hover:text-[#A78BFA]'
                                   } mr-2 flex-shrink-0 h-4 w-4 transition-colors`}
                                 />
                                 <span>{subItem.name}</span>
@@ -190,13 +190,13 @@ export const Sidebar = ({ collapsed, toggleSidebar, userRole }) => {
                       to={item.path}
                       className={`${
                         isActive(item.path)
-                          ? 'bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400'
-                          : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
+                          ? 'bg-[#F3F0FF] dark:bg-dark-light text-[#6B48FF] dark:text-[#A78BFA]'
+                          : 'text-[#1C2526] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
                       } group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-all`}
                     >
                       <item.icon
                         className={`${
-                          isActive(item.path) ? 'text-primary-500' : 'text-gray-400 group-hover:text-gray-500'
+                          isActive(item.path) ? 'text-[#6B48FF]' : 'text-[#666666] group-hover:text-[#A78BFA]'
                         } ${collapsed ? 'mx-auto' : 'mr-3'} flex-shrink-0 h-5 w-5 transition-colors`}
                       />
                       {!collapsed && <span>{item.name}</span>}
@@ -209,8 +209,8 @@ export const Sidebar = ({ collapsed, toggleSidebar, userRole }) => {
         </div>
         
         {!collapsed && (
-          <div className="p-4 border-t border-gray-200 dark:border-gray-700">
-            <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
+          <div className="p-4 border-t border-gray-200 dark:border-dark-lighter">
+            <div className="text-xs font-semibold text-[#666666] uppercase tracking-wider">
               {userRole} Role
             </div>
           </div>

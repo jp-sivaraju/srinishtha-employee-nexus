@@ -9,7 +9,6 @@ import PerformanceReviews from './PerformanceReviews';
 import HolidaysCalendar from './HolidaysCalendar';
 import AttendanceLog from './AttendanceLog';
 import OnboardingChecklist from './OnboardingChecklist';
-import GlassContainer from '../ui/GlassContainer';
 
 const HrTabContent = ({ activeTab }) => {
   // Function to render the active tab content
@@ -39,7 +38,7 @@ const HrTabContent = ({ activeTab }) => {
   };
 
   return (
-    <div className="p-6 animate-fade-in bg-white dark:bg-dark shadow-lg rounded-xl border border-primary-200/30 dark:border-dark-lighter">
+    <div className="p-6 animate-fade-in bg-white dark:bg-dark shadow-md rounded-xl border border-gray-100 dark:border-dark-lighter">
       {renderTabContent()}
     </div>
   );
