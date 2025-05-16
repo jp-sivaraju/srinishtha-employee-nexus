@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { FileText, Users, UserPlus, BookOpen, DollarSign, Award, Calendar, ClipboardCheck, User } from 'lucide-react';
+import { FileText, Users, UserPlus, BookOpen, DollarSign, Award, Calendar, ClipboardCheck, User, Clock } from 'lucide-react';
 
 const HrHeroSection = ({ activeTab, setActiveTab }) => {
   const navItems = [
@@ -10,6 +10,7 @@ const HrHeroSection = ({ activeTab, setActiveTab }) => {
     { id: 'training', label: 'Training & Dev', icon: <BookOpen size={18} /> },
     { id: 'compensation', label: 'Compensation', icon: <DollarSign size={18} /> },
     { id: 'performance', label: 'Performance', icon: <Award size={18} /> },
+    { id: 'leave', label: 'Nexus Leave', icon: <Clock size={18} /> }, // Add new leave management tab
     { id: 'holidays', label: 'Holidays', icon: <Calendar size={18} /> },
     { id: 'attendance', label: 'Attendance', icon: <ClipboardCheck size={18} /> },
     { id: 'onboarding', label: 'Onboarding', icon: <User size={18} /> }
