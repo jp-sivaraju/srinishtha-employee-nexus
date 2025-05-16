@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import { Card } from '../../components/ui/Card';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { Star, TrendingUp, Award } from 'lucide-react';
+import { Star, TrendingUp, Award, FileText } from 'lucide-react';
 
 const PerformanceMetrics = () => {
   const [period, setPeriod] = useState('quarterly');
