@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card } from '../ui/Card';
 import { 
@@ -10,14 +9,18 @@ import {
   Calendar,
   BarChart2,
   Filter,
-  Download
+  Download,
+  Workflow,
+  Settings
 } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area } from 'recharts';
 import { useToast } from '../ui/Toast';
+import PMOWorkflowDashboard from './PMOWorkflowDashboard';
 
 const PMODashboard = () => {
   const { showToast } = useToast();
   const [selectedTimeframe, setSelectedTimeframe] = useState('quarter');
+  const [activeView, setActiveView] = useState('overview');
 
   const scopeCreepData = [
     { month: 'Jan', originalScope: 100, currentScope: 105, budget: 95 },
@@ -95,11 +98,39 @@ const PMODashboard = () => {
     showToast('Exporting PMO report...', 'success');
   };
 
+  if (activeView === 'workflows') {
+    return <PMOWorkflowDashboard />;
+  }
+
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h2 className="text-lg font-semibold text-gray-800 dark:text-white">PMO Dashboard</h2>
         <div className="flex gap-3">
+          <div className="flex border border-gray-300 dark:border-gray-600 rounded-md">
+            <button
+              onClick={() => setActiveView('overview')}
+              className={`px-4 py-2 text-sm ${
+                activeView === 'overview'
+                  ? 'bg-primary-600 text-white'
+                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
+              } rounded-l-md`}
+            >
+              <BarChart2 size={16} className="inline mr-2" />
+              Overview
+            </button>
+            <button
+              onClick={() => setActiveView('workflows')}
+              className={`px-4 py-2 text-sm ${
+                activeView === 'workflows'
+                  ? 'bg-primary-600 text-white'
+                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
+              } rounded-r-md border-l border-gray-300 dark:border-gray-600`}
+            >
+              <Workflow size={16} className="inline mr-2" />
+              Workflows
+            </button>
+          </div>
           <select
             value={selectedTimeframe}
             onChange={(e) => setSelectedTimeframe(e.target.value)}
