@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card } from '../ui/Card';
 import { 
@@ -8,7 +7,7 @@ import {
   Settings, 
   FolderPlus, 
   Import, 
-  Export,
+  Export as ExportIcon,
   Workflow,
   CheckCircle,
   Clock,
@@ -87,7 +86,7 @@ const PMOWorkflowDashboard = () => {
       id: 'export',
       title: 'Export Data',
       description: 'Export project data for reporting',
-      icon: Export,
+      icon: ExportIcon,
       color: 'bg-purple-500',
       action: () => setShowImportExport(true)
     },
@@ -108,7 +107,7 @@ const PMOWorkflowDashboard = () => {
       case 'import_completed':
         return <Import className="h-5 w-5 text-green-600" />;
       case 'export_generated':
-        return <Export className="h-5 w-5 text-purple-600" />;
+        return <ExportIcon className="h-5 w-5 text-purple-600" />;
       case 'approval_pending':
         return <Clock className="h-5 w-5 text-amber-600" />;
       default:
