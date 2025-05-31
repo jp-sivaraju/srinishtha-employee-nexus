@@ -7,7 +7,7 @@ import {
   Settings, 
   FolderPlus, 
   Import, 
-  Export as ExportIcon,
+  Download as ExportIcon,
   Workflow,
   CheckCircle,
   Clock,
