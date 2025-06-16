@@ -1,8 +1,10 @@
 
 import { useState } from 'react';
-import { toast } from 'sonner';
+import { useToast } from '@/hooks/use-toast';
 
 const useAppraisalCycles = () => {
+  const { toast } = useToast();
+  
   const [cycles, setCycles] = useState([
     {
       id: 1,
@@ -90,12 +92,20 @@ const useAppraisalCycles = () => {
 
   const handleCreateCycle = () => {
     if (!newCycle.name || !newCycle.startDate || !newCycle.endDate) {
-      toast.error('Please fill in all required fields');
+      toast({
+        title: "Error",
+        description: "Please fill in all required fields",
+        variant: "destructive",
+      });
       return;
     }
 
     if (newCycle.departments.length === 0) {
-      toast.error('Please select at least one department');
+      toast({
+        title: "Error",
+        description: "Please select at least one department",
+        variant: "destructive",
+      });
       return;
     }
 
@@ -120,7 +130,10 @@ const useAppraisalCycles = () => {
       notificationsEnabled: true,
       autoReminders: true
     });
-    toast.success('Appraisal cycle created successfully');
+    toast({
+      title: "Success",
+      description: "Appraisal cycle created successfully",
+    });
     return true; // Indicates successful creation
   };
 
@@ -130,7 +143,10 @@ const useAppraisalCycles = () => {
         ? { ...cycle, status: 'Active', stage: 'Goal Setting' }
         : cycle
     ));
-    toast.success('Appraisal cycle started');
+    toast({
+      title: "Success",
+      description: "Appraisal cycle started",
+    });
   };
 
   const duplicateCycle = (cycle) => {
@@ -144,7 +160,10 @@ const useAppraisalCycles = () => {
       completedReviews: 0
     };
     setCycles([...cycles, duplicated]);
-    toast.success('Cycle duplicated successfully');
+    toast({
+      title: "Success",
+      description: "Cycle duplicated successfully",
+    });
   };
 
   const archiveCycle = (cycleId) => {
@@ -153,11 +172,17 @@ const useAppraisalCycles = () => {
         ? { ...cycle, status: 'Archived' }
         : cycle
     ));
-    toast.success('Cycle archived');
+    toast({
+      title: "Success",
+      description: "Cycle archived",
+    });
   };
 
   const sendReminders = (cycleId) => {
-    toast.success('Reminders sent to all participants');
+    toast({
+      title: "Success",
+      description: "Reminders sent to all participants",
+    });
   };
 
   return {
