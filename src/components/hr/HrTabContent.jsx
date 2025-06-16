@@ -5,7 +5,7 @@ import EmployeeDirectory from './EmployeeDirectory';
 import RecruitmentDashboard from './RecruitmentDashboard';
 import TrainingDevelopment from './TrainingDevelopment';
 import CompensationBenefits from './CompensationBenefits';
-import PerformanceReviews from './PerformanceReviews';
+import AppraisalCycles from '../performance/AppraisalCycles';
 import HolidaysCalendar from './HolidaysCalendar';
 import AttendanceLog from './AttendanceLog';
 import OnboardingChecklist from './OnboardingChecklist';
@@ -26,7 +26,7 @@ const HrTabContent = ({ activeTab }) => {
       case 'compensation':
         return <CompensationBenefits />;
       case 'performance':
-        return <PerformanceReviews />;
+        return <AppraisalCycles />;
       case 'holidays':
         return <HolidaysCalendar />;
       case 'attendance':
