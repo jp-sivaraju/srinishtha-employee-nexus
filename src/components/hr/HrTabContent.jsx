@@ -10,6 +10,7 @@ import HolidaysCalendar from './HolidaysCalendar';
 import AttendanceLog from './AttendanceLog';
 import OnboardingChecklist from './OnboardingChecklist';
 import NexusLeaveManagement from './nexus/NexusLeaveManagement';
+import PerformanceManagement from './PerformanceManagement';
 
 const HrTabContent = ({ activeTab }) => {
   // Function to render the active tab content
@@ -26,14 +27,14 @@ const HrTabContent = ({ activeTab }) => {
       case 'compensation':
         return <CompensationBenefits />;
       case 'performance':
-        return <AppraisalCycles />;
+        return <PerformanceManagement />;
       case 'holidays':
         return <HolidaysCalendar />;
       case 'attendance':
         return <AttendanceLog />;
       case 'onboarding':
         return <OnboardingChecklist />;
-      case 'leave': // Add new tab for leave management
+      case 'leave':
         return <NexusLeaveManagement />;
       default:
         return <HrDashboard />;

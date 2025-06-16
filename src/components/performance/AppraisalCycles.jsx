@@ -12,7 +12,13 @@ import {
   Plus,
   Eye,
   Edit,
-  PlayCircle
+  PlayCircle,
+  Settings,
+  FileText,
+  Mail,
+  BarChart3,
+  Copy,
+  Archive
 } from 'lucide-react';
 import { toast } from '../ui/sonner';
 
@@ -28,7 +34,11 @@ const AppraisalCycles = () => {
       participants: 24,
       completedReviews: 8,
       stage: 'Goal Setting',
-      description: 'Q2 quarterly performance appraisal focusing on product development goals'
+      description: 'Q2 quarterly performance appraisal focusing on product development goals',
+      template: 'Standard Quarterly',
+      departments: ['Engineering', 'Design', 'Product'],
+      notificationsEnabled: true,
+      autoReminders: true
     },
     {
       id: 2,
@@ -40,7 +50,11 @@ const AppraisalCycles = () => {
       participants: 45,
       completedReviews: 45,
       stage: 'Closed',
-      description: 'Comprehensive annual performance review for all departments'
+      description: 'Comprehensive annual performance review for all departments',
+      template: 'Comprehensive Annual',
+      departments: ['All Departments'],
+      notificationsEnabled: true,
+      autoReminders: true
     },
     {
       id: 3,
@@ -52,7 +66,11 @@ const AppraisalCycles = () => {
       participants: 0,
       completedReviews: 0,
       stage: 'Planning',
-      description: 'Mid-year performance assessment and goal adjustment'
+      description: 'Mid-year performance assessment and goal adjustment',
+      template: 'Mid-Year Check-in',
+      departments: ['Engineering', 'Sales', 'Marketing'],
+      notificationsEnabled: false,
+      autoReminders: false
     }
   ]);
 
@@ -62,8 +80,34 @@ const AppraisalCycles = () => {
     type: 'Quarterly',
     startDate: '',
     endDate: '',
-    description: ''
+    description: '',
+    template: 'Standard Quarterly',
+    departments: [],
+    notificationsEnabled: true,
+    autoReminders: true
   });
+
+  const templates = [
+    'Standard Quarterly',
+    'Comprehensive Annual',
+    'Mid-Year Check-in',
+    'Monthly Sprint Review',
+    'Probationary Review',
+    'Leadership Assessment',
+    'Custom Template'
+  ];
+
+  const departmentsList = [
+    'Engineering',
+    'Design',
+    'Product',
+    'Sales',
+    'Marketing',
+    'HR',
+    'Finance',
+    'Operations',
+    'Customer Success'
+  ];
 
   const getStatusColor = (status) => {
     switch (status) {
@@ -73,6 +117,10 @@ const AppraisalCycles = () => {
         return 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300';
       case 'Planned':
         return 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300';
+      case 'Paused':
+        return 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300';
+      case 'Archived':
+        return 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300';
       default:
         return 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300';
     }
@@ -80,6 +128,8 @@ const AppraisalCycles = () => {
 
   const getStageColor = (stage) => {
     switch (stage) {
+      case 'Planning':
+        return 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300';
       case 'Goal Setting':
         return 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300';
       case 'In Progress':
@@ -88,6 +138,10 @@ const AppraisalCycles = () => {
         return 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300';
       case 'Supervisor Review':
         return 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300';
+      case 'Calibration':
+        return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300';
+      case 'Finalization':
+        return 'bg-pink-100 text-pink-800 dark:bg-pink-900/30 dark:text-pink-300';
       case 'Closed':
         return 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300';
       default:
@@ -101,6 +155,11 @@ const AppraisalCycles = () => {
       return;
     }
 
+    if (newCycle.departments.length === 0) {
+      toast.error('Please select at least one department');
+      return;
+    }
+
     const cycle = {
       id: cycles.length + 1,
       ...newCycle,
@@ -111,7 +170,17 @@ const AppraisalCycles = () => {
     };
 
     setCycles([...cycles, cycle]);
-    setNewCycle({ name: '', type: 'Quarterly', startDate: '', endDate: '', description: '' });
+    setNewCycle({
+      name: '',
+      type: 'Quarterly',
+      startDate: '',
+      endDate: '',
+      description: '',
+      template: 'Standard Quarterly',
+      departments: [],
+      notificationsEnabled: true,
+      autoReminders: true
+    });
     setShowCreateForm(false);
     toast.success('Appraisal cycle created successfully');
   };
@@ -125,13 +194,49 @@ const AppraisalCycles = () => {
     toast.success('Appraisal cycle started');
   };
 
+  const duplicateCycle = (cycle) => {
+    const duplicated = {
+      ...cycle,
+      id: cycles.length + 1,
+      name: `${cycle.name} (Copy)`,
+      status: 'Planned',
+      stage: 'Planning',
+      participants: 0,
+      completedReviews: 0
+    };
+    setCycles([...cycles, duplicated]);
+    toast.success('Cycle duplicated successfully');
+  };
+
+  const archiveCycle = (cycleId) => {
+    setCycles(cycles.map(cycle => 
+      cycle.id === cycleId 
+        ? { ...cycle, status: 'Archived' }
+        : cycle
+    ));
+    toast.success('Cycle archived');
+  };
+
+  const sendReminders = (cycleId) => {
+    toast.success('Reminders sent to all participants');
+  };
+
+  const toggleDepartment = (dept) => {
+    setNewCycle({
+      ...newCycle,
+      departments: newCycle.departments.includes(dept)
+        ? newCycle.departments.filter(d => d !== dept)
+        : [...newCycle.departments, dept]
+    });
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <div>
           <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">Appraisal Cycles</h2>
           <p className="text-gray-600 dark:text-gray-400 mt-1">
-            Manage performance appraisal cycles and track progress
+            Manage comprehensive performance appraisal cycles across all organizational levels
           </p>
         </div>
         <Button 
@@ -172,6 +277,8 @@ const AppraisalCycles = () => {
                 <option value="Quarterly">Quarterly</option>
                 <option value="Half-yearly">Half-yearly</option>
                 <option value="Annual">Annual</option>
+                <option value="Probationary">Probationary</option>
+                <option value="Custom">Custom</option>
               </select>
             </div>
             
@@ -198,6 +305,40 @@ const AppraisalCycles = () => {
                 className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
               />
             </div>
+            
+            <div>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                Template
+              </label>
+              <select
+                value={newCycle.template}
+                onChange={(e) => setNewCycle({ ...newCycle, template: e.target.value })}
+                className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
+              >
+                {templates.map(template => (
+                  <option key={template} value={template}>{template}</option>
+                ))}
+              </select>
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                Departments *
+              </label>
+              <div className="border border-gray-300 dark:border-gray-600 rounded-md p-2 bg-white dark:bg-gray-800 max-h-32 overflow-y-auto">
+                {departmentsList.map(dept => (
+                  <label key={dept} className="flex items-center space-x-2 py-1">
+                    <input
+                      type="checkbox"
+                      checked={newCycle.departments.includes(dept)}
+                      onChange={() => toggleDepartment(dept)}
+                      className="rounded"
+                    />
+                    <span className="text-sm">{dept}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
           </div>
           
           <div className="mt-4">
@@ -211,6 +352,28 @@ const AppraisalCycles = () => {
               rows="3"
               placeholder="Brief description of the appraisal cycle objectives"
             />
+          </div>
+          
+          <div className="mt-4 grid grid-cols-2 gap-4">
+            <label className="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                checked={newCycle.notificationsEnabled}
+                onChange={(e) => setNewCycle({ ...newCycle, notificationsEnabled: e.target.checked })}
+                className="rounded"
+              />
+              <span className="text-sm text-gray-700 dark:text-gray-300">Enable email notifications</span>
+            </label>
+            
+            <label className="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                checked={newCycle.autoReminders}
+                onChange={(e) => setNewCycle({ ...newCycle, autoReminders: e.target.checked })}
+                className="rounded"
+              />
+              <span className="text-sm text-gray-700 dark:text-gray-300">Automatic reminders</span>
+            </label>
           </div>
           
           <div className="flex justify-end space-x-3 mt-6">
@@ -237,10 +400,10 @@ const AppraisalCycles = () => {
                     {cycle.name}
                   </h3>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
-                    {cycle.type} Cycle
+                    {cycle.type} • {cycle.template}
                   </p>
                 </div>
-                <div className="flex space-x-2">
+                <div className="flex flex-col space-y-1">
                   <span className={`px-2 py-1 rounded-full text-xs ${getStatusColor(cycle.status)}`}>
                     {cycle.status}
                   </span>
@@ -262,7 +425,7 @@ const AppraisalCycles = () => {
                 <div className="flex items-center text-sm">
                   <Users size={16} className="mr-2 text-gray-500" />
                   <span className="text-gray-600 dark:text-gray-400">
-                    {cycle.participants} participants
+                    {cycle.participants} participants • {cycle.departments.join(', ')}
                   </span>
                 </div>
                 
@@ -293,7 +456,7 @@ const AppraisalCycles = () => {
                 )}
               </div>
               
-              <div className="flex space-x-2">
+              <div className="flex flex-wrap gap-2">
                 <Button variant="outline" size="sm" className="flex-1">
                   <Eye size={14} className="mr-1" />
                   View
@@ -311,10 +474,48 @@ const AppraisalCycles = () => {
                 )}
                 
                 {cycle.status === 'Active' && (
-                  <Button variant="outline" size="sm" className="flex-1">
-                    <Edit size={14} className="mr-1" />
-                    Manage
+                  <>
+                    <Button variant="outline" size="sm">
+                      <Edit size={14} className="mr-1" />
+                      Manage
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => sendReminders(cycle.id)}
+                    >
+                      <Mail size={14} className="mr-1" />
+                      Remind
+                    </Button>
+                  </>
+                )}
+                
+                {(cycle.status === 'Completed' || cycle.status === 'Planned') && (
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    onClick={() => duplicateCycle(cycle)}
+                  >
+                    <Copy size={14} className="mr-1" />
+                    Duplicate
                   </Button>
+                )}
+                
+                {cycle.status === 'Completed' && (
+                  <>
+                    <Button variant="outline" size="sm">
+                      <BarChart3 size={14} className="mr-1" />
+                      Analytics
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => archiveCycle(cycle.id)}
+                    >
+                      <Archive size={14} className="mr-1" />
+                      Archive
+                    </Button>
+                  </>
                 )}
               </div>
             </div>

@@ -1,56 +1,91 @@
 
 import React from 'react';
-import { FileText, Users, UserPlus, BookOpen, DollarSign, Award, Calendar, ClipboardCheck, User, Clock } from 'lucide-react';
+import { 
+  Users, 
+  UserPlus, 
+  Award, 
+  BookOpen, 
+  DollarSign, 
+  TrendingUp,
+  Calendar,
+  Clock,
+  CheckSquare,
+  Plane,
+  BarChart3
+} from 'lucide-react';
 
 const HrHeroSection = ({ activeTab, setActiveTab }) => {
-  const navItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: <FileText size={18} /> },
-    { id: 'directory', label: 'Employee Directory', icon: <Users size={18} /> },
-    { id: 'recruitment', label: 'Recruitment', icon: <UserPlus size={18} /> },
-    { id: 'training', label: 'Training & Dev', icon: <BookOpen size={18} /> },
-    { id: 'compensation', label: 'Compensation', icon: <DollarSign size={18} /> },
-    { id: 'performance', label: 'Performance', icon: <Award size={18} /> },
-    { id: 'leave', label: 'Nexus Leave', icon: <Clock size={18} /> }, // Add new leave management tab
-    { id: 'holidays', label: 'Holidays', icon: <Calendar size={18} /> },
-    { id: 'attendance', label: 'Attendance', icon: <ClipboardCheck size={18} /> },
-    { id: 'onboarding', label: 'Onboarding', icon: <User size={18} /> }
+  const tabs = [
+    { id: 'dashboard', label: 'Dashboard', icon: BarChart3, description: 'HR overview and metrics' },
+    { id: 'directory', label: 'Employee Directory', icon: Users, description: 'Manage employee information' },
+    { id: 'recruitment', label: 'Recruitment', icon: UserPlus, description: 'Hiring and onboarding' },
+    { id: 'performance', label: 'Performance', icon: TrendingUp, description: 'Appraisal cycles and reviews' },
+    { id: 'training', label: 'Training & Development', icon: BookOpen, description: 'Learning programs' },
+    { id: 'compensation', label: 'Compensation & Benefits', icon: DollarSign, description: 'Salary and benefits' },
+    { id: 'holidays', label: 'Holidays Calendar', icon: Calendar, description: 'Company holidays' },
+    { id: 'attendance', label: 'Attendance Log', icon: Clock, description: 'Time tracking' },
+    { id: 'onboarding', label: 'Onboarding Checklist', icon: CheckSquare, description: 'New hire process' },
+    { id: 'leave', label: 'Leave Management', icon: Plane, description: 'Leave requests and approvals' }
   ];
 
   return (
-    <div className="relative overflow-hidden rounded-xl shadow-xl mb-6">
-      {/* Background with deep black */}
-      <div className="absolute inset-0 bg-[#1C2526]"></div>
-      
-      {/* Background patterns */}
-      <div className="absolute inset-0 bg-grid-white/5 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))]"></div>
-      
-      {/* Content */}
-      <div className="relative px-6 py-8 md:px-8 md:py-10">
-        <div className="mb-6 text-center">
-          <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">HR Management</h1>
-          <p className="text-white/80 max-w-2xl mx-auto">
-            Manage employee information, recruitment, training, compensation, and more.
-          </p>
-        </div>
+    <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/20 rounded-2xl p-8 mb-8">
+      <div className="text-center mb-8">
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
+          Human Resources Zone
+        </h1>
+        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          Comprehensive HR management platform with advanced performance tracking, employee development, and organizational insights
+        </p>
+      </div>
 
-        {/* Navigation menu - horizontal tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mt-6">
-          {navItems.map(item => (
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        {tabs.map((tab) => {
+          const IconComponent = tab.icon;
+          const isActive = activeTab === tab.id;
+          
+          return (
             <button
-              key={item.id}
-              onClick={() => setActiveTab(item.id)}
-              className={`
-                flex items-center px-4 py-2.5 rounded-lg transition-colors
-                ${activeTab === item.id
-                  ? 'bg-[#6B48FF] text-white font-medium shadow-lg shadow-[#6B48FF]/20'
-                  : 'bg-white/10 hover:bg-[#A78BFA]/20 text-white/80 hover:text-white'}
-              `}
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`group relative p-6 rounded-xl transition-all duration-300 transform hover:scale-105 ${
+                isActive
+                  ? 'bg-white dark:bg-gray-800 shadow-lg ring-2 ring-blue-500 ring-opacity-50'
+                  : 'bg-white/60 dark:bg-gray-800/60 hover:bg-white dark:hover:bg-gray-800 shadow-md hover:shadow-lg'
+              }`}
             >
-              <span className="mr-2">{item.icon}</span>
-              <span>{item.label}</span>
+              <div className="flex flex-col items-center text-center">
+                <div className={`p-3 rounded-lg mb-3 transition-colors ${
+                  isActive
+                    ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
+                    : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/30 group-hover:text-blue-600 dark:group-hover:text-blue-400'
+                }`}>
+                  <IconComponent size={24} />
+                </div>
+                
+                <h3 className={`font-semibold text-sm mb-1 ${
+                  isActive
+                    ? 'text-blue-900 dark:text-blue-100'
+                    : 'text-gray-900 dark:text-white'
+                }`}>
+                  {tab.label}
+                </h3>
+                
+                <p className={`text-xs ${
+                  isActive
+                    ? 'text-blue-600 dark:text-blue-300'
+                    : 'text-gray-500 dark:text-gray-400'
+                }`}>
+                  {tab.description}
+                </p>
+              </div>
+              
+              {isActive && (
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-xl animate-pulse"></div>
+              )}
             </button>
-          ))}
-        </div>
+          );
+        })}
       </div>
     </div>
   );
