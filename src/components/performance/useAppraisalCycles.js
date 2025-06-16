@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { toast } from '../ui/sonner';
+import { toast } from 'sonner';
 
 const useAppraisalCycles = () => {
   const [cycles, setCycles] = useState([
