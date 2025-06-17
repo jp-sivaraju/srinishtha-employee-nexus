@@ -28,9 +28,10 @@ import AppraisalCycles from '../components/performance/AppraisalCycles';
 import GoalManagement from '../components/performance/GoalManagement';
 import SelfAssessment from '../components/performance/SelfAssessment';
 import SupervisorReview from '../components/performance/SupervisorReview';
+import MonthlyPerformanceDashboard from '../components/performance/MonthlyPerformanceDashboard';
 
 const Performance = () => {
-  const [activeTab, setActiveTab] = useState('cycles');
+  const [activeTab, setActiveTab] = useState('monthly-reviews');
 
   return (
     <AppLayout>
@@ -43,12 +44,16 @@ const Performance = () => {
         
         <div className="mb-6 flex flex-wrap items-center justify-between">
           <Tabs 
-            defaultValue="cycles" 
+            defaultValue="monthly-reviews" 
             className="w-full" 
             value={activeTab}
             onValueChange={setActiveTab}
           >
             <TabsList className="mb-6">
+              <TabsTrigger value="monthly-reviews" className="flex items-center gap-2">
+                <FileText size={16} />
+                <span>Monthly Reviews</span>
+              </TabsTrigger>
               <TabsTrigger value="cycles" className="flex items-center gap-2">
                 <Calendar size={16} />
                 <span>Appraisal Cycles</span>
@@ -82,6 +87,10 @@ const Performance = () => {
                 <span>Performance Summary</span>
               </TabsTrigger>
             </TabsList>
+            
+            <TabsContent value="monthly-reviews">
+              <MonthlyPerformanceDashboard />
+            </TabsContent>
             
             <TabsContent value="cycles">
               <AppraisalCycles />
