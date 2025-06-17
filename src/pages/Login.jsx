@@ -1,7 +1,8 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useToast } from '../components/ui/Toast';
+import { useToast } from '../hooks/use-toast';
+
 import { Input } from '../components/ui/input';
 import { Checkbox } from '../components/ui/checkbox';
 import { Button } from '../components/ui/button';
@@ -13,7 +14,7 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
-  const { showToast, ToastContainer } = useToast();
+  const { showToast,} = useToast();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,8 +37,8 @@ const Login = () => {
       };
       
       localStorage.setItem('currentUser', JSON.stringify(userData));
-      showToast('Login successful!', 'success');
-      navigate('/dashboard');
+      // showToast('Login successful!', 'success');
+      navigate('/performance');
       setIsLoading(false);
     }, 1000);
   };
@@ -205,7 +206,7 @@ const Login = () => {
           </p>
         </div>
       </div>
-      <ToastContainer />
+      
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { AppLayout } from '../components/layout/AppLayout';
 import { PageHeader } from '../components/ui/PageHeader';
 import { Card } from '../components/ui/Card';
 import { MapPin, Phone, Mail, Globe, ChevronDown, ChevronUp, Plane, AlertCircle, CheckCircle } from 'lucide-react';
-import { useToast } from '../components/ui/Toast';
+import { useToast } from '@/hooks/use-toast';
 
 const Regional = () => {
   const [expandedOffice, setExpandedOffice] = useState(null);

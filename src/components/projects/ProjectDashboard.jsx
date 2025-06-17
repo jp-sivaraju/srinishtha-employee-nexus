@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 import ProjectStatusChart from './ProjectStatusChart';
 import TeamWorkloadChart from './TeamWorkloadChart';
-import { useToast } from '../ui/Toast';
+import { useToast } from '@/hooks/use-toast';
 
 const ProjectDashboard = () => {
   const { showToast } = useToast();

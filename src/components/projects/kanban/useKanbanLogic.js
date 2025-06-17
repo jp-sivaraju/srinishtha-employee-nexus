@@ -1,6 +1,6 @@
 
 import { useState, useCallback } from 'react';
-import { useToast } from '../../ui/Toast';
+import { useToast } from '@/hooks/use-toast';
 
 const initialColumns = [
   {

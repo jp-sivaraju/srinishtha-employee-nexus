@@ -14,7 +14,8 @@ import {
   Plus,
   Minus
 } from 'lucide-react';
-import { useToast } from '../ui/Toast';
+import { useToast } from '@/hooks/use-toast';
+
 
 const ProjectCreationForm = ({ onClose, onSave, editProject = null }) => {
   const { showToast } = useToast();

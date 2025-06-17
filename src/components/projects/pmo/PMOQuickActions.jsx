@@ -2,7 +2,7 @@
 import React from 'react';
 import { Card } from '../../ui/Card';
 import { Workflow, FolderPlus, Import, Download as ExportIcon, Settings } from 'lucide-react';
-import { useToast } from '../../ui/Toast';
+import { useToast } from '@/hooks/use-toast';
 
 const PMOQuickActions = ({ onCreateProject, onShowImportExport }) => {
   const { showToast } = useToast();

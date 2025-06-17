@@ -6,7 +6,8 @@ import ProjectImportExportWorkflow from './ProjectImportExportWorkflow';
 import PMOWorkflowStats from './pmo/PMOWorkflowStats';
 import PMOQuickActions from './pmo/PMOQuickActions';
 import PMORecentActivities from './pmo/PMORecentActivities';
-import { useToast } from '../ui/Toast';
+import { useToast } from '@/hooks/use-toast';
+
 
 const PMOWorkflowDashboard = () => {
   const { showToast } = useToast();

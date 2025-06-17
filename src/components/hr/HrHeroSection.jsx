@@ -16,15 +16,15 @@ import {
 
 const HrHeroSection = ({ activeTab, setActiveTab }) => {
   const tabs = [
-    { id: 'dashboard', label: 'Dashboard', icon: BarChart3, description: 'HR overview and metrics' },
+    { id: 'Company Policies', label: 'Company Policies', icon: Award, description: 'HR overview and metrics' },
     { id: 'directory', label: 'Employee Directory', icon: Users, description: 'Manage employee information' },
-    { id: 'recruitment', label: 'Recruitment', icon: UserPlus, description: 'Hiring and onboarding' },
-    { id: 'performance', label: 'Performance', icon: TrendingUp, description: 'Appraisal cycles and reviews' },
-    { id: 'training', label: 'Training & Development', icon: BookOpen, description: 'Learning programs' },
+    // { id: 'recruitment', label: 'Recruitment', icon: UserPlus, description: 'Hiring and onboarding' },
+    // { id: 'performance', label: 'Performance', icon: TrendingUp, description: 'Appraisal cycles and reviews' },
+    // { id: 'training', label: 'Training & Development', icon: BookOpen, description: 'Learning programs' },
     { id: 'compensation', label: 'Compensation & Benefits', icon: DollarSign, description: 'Salary and benefits' },
     { id: 'holidays', label: 'Holidays Calendar', icon: Calendar, description: 'Company holidays' },
-    { id: 'attendance', label: 'Attendance Log', icon: Clock, description: 'Time tracking' },
-    { id: 'onboarding', label: 'Onboarding Checklist', icon: CheckSquare, description: 'New hire process' },
+    // { id: 'attendance', label: 'Attendance Log', icon: Clock, description: 'Time tracking' },
+    // { id: 'onboarding', label: 'Onboarding Checklist', icon: CheckSquare, description: 'New hire process' },
     { id: 'leave', label: 'Leave Management', icon: Plane, description: 'Leave requests and approvals' }
   ];
 

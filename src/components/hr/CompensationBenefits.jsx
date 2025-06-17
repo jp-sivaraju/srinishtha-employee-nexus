@@ -4,6 +4,7 @@ import GlassContainer from '../ui/GlassContainer';
 import GradientText from '../ui/GradientText';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
+import jsPDF from 'jspdf';
 
 const salaryData = [
   { name: 'Engineering', value: 120000, fill: '#8884d8' },
@@ -190,3 +191,46 @@ const CompensationBenefits = () => {
 };
 
 export default CompensationBenefits;
+
+
+function PaySlipCard() {
+  const salary = 132000; // Updated salary after 10% hike
+  const handleDownload = () => {
+    const doc = new jsPDF();
+    doc.setFontSize(18);
+    doc.text('Pay Slip', 20, 20);
+    doc.setFontSize(12);
+    doc.text('Position: Software Engineer', 20, 40);
+    doc.text('Salary: $132,000 annually', 20, 50);
+    doc.text('Benefits:', 20, 60);
+    doc.text('- Health & Wellness: Premium Plan + Dental & Vision', 25, 70);
+    doc.text('- Retirement: 401(k) with 6% company match', 25, 80);
+    doc.text('- Paid Time Off: 25 days + 12 holidays', 25, 90);
+    doc.text('- Learning & Development: $5,000 annual education allowance', 25, 100);
+    doc.text('Work Arrangement: Hybrid (3 days in-office)', 20, 110);
+    doc.save('PaySlip.pdf');
+  };
+
+  return (
+    <div className="bg-purple-900/20 rounded-lg p-6 shadow-lg max-w-md mx-auto mt-8">
+      <h3 className="text-xl font-bold text-purple-300 mb-2">Pay Slip</h3>
+      <div className="text-white mb-4">
+        <div className="flex justify-between"><span>Position:</span><span>Software Engineer</span></div>
+        <div className="flex justify-between"><span>Salary:</span><span>$132,000</span></div>
+        <div className="flex justify-between"><span>Benefits:</span><span>See below</span></div>
+      </div>
+      <ul className="text-purple-200 text-sm mb-4 list-disc list-inside">
+        <li>Health & Wellness: Premium Plan + Dental & Vision</li>
+        <li>Retirement: 401(k) with 6% company match</li>
+        <li>Paid Time Off: 25 days + 12 holidays</li>
+        <li>Learning & Development: $5,000 annual education allowance</li>
+        <li>Work Arrangement: Hybrid (3 days in-office)</li>
+      </ul>
+      <div className="flex gap-4">
+        <button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded" onClick={() => alert('Viewing pay slip...')}>View</button>
+        <button className="bg-purple-400 hover:bg-purple-500 text-white px-4 py-2 rounded" onClick={handleDownload}>Download PDF</button>
+      </div>
+    </div>
+  );
+}
+<PaySlipCard />

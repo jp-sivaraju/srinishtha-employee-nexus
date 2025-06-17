@@ -4,7 +4,7 @@ import { AppLayout } from '../components/layout/AppLayout';
 import { PageHeader } from '../components/ui/PageHeader';
 import { Card } from '../components/ui/Card';
 import { Search, Book, FileText, Upload, Tag, Info, CheckCircle, AlertTriangle } from 'lucide-react';
-import { useToast } from '../components/ui/Toast';
+import { useToast } from '@/hooks/use-toast';
 
 const KnowledgeBase = () => {
   const [searchTerm, setSearchTerm] = useState('');

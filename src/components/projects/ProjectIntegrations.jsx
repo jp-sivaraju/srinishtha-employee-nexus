@@ -14,7 +14,8 @@ import {
   Webhook,
   Database
 } from 'lucide-react';
-import { useToast } from '../ui/Toast';
+import { useToast } from '@/hooks/use-toast';
+
 
 const ProjectIntegrations = () => {
   const { showToast } = useToast();

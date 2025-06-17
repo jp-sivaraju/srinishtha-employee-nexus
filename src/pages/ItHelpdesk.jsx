@@ -4,7 +4,7 @@ import { AppLayout } from '../components/layout/AppLayout';
 import { PageHeader } from '../components/ui/PageHeader';
 import { Card } from '../components/ui/Card';
 import { Laptop, HelpCircle, Package, Search } from 'lucide-react';
-import { useToast } from '../components/ui/Toast';
+import { useToast } from '../hooks/use-toast';
 
 const ItHelpdesk = () => {
   const [ticketForm, setTicketForm] = useState({

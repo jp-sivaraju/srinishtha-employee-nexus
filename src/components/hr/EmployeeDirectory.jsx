@@ -12,22 +12,26 @@ import { Input } from '../ui/input';
 import { Search, Filter, UserPlus, ArrowUpDown } from 'lucide-react';
 import ModernButton from '../ui/ModernButton';
 import { Progress } from '../ui/progress';
+import AddEmployee from '../../pages/AddEmployee'; // Import the AddEmployee component
 
 const mockEmployees = [
-  { id: 1, name: 'Emily Johnson', position: 'Software Engineer', department: 'Engineering', location: 'New York', status: 'Active', progress: 95 },
-  { id: 2, name: 'Michael Chen', position: 'Product Manager', department: 'Product', location: 'San Francisco', status: 'Active', progress: 88 },
-  { id: 3, name: 'Sarah Williams', position: 'HR Specialist', department: 'Human Resources', location: 'London', status: 'Active', progress: 92 },
-  { id: 4, name: 'David Rodriguez', position: 'Marketing Director', department: 'Marketing', location: 'Singapore', status: 'On Leave', progress: 45 },
-  { id: 5, name: 'Aisha Kumar', position: 'Frontend Developer', department: 'Engineering', location: 'Bangalore', status: 'Active', progress: 78 },
-  { id: 6, name: 'James Wilson', position: 'Financial Analyst', department: 'Finance', location: 'Sydney', status: 'Active', progress: 85 },
-  { id: 7, name: 'Priya Sharma', position: 'UX Designer', department: 'Design', location: 'Dubai', status: 'Active', progress: 90 },
-  { id: 8, name: 'Robert Kim', position: 'Sales Manager', department: 'Sales', location: 'Toronto', status: 'On Leave', progress: 32 },
+  { id: 1, name: 'Ravikanth', position: 'Software Engineer', department: 'Testing and marketing', location: 'Hyderabad', status: 'Active', progress: 95 },
+  { id: 2, name: 'JP', position: 'CEO', department: 'Chief executive officer', location: 'Hyderabad', status: 'Active', progress: 88 },
+  { id: 3, name: 'Sathish', position: 'CTO', department: 'Chief technology officer', location: 'Hyderabad', status: 'Active', progress: 92 },
+  { id: 4, name: 'Bharathi', position: 'Full satck developer', department: 'Engineering', location: 'Bangalore', status: 'On Leave', progress: 85 },
+  { id: 5, name: 'yamini', position: 'Full stack Developer', department: 'Engineering', location: 'Bangalore', status: 'Active', progress: 78 },
+  { id: 6, name: 'Nahida', position: 'Full stack developer', department: 'Engineer', location: 'Sydney', status: 'Active', progress: 85 },
+  { id: 7, name: 'Madhuri', position: 'Full stack developer', department: 'Engineering', location: 'Dubai', status: 'Active', progress: 90 },
+  { id: 8, name: 'sirisha', position: 'Full stack developer', department: 'Engineering', location: 'USA', status: 'Active', progress: 85 },
+
+
 ];
 
 const EmployeeDirectory = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredEmployees, setFilteredEmployees] = useState(mockEmployees);
   const [sortConfig, setSortConfig] = useState({ key: null, direction: 'ascending' });
+  const [showAddEmployeeModal, setShowAddEmployeeModal] = useState(false); // State to control modal visibility
 
   const handleSearch = (e) => {
     const term = e.target.value;
@@ -75,6 +79,12 @@ const EmployeeDirectory = () => {
       <ArrowUpDown size={14} className="ml-1 transform rotate-180" />;
   };
 
+  const handleAddEmployeeSuccess = () => {
+    // Potentially refresh employee list or show a success message
+    console.log("Employee added successfully!");
+    setShowAddEmployeeModal(false); // Close the modal on success
+  };
+
   return (
     <div>
       <div className="flex justify-between items-center mb-6">
@@ -85,7 +95,12 @@ const EmployeeDirectory = () => {
           <ModernButton variant="outline" iconLeft={<Filter size={16} />}>
             Filter
           </ModernButton>
-          <ModernButton variant="primary" iconLeft={<UserPlus size={16} />} withGlow>
+          <ModernButton 
+            variant="primary" 
+            iconLeft={<UserPlus size={16} />} 
+            withGlow
+            onClick={() => setShowAddEmployeeModal(true)} // Open modal on click
+          >
             Add Employee
           </ModernButton>
         </div>
@@ -171,6 +186,17 @@ const EmployeeDirectory = () => {
           </TableBody>
         </Table>
       </div>
+
+      {showAddEmployeeModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white dark:bg-dark-card p-6 rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <AddEmployee 
+              onClose={() => setShowAddEmployeeModal(false)} 
+              onSubmitSuccess={handleAddEmployeeSuccess} 
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

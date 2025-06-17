@@ -1,7 +1,8 @@
 
 import React, { useState } from 'react';
 import { BarChart2, Filter, Download, Workflow } from 'lucide-react';
-import { useToast } from '../ui/Toast';
+import { useToast } from '@/hooks/use-toast';
+
 import PMOWorkflowDashboard from './PMOWorkflowDashboard';
 import PMOKPICards from './pmo/PMOKPICards';
 import PMOCharts from './pmo/PMOCharts';

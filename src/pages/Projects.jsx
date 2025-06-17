@@ -9,11 +9,11 @@ import TimesheetModule from '../components/projects/TimesheetModule';
 import PMODashboard from '../components/projects/PMODashboard';
 import ProjectIntegrations from '../components/projects/ProjectIntegrations';
 import ImportExportModule from '../components/projects/ImportExportModule';
-import { useToast } from '../components/ui/Toast';
+import { useToast } from '@/hooks/use-toast';
 
 const Projects = () => {
   const [activeTab, setActiveTab] = useState('projects');
-  const { ToastContainer } = useToast();
+  const { showToast, ToastContainer } = useToast();
 
   const tabs = [
     { id: 'projects', label: 'Projects', component: ProjectDashboard },

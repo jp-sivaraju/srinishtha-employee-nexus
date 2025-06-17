@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import { Card } from '../ui/Card';
 import { FileText, Download, Plus, Search } from 'lucide-react';
-import { useToast } from '../ui/Toast';
+import { useToast } from '@/hooks/use-toast';
+
 
 const ProjectDeliverables = () => {
   const { showToast } = useToast();

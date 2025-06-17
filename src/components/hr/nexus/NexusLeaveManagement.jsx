@@ -15,9 +15,9 @@ const NexusLeaveManagement = () => {
   const tabs = [
     { id: 'request', label: 'Request Leave', icon: <CalendarCheck className="h-5 w-5" /> },
     { id: 'history', label: 'Leave History', icon: <Clock className="h-5 w-5" /> },
-    { id: 'team', label: 'Team Calendar', icon: <Users className="h-5 w-5" /> },
-    { id: 'approvals', label: 'Approvals', icon: <FileText className="h-5 w-5" /> },
-    { id: 'reports', label: 'Reports', icon: <BarChart2 className="h-5 w-5" /> },
+    // { id: 'team', label: 'Team Calendar', icon: <Users className="h-5 w-5" /> },
+    // { id: 'approvals', label: 'Approvals', icon: <FileText className="h-5 w-5" /> },
+    // { id: 'reports', label: 'Reports', icon: <BarChart2 className="h-5 w-5" /> },
   ];
   
   const renderTabContent = () => {
