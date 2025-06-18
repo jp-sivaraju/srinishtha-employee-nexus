@@ -91,7 +91,7 @@ const EmployeeDirectory = () => {
         <h2 className="text-2xl font-semibold text-[#1C2526] dark:text-white">
           Employee Directory
         </h2>
-        <div className="flex gap-2">
+        {/* <div className="flex gap-2">
           <ModernButton variant="outline" iconLeft={<Filter size={16} />}>
             Filter
           </ModernButton>
@@ -103,7 +103,7 @@ const EmployeeDirectory = () => {
           >
             Add Employee
           </ModernButton>
-        </div>
+        </div> */}
       </div>
       
       <div className="mb-4 relative">

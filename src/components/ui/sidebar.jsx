@@ -1,9 +1,8 @@
-
-import { TooltipProvider } from "@/components/ui/tooltip"
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 // Import all sidebar components
-export { SidebarProvider, useSidebar } from "./sidebar/SidebarContext"
-export { Sidebar, SidebarContent, SidebarHeader, SidebarFooter, SidebarInset } from "./sidebar/SidebarCore"
+export { SidebarProvider, useSidebar } from "./sidebar";
+export { Sidebar, SidebarContent, SidebarHeader, SidebarFooter, SidebarInset } from "./sidebar/SidebarCore";
 export {
   SidebarMenu,
   SidebarMenuItem,
@@ -14,25 +13,27 @@ export {
   SidebarMenuSub,
   SidebarMenuSubItem,
   SidebarMenuSubButton,
-} from "./sidebar/SidebarMenu"
+} from "./sidebar/SidebarMenu";
 export {
   SidebarTrigger,
   SidebarRail,
   SidebarInput,
   SidebarSeparator,
-} from "./sidebar/SidebarUtils"
+} from "./sidebar/SidebarUtils";
 export {
   SidebarGroup,
   SidebarGroupLabel,
   SidebarGroupAction,
   SidebarGroupContent,
-} from "./sidebar/SidebarGroup"
+} from "./sidebar/SidebarGroup";
+export { SidebarProviderWithTooltip } from ".src/componants/ui/SidebarProviderWithTooltip";
+export { SidebarTooltip } from "./SidebarTooltip";
 
 // Wrap the provider with TooltipProvider for convenience
 export const SidebarProviderWithTooltip = ({ children, ...props }) => (
   <TooltipProvider delayDuration={0}>
-    <SidebarProvider {...props}>
+    <SidebarProviderWithTooltipidebarProvider {...props}>
       {children}
-    </SidebarProvider>
+    </SidebarProviderWithTooltipidebarProvider>
   </TooltipProvider>
 )

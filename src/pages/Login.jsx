@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useToast } from '../hooks/use-toast';
 
+
 import { Input } from '../components/ui/input';
 import { Checkbox } from '../components/ui/checkbox';
 import { Button } from '../components/ui/button';
@@ -38,7 +39,7 @@ const Login = () => {
       
       localStorage.setItem('currentUser', JSON.stringify(userData));
       // showToast('Login successful!', 'success');
-      navigate('/performance');
+      navigate('/dashboard');
       setIsLoading(false);
     }, 1000);
   };

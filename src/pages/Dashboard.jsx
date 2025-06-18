@@ -1,4 +1,6 @@
-import React from 'react';
+import React from 'react'
+
+
 
 // Placeholder for user data - you might fetch this from context or an API
 const userData = {
@@ -56,10 +58,13 @@ const AnnouncementsSection = ({ items }) => (
 
  function Dashboard() {
   return (
+    
     <div className="min-h-screen bg-gray-100 p-6">
       <WelcomeSection user={userData} />
       <AnnouncementsSection items={announcements} />
     </div>
-  );
+  
+  
+);  
 }
 export default Dashboard;
