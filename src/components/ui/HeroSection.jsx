@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import GradientText from './GradientText';
 import ModernButton from './ModernButton';
 import GlassContainer from './GlassContainer';
-import { ChevronRight, Sparkle } from 'lucide-react';
+import { ChevronRight, Sparkle } from 'lucide-react'
+import { Sidebar } from 'lucide-react';
 
 export const HeroSection = () => {
   return (

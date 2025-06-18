@@ -17,6 +17,8 @@ import Pmo from "./pages/Pmo";
 import NotFound from "./pages/NotFound";
 import Index from "./pages/Index";
 
+
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -38,6 +40,7 @@ const App = () => (
           <Route path="/finance" element={<Finance />} />
           <Route path="/regional" element={<Regional />} />
           <Route path="*" element={<NotFound />} />
+          
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

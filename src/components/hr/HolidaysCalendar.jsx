@@ -7,11 +7,15 @@ const HolidaysCalendar = () => {
   const holidays = [
     { date: 'January 1, 2025', name: 'New Year\'s Day', type: 'Public Holiday' },
     { date: 'January 26, 2025', name: 'Republic Day', type: 'Public Holiday' },
-    { date: 'March 25, 2025', name: 'Holi', type: 'Public Holiday' },
-    { date: 'April 14, 2025', name: 'Dr. Ambedkar Jayanti', type: 'Public Holiday' },
-    { date: 'May 1, 2025', name: 'Labor Day', type: 'Public Holiday' },
+    { date: 'April 18, 2025', name: 'Good Friday', type: 'Public Holiday' },
+    
+    { date: 'May 1, 2025', name: 'May Day', type: 'Public Holiday' },
     { date: 'August 15, 2025', name: 'Independence Day', type: 'Public Holiday' },
+    { date: 'August 27, 2025', name: 'Ganesh Chaturthi', type: 'Public Holiday' },
+    { date: 'September 5, 2025',name: 'Eid Milad', type: 'Public Holiday' },
+    { date: 'October 1, 2025', name: 'Vijayadashami', type: 'Public Holiday' },
     { date: 'October 2, 2025', name: 'Gandhi Jayanti', type: 'Public Holiday' },
+    { date: 'October 22, 2025', name: 'Diwali', type: 'Public Holiday' },
     { date: 'December 25, 2025', name: 'Christmas', type: 'Public Holiday' },
   ];
 

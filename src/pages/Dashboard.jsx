@@ -1,7 +1,4 @@
 import React from 'react'
-
-
-
 // Placeholder for user data - you might fetch this from context or an API
 const userData = {
   name: 'Welcome to Srinishtha',
@@ -63,6 +60,7 @@ const AnnouncementsSection = ({ items }) => (
       <WelcomeSection user={userData} />
       <AnnouncementsSection items={announcements} />
     </div>
+
   
   
 );  
