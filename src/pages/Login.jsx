@@ -39,7 +39,7 @@ const Login = () => {
       
       localStorage.setItem('currentUser', JSON.stringify(userData));
       // showToast('Login successful!', 'success');
-      navigate('/dashboard');
+      navigate('/hr-zone');
       setIsLoading(false);
     }, 1000);
   };
