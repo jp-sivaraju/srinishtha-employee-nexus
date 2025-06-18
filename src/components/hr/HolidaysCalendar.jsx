@@ -25,8 +25,8 @@ const HolidaysCalendar = () => {
         Holiday Calendar 2025
       </GradientText>
       <div className="overflow-x-auto">
-        <table className="min-w-full divide-y divide-primary-700">
-          <thead className="bg-primary-900/50">
+        <table className="min-w-full divide-y divide-primary-800">
+          <thead className="bg-primary-500/50">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-primary-300 uppercase tracking-wider">
                 Date
