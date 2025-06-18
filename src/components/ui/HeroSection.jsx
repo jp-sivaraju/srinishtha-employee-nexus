@@ -44,7 +44,7 @@ export const HeroSection = () => {
       <div className="container mx-auto px-4 py-20 md:py-28 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="flex flex-col justify-center">
-            <div className="bg-white/10 backdrop-blur-md inline-block px-4 py-1 rounded-full text-white font-medium mb-6 border border-white/20 animate-fade-in flex items-center gap-2">
+            <div className="bg-white/10 backdrop-blur-md px-4 py-1 rounded-full text-white font-medium mb-6 border border-white/20 animate-fade-in flex items-center gap-2">
               <Sparkle size={16} className="text-accent-yellow animate-pulse" />
               <span>Welcome to Srinishtha Hub</span>
             </div>
