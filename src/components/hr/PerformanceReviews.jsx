@@ -2,7 +2,7 @@
 import React from 'react';
 import GlassContainer from '../ui/GlassContainer';
 import GradientText from '../ui/GradientText';
-import ModernButton from '../ui/ModernButton';
+import Modernbutton from '../ui/Modernbutton';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '../ui/collapsible';
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '../ui/table';
 import { ChevronDown, Star, Calendar } from 'lucide-react';
@@ -97,12 +97,12 @@ const PerformanceReviews = () => {
           Performance Reviews
         </GradientText>
         <div className="flex gap-2">
-          <ModernButton variant="outline" iconLeft={<Calendar size={16} />}>
+          <Modernbutton variant="outline" iconLeft={<Calendar size={16} />}>
             View Calendar
-          </ModernButton>
-          <ModernButton variant="glow" withGlow>
+          </Modernbutton>
+          <Modernbutton variant="glow" withGlow>
             Request Feedback
-          </ModernButton>
+          </Modernbutton>
         </div>
       </div>
       
@@ -179,20 +179,20 @@ const PerformanceReviews = () => {
                     </div>
                     
                     <div className="mt-6 flex justify-end">
-                      <ModernButton variant="outline" size="small" className="mr-2">
+                      <Modernbutton variant="outline" size="small" className="mr-2">
                         Download PDF
-                      </ModernButton>
-                      <ModernButton variant="glow" size="small" withGlow>
+                      </Modernbutton>
+                      <Modernbutton variant="glow" size="small" withGlow>
                         Discuss with Manager
-                      </ModernButton>
+                      </Modernbutton>
                     </div>
                   </div>
                 ) : (
                   <div className="p-4 bg-primary-950/30 border-t border-primary-700/30 text-center">
                     <p className="text-primary-300">This review is scheduled but not yet completed.</p>
-                    <ModernButton variant="outline" size="small" className="mt-3">
+                    <Modernbutton variant="outline" size="small" className="mt-3">
                       Add Self-Assessment
-                    </ModernButton>
+                    </Modernbutton>
                   </div>
                 )}
               </CollapsibleContent>

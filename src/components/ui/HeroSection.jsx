@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import GradientText from './GradientText';
-import ModernButton from './ModernButton';
+import Modernbutton from './Modernbutton';
 import GlassContainer from './GlassContainer';
 import { ChevronRight, Sparkle } from 'lucide-react'
 import { Sidebar } from 'lucide-react';
@@ -62,7 +62,7 @@ export const HeroSection = () => {
             
             <div className="flex flex-wrap gap-4">
               <Link to="/login">
-                <ModernButton 
+                <Modernbutton 
                   size="large" 
                   variant="glow" 
                   className="text-white font-bold"
@@ -71,11 +71,11 @@ export const HeroSection = () => {
                   iconRight={<ChevronRight />}
                 >
                   Sign In
-                </ModernButton>
+                </Modernbutton>
               </Link>
               
               <Link to="/dashboard">
-                <ModernButton 
+                <Modernbutton 
                   size="large" 
                   variant="outline" 
                   className="text-white border-white/40 hover:bg-white/10"
@@ -83,7 +83,7 @@ export const HeroSection = () => {
                   withShine
                 >
                   Explore Features
-                </ModernButton>
+                </Modernbutton>
               </Link>
             </div>
           </div>

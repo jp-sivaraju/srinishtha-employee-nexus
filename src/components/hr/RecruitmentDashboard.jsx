@@ -2,7 +2,7 @@
 import React from 'react';
 import GlassContainer from '../ui/GlassContainer';
 import GradientText from '../ui/GradientText';
-import ModernButton from '../ui/ModernButton';
+import Modernbutton from '../ui/Modernbutton';
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '../ui/table';
 import { Plus, FileText, UserCheck, Calendar } from 'lucide-react';
 import { Progress } from '../ui/progress';
@@ -21,9 +21,9 @@ const RecruitmentDashboard = () => {
         <GradientText as="h2" className="text-2xl font-semibold" gradient="night-owl">
           Recruitment Dashboard
         </GradientText>
-        <ModernButton variant="glow" iconLeft={<Plus size={16} />} withGlow>
+        <Modernbutton variant="glow" iconLeft={<Plus size={16} />} withGlow>
           Post New Job
-        </ModernButton>
+        </Modernbutton>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">

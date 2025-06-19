@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Card } from '../ui/Card';
-import { Button } from '../ui/button';
+import  button  from '../ui/button';
 import { 
   Star, 
   MessageSquare, 
@@ -156,19 +156,19 @@ const SupervisorReview = () => {
             </p>
           </div>
           <div className="flex space-x-3">
-            <Button 
+            <button 
               variant="outline"
               onClick={scheduleDiscussion}
             >
               <Calendar size={16} className="mr-2" />
               Schedule Discussion
-            </Button>
-            <Button 
+            </button>
+            <button 
               variant="outline" 
               onClick={() => setActiveReview(null)}
             >
               Back to List
-            </Button>
+            </button>
           </div>
         </div>
 
@@ -316,13 +316,13 @@ const SupervisorReview = () => {
         </Card>
 
         <div className="flex justify-end space-x-3">
-          <Button variant="outline">
+          <button variant="outline">
             Save Draft
-          </Button>
-          <Button onClick={submitReview}>
+          </button>
+          <button onClick={submitReview}>
             <Send size={16} className="mr-2" />
             Complete Review
-          </Button>
+          </button>
         </div>
       </div>
     );
@@ -408,19 +408,19 @@ const SupervisorReview = () => {
               </div>
               
               <div className="flex space-x-2">
-                <Button 
+                <button 
                   size="sm" 
                   className="flex-1"
                   onClick={() => startReview(review)}
                 >
                   <UserCheck size={14} className="mr-1" />
                   {review.status === 'Pending Review' ? 'Start Review' : 'Continue'}
-                </Button>
+                </button>
                 
-                <Button variant="outline" size="sm">
+                <button variant="outline" size="sm">
                   <Eye size={14} className="mr-1" />
                   Preview
-                </Button>
+                </button>
               </div>
             </div>
           </Card>

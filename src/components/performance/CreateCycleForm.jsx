@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card } from '../ui/Card';
-import { Button } from '../ui/button';
+import  button  from '../ui/button';
 
 const CreateCycleForm = ({ 
   newCycle, 
@@ -149,12 +149,12 @@ const CreateCycleForm = ({
       </div>
       
       <div className="flex justify-end space-x-3 mt-6">
-        <Button variant="outline" onClick={onCancel}>
+        <button variant="outline" onClick={onCancel}>
           Cancel
-        </Button>
-        <Button onClick={onSubmit}>
+        </button>
+        <button onClick={onSubmit}>
           Create Cycle
-        </Button>
+        </button>
       </div>
     </Card>
   );

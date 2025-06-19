@@ -4,7 +4,7 @@ import { AppLayout } from '../components/layout/AppLayout';
 import { PageHeader } from '../components/ui/PageHeader';
 import { Card } from '../components/ui/Card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Button } from '../components/ui/button';
+import  button  from '../components/ui/button';
 import { 
   BarChart2, 
   CheckCircle, 

@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Card } from '../ui/Card';
-import { Button } from '../ui/button';
+import  button  from '../ui/button';
 import { 
   Target, 
   Plus, 
@@ -175,13 +175,13 @@ const GoalManagement = () => {
             Set, track, and manage your performance goals throughout the appraisal cycle
           </p>
         </div>
-        <Button 
+        <button 
           onClick={() => setShowCreateForm(true)}
           className="flex items-center gap-2"
         >
           <Plus size={16} />
           Add New Goal
-        </Button>
+        </button>
       </div>
 
       {showCreateForm && (
@@ -260,15 +260,15 @@ const GoalManagement = () => {
           </div>
           
           <div className="flex justify-end space-x-3 mt-6">
-            <Button 
+            <button 
               variant="outline" 
               onClick={() => setShowCreateForm(false)}
             >
               Cancel
-            </Button>
-            <Button onClick={handleCreateGoal}>
+            </button>
+            <button onClick={handleCreateGoal}>
               Create Goal
-            </Button>
+            </button>
           </div>
         </Card>
       )}
@@ -365,24 +365,24 @@ const GoalManagement = () => {
                 </span>
                 
                 <div className="flex space-x-2">
-                  <Button variant="outline" size="sm">
+                  <button variant="outline" size="sm">
                     <Edit size={14} className="mr-1" />
                     Edit
-                  </Button>
+                  </button>
                   
-                  <Button 
+                  <button 
                     variant="outline" 
                     size="sm"
                     onClick={() => requestSupervisorReview(goal.id)}
                   >
                     <UserCheck size={14} className="mr-1" />
                     Request Review
-                  </Button>
+                  </button>
                   
-                  <Button variant="outline" size="sm">
+                  <button variant="outline" size="sm">
                     <MessageSquare size={14} className="mr-1" />
                     Comment
-                  </Button>
+                  </button>
                 </div>
               </div>
             </div>

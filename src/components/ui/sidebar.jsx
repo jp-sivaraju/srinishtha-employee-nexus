@@ -6,13 +6,13 @@ export { Sidebar, SidebarContent, SidebarHeader, SidebarFooter, SidebarInset } f
 export {
   SidebarMenu,
   SidebarMenuItem,
-  SidebarMenuButton,
+  SidebarMenubutton,
   SidebarMenuAction,
   SidebarMenuBadge,
   SidebarMenuSkeleton,
   SidebarMenuSub,
   SidebarMenuSubItem,
-  SidebarMenuSubButton,
+  SidebarMenuSubbutton,
 } from "./sidebar/SidebarMenu";
 export {
   SidebarTrigger,

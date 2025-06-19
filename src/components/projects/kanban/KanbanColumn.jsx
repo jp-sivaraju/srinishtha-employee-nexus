@@ -51,7 +51,7 @@ const KanbanColumn = ({
             />
           ))}
 
-          {/* Add Task Button */}
+          {/* Add Task button */}
           <button
             onClick={() => onCreateTask(column.id)}
             className={`w-full p-3 border-2 border-dashed rounded-lg text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-400 dark:hover:border-gray-500 transition-colors flex items-center justify-center gap-2 ${

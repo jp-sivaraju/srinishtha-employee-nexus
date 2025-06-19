@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
+import  button  from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import StatusBadge from './StatusBadge';
 import RatingSelector from './RatingSelector';
@@ -86,21 +86,21 @@ const EmployeePerformanceTable = ({
                 </TableCell>
                 <TableCell>
                   <div className="flex items-center gap-2">
-                    <Button
+                    <button
                       variant="ghost"
                       size="sm"
                       onClick={() => onViewReview(review)}
                     >
                       <Eye size={16} />
-                    </Button>
+                    </button>
                     {canEdit(review) && (
-                      <Button
+                      <button
                         variant="ghost"
                         size="sm"
                         onClick={() => onEditReview(review)}
                       >
                         <Edit size={16} />
-                      </Button>
+                      </button>
                     )}
                   </div>
                 </TableCell>

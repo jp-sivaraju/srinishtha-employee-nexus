@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { useToast } from '../hooks/use-toast';
 
 
-import { Input } from '../components/ui/input';
-import { Checkbox } from '../components/ui/checkbox';
-import { Button } from '../components/ui/button';
+import  input  from '../components/ui/input';
+import  checkbox  from '../components/ui/checkbox';
+import  button  from '../components/ui/button';
 import { Sparkle, Leaf } from 'lucide-react';
 
 const Login = () => {
@@ -126,7 +126,7 @@ const Login = () => {
                 <label htmlFor="email" className="block text-sm font-medium text-violet-100 mb-1">
                   Email address
                 </label>
-                <Input
+                <input
                   id="email"
                   type="email"
                   value={email}
@@ -140,7 +140,7 @@ const Login = () => {
                 <label htmlFor="password" className="block text-sm font-medium text-violet-100 mb-1">
                   Password
                 </label>
-                <Input
+                <input
                   id="password"
                   type="password"
                   value={password}
@@ -151,7 +151,7 @@ const Login = () => {
               
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
-                  <Checkbox
+                  <checkbox
                     id="remember-me"
                     checked={rememberMe}
                     onCheckedChange={setRememberMe}
@@ -168,13 +168,13 @@ const Login = () => {
               </div>
               
               <div>
-                <Button
+                <button
                   type="submit"
                   disabled={isLoading}
                   className="w-full py-2 px-4 bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-all duration-300 shadow-lg hover:shadow-purple-500/30 border-0"
                 >
                   {isLoading ? 'Signing in...' : 'Sign in'}
-                </Button>
+                </button>
               </div>
             </form>
             

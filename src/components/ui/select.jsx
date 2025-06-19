@@ -28,8 +28,8 @@ const SelectTrigger = React.forwardRef(({ className, children, ...props }, ref) 
 ))
 SelectTrigger.displayName = SelectPrimitive.Trigger.displayName
 
-const SelectScrollUpButton = React.forwardRef(({ className, ...props }, ref) => (
-  <SelectPrimitive.ScrollUpButton
+const SelectScrollUpbutton = React.forwardRef(({ className, ...props }, ref) => (
+  <SelectPrimitive.ScrollUpbutton
     ref={ref}
     className={cn(
       "flex cursor-default items-center justify-center py-1",
@@ -38,12 +38,12 @@ const SelectScrollUpButton = React.forwardRef(({ className, ...props }, ref) => 
     {...props}
   >
     <ChevronUp className="h-4 w-4" />
-  </SelectPrimitive.ScrollUpButton>
+  </SelectPrimitive.ScrollUpbutton>
 ))
-SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName
+SelectScrollUpbutton.displayName = SelectPrimitive
 
-const SelectScrollDownButton = React.forwardRef(({ className, ...props }, ref) => (
-  <SelectPrimitive.ScrollDownButton
+const SelectScrollDownbutton = React.forwardRef(({ className, ...props }, ref) => (
+  <SelectPrimitive.ScrollDownbutton
     ref={ref}
     className={cn(
       "flex cursor-default items-center justify-center py-1",
@@ -52,9 +52,9 @@ const SelectScrollDownButton = React.forwardRef(({ className, ...props }, ref) =
     {...props}
   >
     <ChevronDown className="h-4 w-4" />
-  </SelectPrimitive.ScrollDownButton>
+  </SelectPrimitive.ScrollDownbutton>
 ))
-SelectScrollDownButton.displayName = SelectPrimitive.ScrollDownButton.displayName
+SelectScrollDownbutton.displayName = SelectPrimitive
 
 const SelectContent = React.forwardRef(({ className, children, position = "popper", ...props }, ref) => (
   <SelectPrimitive.Portal>
@@ -69,7 +69,7 @@ const SelectContent = React.forwardRef(({ className, children, position = "poppe
       position={position}
       {...props}
     >
-      <SelectScrollUpButton />
+      <SelectScrollUpbutton />
       <SelectPrimitive.Viewport
         className={cn(
           "p-1",
@@ -79,7 +79,7 @@ const SelectContent = React.forwardRef(({ className, children, position = "poppe
       >
         {children}
       </SelectPrimitive.Viewport>
-      <SelectScrollDownButton />
+      <SelectScrollDownbutton />
     </SelectPrimitive.Content>
   </SelectPrimitive.Portal>
 ))
@@ -132,6 +132,6 @@ export {
   SelectLabel,
   SelectItem,
   SelectSeparator,
-  SelectScrollUpButton,
-  SelectScrollDownButton,
+  SelectScrollUpbutton,
+  SelectScrollDownbutton,
 }

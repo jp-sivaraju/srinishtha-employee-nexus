@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
+import Dialog  from '@/components/ui/dialog';
+import  button from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
+import label  from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import RatingSelector from './RatingSelector';
 import StatusBadge from './StatusBadge';
@@ -215,30 +215,30 @@ const MonthlyReviewModal = ({
             </div>
           </div>
 
-          {/* Action Buttons */}
+          {/* Action buttons */}
           <div className="flex justify-end gap-3">
-            <Button variant="outline" onClick={onClose}>
+            <button variant="outline" onClick={onClose}>
               Close
-            </Button>
+            </button>
             
             {canEditSelf && (
               <>
-                <Button variant="outline" onClick={handleSave}>
+                <button variant="outline" onClick={handleSave}>
                   <Save size={16} className="mr-2" />
                   Save Draft
-                </Button>
-                <Button onClick={handleSubmit}>
+                </button>
+                <button onClick={handleSubmit}>
                   <Send size={16} className="mr-2" />
                   Submit for Review
-                </Button>
+                </button>
               </>
             )}
             
             {canEditManager && (
-              <Button onClick={handleApprove}>
+              <button onClick={handleApprove}>
                 <CheckCircle size={16} className="mr-2" />
                 Approve Review
-              </Button>
+              </button>
             )}
           </div>
         </div>

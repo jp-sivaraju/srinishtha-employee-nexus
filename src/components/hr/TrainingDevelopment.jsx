@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import GlassContainer from '../ui/GlassContainer';
 import GradientText from '../ui/GradientText';
-import ModernButton from '../ui/ModernButton';
+import Modernbutton from '../ui/Modernbutton';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
 import { Calendar, CheckCircle, Clock, Award, BookOpen } from 'lucide-react';
 
@@ -84,7 +84,7 @@ const TrainingDevelopment = () => {
         <GradientText as="h2" className="text-2xl font-semibold" gradient="night-owl">
           Training & Development
         </GradientText>
-        <ModernButton variant="glow" withGlow>My Learning Dashboard</ModernButton>
+        <Modernbutton variant="glow" withGlow>My Learning Dashboard</Modernbutton>
       </div>
       
       <Tabs defaultValue="all" className="mb-6">
@@ -128,8 +128,8 @@ const TrainingDevelopment = () => {
               </div>
               
               <div className="mt-4 flex justify-between">
-                <ModernButton size="small" variant="outline">View Details</ModernButton>
-                <ModernButton size="small" variant="neon" withGlow>Enroll</ModernButton>
+                <Modernbutton size="small" variant="outline">View Details</Modernbutton>
+                <Modernbutton size="small" variant="neon" withGlow>Enroll</Modernbutton>
               </div>
             </div>
           </div>

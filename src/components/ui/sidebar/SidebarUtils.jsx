@@ -2,7 +2,7 @@
 import * as React from "react"
 import { PanelLeft } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import { useSidebar } from "./SidebarContext"
@@ -11,7 +11,7 @@ const SidebarTrigger = React.forwardRef(({ className, onClick, ...props }, ref) 
   const { toggleSidebar } = useSidebar()
 
   return (
-    <Button
+    <button
       ref={ref}
       data-sidebar="trigger"
       variant="ghost"
@@ -25,7 +25,7 @@ const SidebarTrigger = React.forwardRef(({ className, onClick, ...props }, ref) 
     >
       <PanelLeft />
       <span className="sr-only">Toggle Sidebar</span>
-    </Button>
+    </button>
   )
 })
 SidebarTrigger.displayName = "SidebarTrigger"

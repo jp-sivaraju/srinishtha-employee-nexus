@@ -2,7 +2,7 @@
 import React from 'react';
 import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
-import ModernButton from '../components/ui/ModernButton';
+import Modernbutton from '../components/ui/Modernbutton';
 import GradientText from '../components/ui/GradientText';
 import GlassContainer from '../components/ui/GlassContainer';
 import { Sparkle } from 'lucide-react';
@@ -82,7 +82,7 @@ const NotFound = () => {
           
           <div className="flex justify-center gap-4">
             <Link to="/">
-              <ModernButton 
+              <Modernbutton 
                 withGlow 
                 withAnimation 
                 withShine
@@ -90,16 +90,16 @@ const NotFound = () => {
                 className="shadow-glow-primary"
               >
                 Return to Home
-              </ModernButton>
+              </Modernbutton>
             </Link>
             <Link to="/dashboard">
-              <ModernButton 
+              <Modernbutton 
                 variant="outline"
                 withShine
                 className="border-primary-400 text-primary-400 hover:bg-primary-400/10"
               >
                 Go to Dashboard
-              </ModernButton>
+              </Modernbutton>
             </Link>
           </div>
         </GlassContainer>

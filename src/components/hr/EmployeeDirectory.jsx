@@ -8,9 +8,9 @@ import {
   TableBody, 
   TableCell 
 } from '../ui/table';
-import { Input } from '../ui/input';
+import  input  from '../ui/input';
 import { Search, Filter, UserPlus, ArrowUpDown } from 'lucide-react';
-import ModernButton from '../ui/ModernButton';
+import Modernbutton from '../ui/Modernbutton';
 import { Progress } from '../ui/progress';
 import AddEmployee from '../../pages/AddEmployee'; // Import the AddEmployee component
 
@@ -92,17 +92,17 @@ const EmployeeDirectory = () => {
           Employee Directory
         </h2>
         {/* <div className="flex gap-2">
-          <ModernButton variant="outline" iconLeft={<Filter size={16} />}>
+          <Modernbutton variant="outline" iconLeft={<Filter size={16} />}>
             Filter
-          </ModernButton>
-          <ModernButton 
+          </Modernbutton>
+          <Modernbutton 
             variant="primary" 
             iconLeft={<UserPlus size={16} />} 
             withGlow
             onClick={() => setShowAddEmployeeModal(true)} // Open modal on click
           >
             Add Employee
-          </ModernButton>
+          </Modernbutton>
         </div> */}
       </div>
       

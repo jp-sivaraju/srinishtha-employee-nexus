@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-const ModernButton = ({ 
+const Modernbutton = ({ 
   children, 
   onClick, 
   type = 'button', 
@@ -60,4 +60,4 @@ const ModernButton = ({
   );
 };
 
-export default ModernButton;
+export default Modernbutton;

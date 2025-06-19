@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Card } from '../ui/Card';
-import { Button } from '../ui/button';
+import  button from '../ui/button';
 import { 
   Star, 
   MessageSquare, 
@@ -119,12 +119,12 @@ const SelfAssessment = () => {
               Complete your self-assessment for this performance cycle
             </p>
           </div>
-          <Button 
+          <button 
             variant="outline" 
             onClick={() => setActiveAssessment(null)}
           >
             Back to List
-          </Button>
+          </button>
         </div>
 
         <Card title="Performance Ratings">
@@ -229,14 +229,14 @@ const SelfAssessment = () => {
         </Card>
 
         <div className="flex justify-end space-x-3">
-          <Button variant="outline" onClick={saveAssessment}>
+          <button variant="outline" onClick={saveAssessment}>
             <Save size={16} className="mr-2" />
             Save Draft
-          </Button>
-          <Button onClick={submitAssessment}>
+          </button>
+          <button onClick={submitAssessment}>
             <Send size={16} className="mr-2" />
             Submit Assessment
-          </Button>
+          </button>
         </div>
       </div>
     );
@@ -313,14 +313,14 @@ const SelfAssessment = () => {
               </div>
               
               <div className="flex space-x-2">
-                <Button 
+                <button 
                   size="sm" 
                   className="flex-1"
                   onClick={() => startAssessment(assessment)}
                 >
                   <FileText size={14} className="mr-1" />
                   {assessment.status === 'Completed' ? 'View' : 'Continue'}
-                </Button>
+                </button>
               </div>
             </div>
           </Card>

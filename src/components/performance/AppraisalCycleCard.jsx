@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card } from '../ui/Card';
-import { Button } from '../ui/button';
+import  button  from '../ui/button';
 import { 
   Calendar, 
   Clock, 
@@ -128,64 +128,64 @@ const AppraisalCycleCard = ({
         </div>
         
         <div className="flex flex-wrap gap-2">
-          <Button variant="outline" size="sm" className="flex-1">
+          <button variant="outline" size="sm" className="flex-1">
             <Eye size={14} className="mr-1" />
             View
-          </Button>
+          </button>
           
           {cycle.status === 'Planned' && (
-            <Button 
+            <button 
               size="sm" 
               onClick={() => onStart(cycle.id)}
               className="flex-1"
             >
               <PlayCircle size={14} className="mr-1" />
               Start
-            </Button>
+            </button>
           )}
           
           {cycle.status === 'Active' && (
             <>
-              <Button variant="outline" size="sm">
+              <button variant="outline" size="sm">
                 <Edit size={14} className="mr-1" />
                 Manage
-              </Button>
-              <Button 
+              </button>
+              <button 
                 variant="outline" 
                 size="sm"
                 onClick={() => onSendReminders(cycle.id)}
               >
                 <Mail size={14} className="mr-1" />
                 Remind
-              </Button>
+              </button>
             </>
           )}
           
           {(cycle.status === 'Completed' || cycle.status === 'Planned') && (
-            <Button 
+            <button 
               variant="outline" 
               size="sm"
               onClick={() => onDuplicate(cycle)}
             >
               <Copy size={14} className="mr-1" />
               Duplicate
-            </Button>
+            </button>
           )}
           
           {cycle.status === 'Completed' && (
             <>
-              <Button variant="outline" size="sm">
+              <button variant="outline" size="sm">
                 <BarChart3 size={14} className="mr-1" />
                 Analytics
-              </Button>
-              <Button 
+              </button>
+              <button 
                 variant="outline" 
                 size="sm"
                 onClick={() => onArchive(cycle.id)}
               >
                 <Archive size={14} className="mr-1" />
                 Archive
-              </Button>
+              </button>
             </>
           )}
         </div>

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Button } from '../ui/button';
+import  button  from '../ui/button';
 import { Plus } from 'lucide-react';
 
 const AppraisalCyclesHeader = ({ onCreateClick }) => {
@@ -12,13 +12,13 @@ const AppraisalCyclesHeader = ({ onCreateClick }) => {
           Manage comprehensive performance appraisal cycles across all organizational levels
         </p>
       </div>
-      <Button 
+      <button 
         onClick={onCreateClick}
         className="flex items-center gap-2"
       >
         <Plus size={16} />
         Create New Cycle
-      </Button>
+      </button>
     </div>
   );
 };
