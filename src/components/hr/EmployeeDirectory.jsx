@@ -108,7 +108,7 @@ const EmployeeDirectory = () => {
       
       <div className="mb-4 relative">
         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#666666]" size={18} />
-        <Input 
+        <input 
           placeholder="Search employees by name, position, department, or location..." 
           className="pl-10 bg-white dark:bg-dark-lighter border-[#D3D3D3] dark:border-dark-lighter focus:border-[#6B48FF]"
           value={searchTerm}
