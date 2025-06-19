@@ -15,7 +15,7 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
-  const { showToast,} = useToast();
+  const { showToast} = useToast();
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -16,6 +16,7 @@ import Performance from "./pages/Performance";
 import Pmo from "./pages/Pmo";
 import NotFound from "./pages/NotFound";
 import Index from "./pages/Index";
+import HrHeroSection from "./components/hr/HrHeroSection";
 
 
 
@@ -27,7 +28,7 @@ const App = () => (
       <Toaster />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route path="/" element={<HrHeroSection />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/hr-zone" element={<HrZone />} />
