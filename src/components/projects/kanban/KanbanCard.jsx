@@ -43,7 +43,7 @@ const KanbanCard = ({ task, columnId, onDragStart, onEdit }) => {
     <div
       className="bg-white dark:bg-gray-900 rounded-lg p-3 shadow-sm border border-gray-200 dark:border-gray-700 cursor-move hover:shadow-md transition-shadow"
       draggable
-      onDragStart={(e) => onDragStart(e, task.id, columnId)}
+      onDragStart={link => onDragStart(e, task.id, columnId)}
       onClick={() => onEdit(task)}
     >
       {/* Priority & Story Points */}

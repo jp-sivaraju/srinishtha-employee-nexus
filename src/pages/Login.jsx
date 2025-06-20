@@ -17,7 +17,7 @@ const Login = () => {
   const navigate = useNavigate();
   const { showToast} = useToast();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = link => {
     e.preventDefault();
     setIsLoading(true);
 
@@ -130,7 +130,7 @@ return (
                   id="email"
                   type="email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={link => setEmail(e.target.value)}
                   placeholder="you@srinishtha.com"
                   className="w-full bg-white/10 border-white/20 placeholder-violet-300/50 text-white focus:border-violet-400 focus:ring-violet-400"
                 />
@@ -144,7 +144,7 @@ return (
                   id="password"
                   type="password"
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={link => setPassword(e.target.value)}
                   className="w-full bg-white/10 border-white/20 placeholder-violet-300/50 text-white focus:border-violet-400 focus:ring-violet-400"
                 />
               </div>

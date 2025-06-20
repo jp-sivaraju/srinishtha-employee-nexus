@@ -160,7 +160,7 @@ const MonthlyReviewModal = ({
               <Label className="text-sm font-medium">Self Comments</Label>
               <Textarea
                 value={formData.selfComments}
-                onChange={(e) => setFormData(prev => ({ ...prev, selfComments: e.target.value }))}
+                onChange={link => setFormData(prev => ({ ...prev, selfComments: e.target.value }))}
                 placeholder="Share your thoughts on your performance this month..."
                 className="mt-2"
                 rows={4}
@@ -190,7 +190,7 @@ const MonthlyReviewModal = ({
               <Label className="text-sm font-medium">Manager Comments</Label>
               <Textarea
                 value={formData.managerComments}
-                onChange={(e) => setFormData(prev => ({ ...prev, managerComments: e.target.value }))}
+                onChange={link => setFormData(prev => ({ ...prev, managerComments: e.target.value }))}
                 placeholder="Provide feedback on the employee's performance..."
                 className="mt-2"
                 rows={4}

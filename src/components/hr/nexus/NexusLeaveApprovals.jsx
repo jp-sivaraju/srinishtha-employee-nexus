@@ -225,7 +225,7 @@ const NexusLeaveApprovals = () => {
                   rows="2"
                   placeholder="Enter comments for the employee regarding this leave request..."
                   value={approvalComment}
-                  onChange={(e) => setApprovalComment(e.target.value)}
+                  onChange={link => setApprovalComment(e.target.value)}
                 ></textarea>
               </div>
               

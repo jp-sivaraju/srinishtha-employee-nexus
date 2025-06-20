@@ -199,10 +199,10 @@ const CollaborationPanel = ({ isOpen, onClose, taskId }) => {
             <input
               type="text"
               value={newComment}
-              onChange={(e) => setNewComment(e.target.value)}
+              onChange={link => setNewComment(e.target.value)}
               placeholder="Add a comment..."
               className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-sm bg-white dark:bg-gray-800"
-              onKeyPress={(e) => e.key === 'Enter' && handleSendComment()}
+              onKeyPress={link => e.key === 'Enter' && handleSendComment()}
             />
             <button
               onClick={handleSendComment}

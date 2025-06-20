@@ -30,7 +30,7 @@ const CreateCycleForm = ({
           <input
             type="text"
             value={newCycle.name}
-            onChange={(e) => setNewCycle({ ...newCycle, name: e.target.value })}
+            onChange={link => setNewCycle({ ...newCycle, name: e.target.value })}
             className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
             placeholder="e.g., Q3 2025 Performance Review"
           />
@@ -42,7 +42,7 @@ const CreateCycleForm = ({
           </label>
           <select
             value={newCycle.type}
-            onChange={(e) => setNewCycle({ ...newCycle, type: e.target.value })}
+            onChange={link => setNewCycle({ ...newCycle, type: e.target.value })}
             className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
           >
             <option value="Monthly">Monthly</option>
@@ -61,7 +61,7 @@ const CreateCycleForm = ({
           <input
             type="date"
             value={newCycle.startDate}
-            onChange={(e) => setNewCycle({ ...newCycle, startDate: e.target.value })}
+            onChange={link => setNewCycle({ ...newCycle, startDate: e.target.value })}
             className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
           />
         </div>
@@ -73,7 +73,7 @@ const CreateCycleForm = ({
           <input
             type="date"
             value={newCycle.endDate}
-            onChange={(e) => setNewCycle({ ...newCycle, endDate: e.target.value })}
+            onChange={link => setNewCycle({ ...newCycle, endDate: e.target.value })}
             className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
           />
         </div>
@@ -84,7 +84,7 @@ const CreateCycleForm = ({
           </label>
           <select
             value={newCycle.template}
-            onChange={(e) => setNewCycle({ ...newCycle, template: e.target.value })}
+            onChange={link => setNewCycle({ ...newCycle, template: e.target.value })}
             className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
           >
             {templates.map(template => (
@@ -119,7 +119,7 @@ const CreateCycleForm = ({
         </label>
         <textarea
           value={newCycle.description}
-          onChange={(e) => setNewCycle({ ...newCycle, description: e.target.value })}
+          onChange={link => setNewCycle({ ...newCycle, description: e.target.value })}
           className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
           rows="3"
           placeholder="Brief description of the appraisal cycle objectives"
@@ -131,7 +131,7 @@ const CreateCycleForm = ({
           <input
             type="checkbox"
             checked={newCycle.notificationsEnabled}
-            onChange={(e) => setNewCycle({ ...newCycle, notificationsEnabled: e.target.checked })}
+            onChange={link => setNewCycle({ ...newCycle, notificationsEnabled: e.target.checked })}
             className="rounded"
           />
           <span className="text-sm text-gray-700 dark:text-gray-300">Enable email notifications</span>
@@ -141,7 +141,7 @@ const CreateCycleForm = ({
           <input
             type="checkbox"
             checked={newCycle.autoReminders}
-            onChange={(e) => setNewCycle({ ...newCycle, autoReminders: e.target.checked })}
+            onChange={link => setNewCycle({ ...newCycle, autoReminders: e.target.checked })}
             className="rounded"
           />
           <span className="text-sm text-gray-700 dark:text-gray-300">Automatic reminders</span>

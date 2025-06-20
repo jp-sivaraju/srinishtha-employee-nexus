@@ -42,7 +42,7 @@ const Finance = () => {
     { id: 'inv5', number: 'INV-2025-038', client: 'Stellar Systems', date: 'February 28, 2025', amount: '$9,800.00', status: 'overdue' }
   ];
 
-  const handleExpenseFormChange = (e) => {
+  const handleExpenseFormChange = link => {
     const { name, value, files } = e.target;
     if (name === 'receipt' && files) {
       setExpenseForm((prev) => ({ ...prev, [name]: files[0] }));
@@ -51,7 +51,7 @@ const Finance = () => {
     }
   };
 
-  const handleExpenseSubmit = (e) => {
+  const handleExpenseSubmit = link => {
     e.preventDefault();
     showToast('Expense claim submitted successfully!', 'success');
     setExpenseForm({

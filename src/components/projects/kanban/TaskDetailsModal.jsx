@@ -75,7 +75,7 @@ const TaskDetailsModal = ({ task, onClose, onSave }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = link => {
     e.preventDefault();
     
     if (!formData.title.trim()) {
@@ -117,7 +117,7 @@ const TaskDetailsModal = ({ task, onClose, onSave }) => {
             <input
               type="text"
               value={formData.title}
-              onChange={(e) => handleInputChange('title', e.target.value)}
+              onChange={link => handleInputChange('title', e.target.value)}
               className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
               placeholder="Enter task title..."
               required
@@ -131,7 +131,7 @@ const TaskDetailsModal = ({ task, onClose, onSave }) => {
             </label>
             <textarea
               value={formData.description}
-              onChange={(e) => handleInputChange('description', e.target.value)}
+              onChange={link => handleInputChange('description', e.target.value)}
               rows={3}
               className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
               placeholder="Enter task description..."
@@ -153,7 +153,7 @@ const TaskDetailsModal = ({ task, onClose, onSave }) => {
                 <input
                   type="text"
                   value={formData.assignee.name}
-                  onChange={(e) => handleAssigneeChange(e.target.value)}
+                  onChange={link => handleAssigneeChange(e.target.value)}
                   className="flex-1 border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
                   placeholder="Enter assignee name..."
                   required
@@ -168,7 +168,7 @@ const TaskDetailsModal = ({ task, onClose, onSave }) => {
               </label>
               <select
                 value={formData.priority}
-                onChange={(e) => handleInputChange('priority', e.target.value)}
+                onChange={link => handleInputChange('priority', e.target.value)}
                 className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
               >
                 {priorities.map(priority => (
@@ -187,7 +187,7 @@ const TaskDetailsModal = ({ task, onClose, onSave }) => {
               <input
                 type="date"
                 value={formData.dueDate}
-                onChange={(e) => handleInputChange('dueDate', e.target.value)}
+                onChange={link => handleInputChange('dueDate', e.target.value)}
                 className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
               />
             </div>
@@ -202,7 +202,7 @@ const TaskDetailsModal = ({ task, onClose, onSave }) => {
                 min="1"
                 max="20"
                 value={formData.storyPoints}
-                onChange={(e) => handleInputChange('storyPoints', parseInt(e.target.value))}
+                onChange={link => handleInputChange('storyPoints', parseInt(e.target.value))}
                 className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
               />
             </div>
@@ -235,7 +235,7 @@ const TaskDetailsModal = ({ task, onClose, onSave }) => {
                 type="text"
                 placeholder="Add a tag and press Enter..."
                 className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
-                onKeyPress={(e) => {
+                onKeyPress={link => {
                   if (e.key === 'Enter') {
                     e.preventDefault();
                     handleTagAdd(e.target.value);

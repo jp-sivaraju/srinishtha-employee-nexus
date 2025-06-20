@@ -10,7 +10,7 @@ const DocumentCard = ({ title, description, onView, onDownload, dropdownOptions,
           {dropdownOptions && (
             <select
               className="bg-gray-600 text-white px-0 py-0 rounded"
-              onChange={(e) => onDropdownChange(e.target.value)}
+              onChange={link => onDropdownChange(e.target.value)}
             >
               {dropdownOptions.map((option) => (
                 <option key={option} value={option}>

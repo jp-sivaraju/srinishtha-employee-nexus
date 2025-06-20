@@ -244,7 +244,7 @@ const SupervisorReview = () => {
               </label>
               <textarea
                 value={reviewData.strengths}
-                onChange={(e) => updateTextArea('strengths', e.target.value)}
+                onChange={link => updateTextArea('strengths', e.target.value)}
                 className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
                 rows="3"
                 placeholder="Describe the key strengths you observed..."
@@ -257,7 +257,7 @@ const SupervisorReview = () => {
               </label>
               <textarea
                 value={reviewData.improvements}
-                onChange={(e) => updateTextArea('improvements', e.target.value)}
+                onChange={link => updateTextArea('improvements', e.target.value)}
                 className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
                 rows="3"
                 placeholder="Areas where the employee can improve..."
@@ -270,7 +270,7 @@ const SupervisorReview = () => {
               </label>
               <textarea
                 value={reviewData.supervisorComments}
-                onChange={(e) => updateTextArea('supervisorComments', e.target.value)}
+                onChange={link => updateTextArea('supervisorComments', e.target.value)}
                 className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
                 rows="4"
                 placeholder="Detailed feedback on performance, achievements, and recommendations..."
@@ -283,7 +283,7 @@ const SupervisorReview = () => {
               </label>
               <textarea
                 value={reviewData.recommendedActions}
-                onChange={(e) => updateTextArea('recommendedActions', e.target.value)}
+                onChange={link => updateTextArea('recommendedActions', e.target.value)}
                 className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
                 rows="3"
                 placeholder="Specific actions and development opportunities..."
@@ -296,7 +296,7 @@ const SupervisorReview = () => {
               </label>
               <textarea
                 value={reviewData.nextCycleGoals}
-                onChange={(e) => updateTextArea('nextCycleGoals', e.target.value)}
+                onChange={link => updateTextArea('nextCycleGoals', e.target.value)}
                 className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
                 rows="3"
                 placeholder="Suggested goals for the next performance cycle..."

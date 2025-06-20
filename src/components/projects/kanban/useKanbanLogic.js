@@ -152,7 +152,7 @@ export const useKanbanLogic = () => {
     e.dataTransfer.effectAllowed = 'move';
   }, []);
 
-  const handleDragOver = useCallback((e) => {
+  const handleDragOver = useCallback(link => {
     e.preventDefault();
     e.dataTransfer.dropEffect = 'move';
   }, []);

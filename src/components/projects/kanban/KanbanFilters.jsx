@@ -58,7 +58,7 @@ const KanbanFilters = ({ filters, onFiltersChange, columns }) => {
           <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1">Assignee</label>
           <select
             value={filters.assignee}
-            onChange={(e) => handleFilterChange('assignee', e.target.value)}
+            onChange={link => handleFilterChange('assignee', e.target.value)}
             className="border border-gray-300 dark:border-gray-600 rounded-md px-3 py-1 text-sm bg-white dark:bg-gray-800"
           >
             <option value="">All assignees</option>
@@ -73,7 +73,7 @@ const KanbanFilters = ({ filters, onFiltersChange, columns }) => {
           <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1">Priority</label>
           <select
             value={filters.priority}
-            onChange={(e) => handleFilterChange('priority', e.target.value)}
+            onChange={link => handleFilterChange('priority', e.target.value)}
             className="border border-gray-300 dark:border-gray-600 rounded-md px-3 py-1 text-sm bg-white dark:bg-gray-800"
           >
             <option value="">All priorities</option>
@@ -90,7 +90,7 @@ const KanbanFilters = ({ filters, onFiltersChange, columns }) => {
           <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1">Due Date</label>
           <select
             value={filters.dueDate}
-            onChange={(e) => handleFilterChange('dueDate', e.target.value)}
+            onChange={link => handleFilterChange('dueDate', e.target.value)}
             className="border border-gray-300 dark:border-gray-600 rounded-md px-3 py-1 text-sm bg-white dark:bg-gray-800"
           >
             <option value="">All dates</option>

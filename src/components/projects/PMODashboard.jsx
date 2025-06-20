@@ -52,7 +52,7 @@ const PMODashboard = () => {
           </div>
           <select
             value={selectedTimeframe}
-            onChange={(e) => setSelectedTimeframe(e.target.value)}
+            onChange={link => setSelectedTimeframe(e.target.value)}
             className="border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
           >
             <option value="month">This Month</option>

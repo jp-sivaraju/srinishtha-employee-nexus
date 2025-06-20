@@ -272,7 +272,7 @@ const ProjectImportExportWorkflow = ({ onClose }) => {
                               <td className="px-6 py-4 whitespace-nowrap">
                                 <select
                                   value={mappingData[mapping.source] || ''}
-                                  onChange={(e) => handleMappingChange(mapping.source, e.target.value)}
+                                  onChange={link => handleMappingChange(mapping.source, e.target.value)}
                                   className="border border-gray-300 dark:border-gray-600 rounded-md px-3 py-1 bg-white dark:bg-gray-800"
                                 >
                                   <option value="">Select target field</option>
@@ -371,7 +371,7 @@ const ProjectImportExportWorkflow = ({ onClose }) => {
                     </label>
                     <select
                       value={exportOptions.format}
-                      onChange={(e) => setExportOptions(prev => ({ ...prev, format: e.target.value }))}
+                      onChange={link => setExportOptions(prev => ({ ...prev, format: e.target.value }))}
                       className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
                     >
                       <option value="json">JSON</option>
@@ -391,7 +391,7 @@ const ProjectImportExportWorkflow = ({ onClose }) => {
                           <input
                             type="checkbox"
                             checked={checked}
-                            onChange={(e) => setExportOptions(prev => ({
+                            onChange={link => setExportOptions(prev => ({
                               ...prev,
                               includeFields: {
                                 ...prev.includeFields,

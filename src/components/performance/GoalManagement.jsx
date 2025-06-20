@@ -194,7 +194,7 @@ const GoalManagement = () => {
               <input
                 type="text"
                 value={newGoal.title}
-                onChange={(e) => setNewGoal({ ...newGoal, title: e.target.value })}
+                onChange={link => setNewGoal({ ...newGoal, title: e.target.value })}
                 className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
                 placeholder="e.g., Complete Advanced React Certification"
               />
@@ -206,7 +206,7 @@ const GoalManagement = () => {
               </label>
               <textarea
                 value={newGoal.description}
-                onChange={(e) => setNewGoal({ ...newGoal, description: e.target.value })}
+                onChange={link => setNewGoal({ ...newGoal, description: e.target.value })}
                 className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
                 rows="3"
                 placeholder="Detailed description of the goal and expected outcomes"
@@ -219,7 +219,7 @@ const GoalManagement = () => {
               </label>
               <select
                 value={newGoal.category}
-                onChange={(e) => setNewGoal({ ...newGoal, category: e.target.value })}
+                onChange={link => setNewGoal({ ...newGoal, category: e.target.value })}
                 className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
               >
                 <option value="Professional Development">Professional Development</option>
@@ -237,7 +237,7 @@ const GoalManagement = () => {
               </label>
               <select
                 value={newGoal.priority}
-                onChange={(e) => setNewGoal({ ...newGoal, priority: e.target.value })}
+                onChange={link => setNewGoal({ ...newGoal, priority: e.target.value })}
                 className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
               >
                 <option value="High">High</option>
@@ -253,7 +253,7 @@ const GoalManagement = () => {
               <input
                 type="date"
                 value={newGoal.dueDate}
-                onChange={(e) => setNewGoal({ ...newGoal, dueDate: e.target.value })}
+                onChange={link => setNewGoal({ ...newGoal, dueDate: e.target.value })}
                 className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
               />
             </div>
@@ -341,7 +341,7 @@ const GoalManagement = () => {
                       min="0"
                       max="100"
                       value={goal.progress}
-                      onChange={(e) => updateGoalProgress(goal.id, parseInt(e.target.value))}
+                      onChange={link => updateGoalProgress(goal.id, parseInt(e.target.value))}
                       className="w-full"
                     />
                   </div>
