@@ -1,6 +1,4 @@
 import { TooltipProvider } from "@/components/ui/tooltip";
-
-// Import all sidebar components
 export { SidebarProvider, useSidebar } from "./sidebar";
 export { Sidebar, SidebarContent, SidebarHeader, SidebarFooter, SidebarInset } from "./sidebar/SidebarCore";
 export {

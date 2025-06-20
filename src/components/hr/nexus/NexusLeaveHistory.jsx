@@ -100,7 +100,7 @@ const NexusLeaveHistory = () => {
           <span className="text-sm text-gray-600">Filter:</span>
           <select
             value={filter}
-            onChange={link => setFilter(e.target.value)}
+            onChange={(e) => setFilter(e.target.value)}
             className="p-1.5 pl-3 pr-8 text-sm border border-[#6B48FF] rounded-md shadow-sm focus:ring-[#6B48FF] focus:border-[#6B48FF]"
           >
             <option value="all">All Requests</option>

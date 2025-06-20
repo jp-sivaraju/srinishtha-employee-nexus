@@ -112,7 +112,7 @@ Srinishtha Hub is a comprehensive enterprise management platform providing integ
 ## 5. IT Helpdesk Module
 - **Ticket Management**: Create, assign, and track IT support tickets
 - **Asset Management**: Inventory and track IT assets
-- **Knowledge Base Integration**: Link tickets to knowledge articles
+- **Knowledge Base Integration**: (e) tickets to knowledge articles
 - **SLA Tracking**: Monitor service level agreements
 
 ## 6. Knowledge Base Module

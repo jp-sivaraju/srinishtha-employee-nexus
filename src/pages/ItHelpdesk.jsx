@@ -37,7 +37,7 @@ const ItHelpdesk = () => {
     { id: 'HD-2023-056', type: 'Headset', model: 'Jabra Evolve 75', assignedDate: '2023-05-15', status: 'Assigned' }
   ];
 
-  const handleTicketFormChange = link => {
+  const handleTicketFormChange = (e) => {
     const { name, value, files } = e.target;
     if (name === 'attachFile' && files) {
       setTicketForm(prev => ({ ...prev, [name]: files[0] }));
@@ -46,7 +46,7 @@ const ItHelpdesk = () => {
     }
   };
 
-  const handleTicketSubmit = link => {
+  const handleTicketSubmit = (e) => {
     e.preventDefault();
     showToast('IT support ticket submitted successfully!', 'success');
     setTicketForm({
@@ -270,7 +270,7 @@ const ItHelpdesk = () => {
                 className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700"
                 placeholder="Filter software by name or category..."
                 value={filter}
-                onChange={link => setFilter(e.target.value)}
+                onChange={(e) => setFilter(e.target.value)}
               />
             </div>
             

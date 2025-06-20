@@ -1,19 +1,30 @@
-
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { navigationItems } from './SidebarNavItems';
 import SidebarNavItem from './SidebarNavItem';
 
 export const Sidebar = ({ collapsed, toggleSidebar, userRole }) => {
   const [openSubmenus, setOpenSubmenus] = useState({});
-  
+  const [currentUser, setCurrentUser] = useState(null); // Add this if you're planning to use currentUser
+  const navigate = useNavigate(); // ✅ Proper use of useNavigate
+
   const toggleSubmenu = (itemName) => {
     setOpenSubmenus(prev => ({
       ...prev,
       [itemName]: !prev[itemName]
     }));
   };
+
+  useEffect(() => {
+    const user = localStorage.getItem('currentUser');
+    if (!user) {
+      navigate('/hr-zone');
+      return;
+    }
+
+    setCurrentUser(JSON.parse(user));
+  }, [navigate]);
 
   return (
     <aside 

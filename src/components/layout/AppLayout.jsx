@@ -12,7 +12,7 @@ export const AppLayout = ({ children }) => {
     // Check if user is logged in
     const user = localStorage.getItem('currentUser');
     if (!user) {
-      navigate('/login');
+      navigate('/hr-zone');
       return;
     }
 

@@ -153,7 +153,7 @@ const PerformanceSummary = () => {
                 <select
                   className="border border-gray-300 dark:border-gray-600 rounded px-2 py-1 text-sm bg-white dark:bg-gray-800"
                   value={timeRange}
-                  onChange={link => setTimeRange(e.target.value)}
+                  onChange={(e) => setTimeRange(e.target.value)}
                 >
                   <option value="quarter">Last Quarter</option>
                   <option value="halfYear">Last 6 Months</option>

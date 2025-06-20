@@ -52,7 +52,7 @@ const NexusLeaveReports = () => {
         <div className="flex flex-wrap gap-2">
           <select
             value={reportType}
-            onChange={link => setReportType(e.target.value)}
+            onChange={(e) => setReportType(e.target.value)}
             className="p-2 text-sm border border-[#6B48FF] rounded-md focus:ring-[#6B48FF] focus:border-[#6B48FF]"
           >
             <option value="overview">Overview</option>
@@ -63,7 +63,7 @@ const NexusLeaveReports = () => {
           
           <select
             value={year}
-            onChange={link => setYear(e.target.value)}
+            onChange={(e) => setYear(e.target.value)}
             className="p-2 text-sm border border-[#6B48FF] rounded-md focus:ring-[#6B48FF] focus:border-[#6B48FF]"
           >
             <option value="2025">2025</option>
@@ -72,7 +72,7 @@ const NexusLeaveReports = () => {
           
           <select
             value={department}
-            onChange={link => setDepartment(e.target.value)}
+            onChange={(e) => setDepartment(e.target.value)}
             className="p-2 text-sm border border-[#6B48FF] rounded-md focus:ring-[#6B48FF] focus:border-[#6B48FF]"
           >
             <option value="all">All Departments</option>

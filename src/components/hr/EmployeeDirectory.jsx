@@ -33,7 +33,7 @@ const EmployeeDirectory = () => {
   const [sortConfig, setSortConfig] = useState({ key: null, direction: 'ascending' });
   const [showAddEmployeeModal, setShowAddEmployeeModal] = useState(false); // State to control modal visibility
 
-  const handleSearch = link => {
+  const handleSearch = (e) => {
     const term = e.target.value;
     setSearchTerm(term);
     

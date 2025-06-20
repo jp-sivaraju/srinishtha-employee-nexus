@@ -91,7 +91,7 @@ const PerformanceMetrics = () => {
               <select 
                 className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-gray-700 dark:border-gray-600"
                 value={period}
-                onChange={link => setPeriod(e.target.value)}
+                onChange={(e) => setPeriod(e.target.value)}
               >
                 <option value="monthly">Monthly</option>
                 <option value="quarterly">Quarterly</option>

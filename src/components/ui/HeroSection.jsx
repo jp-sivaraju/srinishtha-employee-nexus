@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { (e) } from 'react-router-dom';
 import GradientText from './GradientText';
 import Modernbutton from './Modernbutton';
 import GlassContainer from './GlassContainer';
@@ -61,7 +61,7 @@ export const HeroSection = () => {
             </p>
             
             <div className="flex flex-wrap gap-4">
-              <Link to="/login">
+              <(e) to="/login">
                 <Modernbutton 
                   size="large" 
                   variant="glow" 
@@ -72,9 +72,9 @@ export const HeroSection = () => {
                 >
                   Sign In
                 </Modernbutton>
-              </Link>
+              </(e)>
               
-              <Link to="/dashboard">
+              <(e) to="/dashboard">
                 <Modernbutton 
                   size="large" 
                   variant="outline" 
@@ -84,7 +84,7 @@ export const HeroSection = () => {
                 >
                   Explore Features
                 </Modernbutton>
-              </Link>
+              </(e)>
             </div>
           </div>
           

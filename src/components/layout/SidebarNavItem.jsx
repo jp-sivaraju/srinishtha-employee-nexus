@@ -1,16 +1,23 @@
-
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 
 const SidebarNavItem = ({ item, collapsed, userRole, openSubmenus, toggleSubmenu }) => {
   const location = useLocation();
-  
+  const navigate = useNavigate();
+
   const isActive = (path) => {
     return location.pathname === path;
   };
 
-  // Filter out items not allowed for the current user role
+  const handleClick = (e) => {
+    const user = localStorage.getItem('currentUser');
+    if (!user) {
+      navigate('/hr-zone');
+      return;
+    }
+  };
+
   if (!item.allowedRoles.includes(userRole)) {
     return null;
   }
@@ -34,16 +41,13 @@ const SidebarNavItem = ({ item, collapsed, userRole, openSubmenus, toggleSubmenu
             />
             {!collapsed && <span>{item.name}</span>}
           </div>
-          {!collapsed && (
-            openSubmenus[item.name] ? 
-              <ChevronDown size={16} /> : 
-              <ChevronRight size={16} />
-          )}
+          {!collapsed &&
+            (openSubmenus[item.name] ? <ChevronDown size={16} /> : <ChevronRight size={16} />)}
         </button>
-        
+
         {!collapsed && openSubmenus[item.name] && item.submenu && (
           <ul className="mt-1 space-y-1 pl-6">
-            {item.submenu.map(subItem => (
+            {item.submenu.map((subItem) => (
               <li key={subItem.name}>
                 <Link
                   to={subItem.path}
@@ -55,7 +59,9 @@ const SidebarNavItem = ({ item, collapsed, userRole, openSubmenus, toggleSubmenu
                 >
                   <subItem.icon
                     className={`${
-                      location.pathname === subItem.path ? 'text-[#6B48FF]' : 'text-[#666666] group-hover:text-[#A78BFA]'
+                      location.pathname === subItem.path
+                        ? 'text-[#6B48FF]'
+                        : 'text-[#666666] group-hover:text-[#A78BFA]'
                     } mr-2 flex-shrink-0 h-4 w-4 transition-colors`}
                   />
                   <span>{subItem.name}</span>
@@ -71,6 +77,7 @@ const SidebarNavItem = ({ item, collapsed, userRole, openSubmenus, toggleSubmenu
   return (
     <li key={item.name} className="group/menu-item relative">
       <Link
+        onClick={handleClick}
         to={item.path}
         className={`${
           isActive(item.path)

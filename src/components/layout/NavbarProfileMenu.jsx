@@ -1,6 +1,5 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { ChevronDown, LogOut } from 'lucide-react';
 
 const availableRoles = ['Admin', 'HR', 'Manager', 'Developer', 'Intern', 'Finance', 'Assessor'];
@@ -66,12 +65,12 @@ const NavbarProfileMenu = ({ user }) => {
             </div>
           </div>
 
-          <Link to="/profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+          <link to="/profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
             Your Profile
-          </Link>
-          <Link to="/settings" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+          </link>
+          <link to="/settings" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
             Settings
-          </Link>
+          </link>
           <button 
             onClick={handleLogout}
             className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"

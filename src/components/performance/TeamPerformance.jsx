@@ -142,7 +142,7 @@ const TeamPerformance = () => {
             placeholder="Search team members, roles, or projects..."
             className="pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg w-full bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-primary-500"
             value={searchQuery}
-            onChange={link => setSearchQuery(e.target.value)}
+            onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
       </div>

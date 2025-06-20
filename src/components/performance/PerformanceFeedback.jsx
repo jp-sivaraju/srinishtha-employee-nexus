@@ -320,7 +320,7 @@ const PerformanceFeedback = () => {
                   <select
                     className="w-full border border-gray-300 dark:border-gray-600 rounded-md p-2.5 text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-primary-500"
                     value={selectedPeer ? selectedPeer.id : ''}
-                    onChange={link => {
+                    onChange={(e) => {
                       const peerId = parseInt(e.target.value);
                       const peer = peers.find(p => p.id === peerId);
                       setSelectedPeer(peer || null);
@@ -381,7 +381,7 @@ const PerformanceFeedback = () => {
                   className="w-full border border-gray-300 dark:border-gray-600 rounded-md p-3 text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-primary-500 min-h-[120px]"
                   placeholder={`Write your ${feedbackType === 'praise' ? 'praise' : 'constructive feedback'} here...`}
                   value={newFeedback}
-                  onChange={link => setNewFeedback(e.target.value)}
+                  onChange={(e) => setNewFeedback(e.target.value)}
                 />
               </div>
               

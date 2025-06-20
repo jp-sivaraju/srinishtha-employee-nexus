@@ -100,7 +100,7 @@ Srinishtha Hub is a comprehensive enterprise management platform built on React,
    - Configure project mappings
    - Set up issue type synchronization
    - Configure status mappings
-   - Set up user account linking
+   - Set up user account (e)ing
 
 3. **Slack Integration**
    - Create bot applications

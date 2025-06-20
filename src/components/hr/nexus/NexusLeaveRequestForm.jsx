@@ -52,7 +52,7 @@ const RequestLeave = () => {
     setDuration(days);
   };
  
-  const handleSubmit = async link => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
  
@@ -116,7 +116,7 @@ const RequestLeave = () => {
               <label className="block text-sm font-medium text-gray-700 mb-2">Leave Type</label>
               <select
                 value={formData.leaveType}
-                onChange={link => {
+                onChange={(e) => {
                   const selectedLeaveType = e.target.value;
                   setFormData({
                     ...formData,
@@ -139,7 +139,7 @@ const RequestLeave = () => {
               <label className="block text-sm font-medium text-gray-700 mb-2">Day Type</label>
               <select
                 value={formData.dayType}
-                onChange={link => setFormData({ ...formData, dayType: e.target.value })}
+                onChange={(e) => setFormData({ ...formData, dayType: e.target.value })}
                 className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                 disabled={formData.leaveType !== 'Casual Leave'}
               >
@@ -153,7 +153,7 @@ const RequestLeave = () => {
               <input
                 type="date"
                 value={formData.startDate}
-                onChange={link => setFormData({ ...formData, startDate: e.target.value })}
+                onChange={(e) => setFormData({ ...formData, startDate: e.target.value })}
                 min={new Date().toISOString().split('T')[0]}
                 className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
               />
@@ -164,7 +164,7 @@ const RequestLeave = () => {
               <input
                 type="date"
                 value={formData.endDate}
-                onChange={link => setFormData({ ...formData, endDate: e.target.value })}
+                onChange={(e) => setFormData({ ...formData, endDate: e.target.value })}
                 min={formData.startDate}
                 className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
               />
@@ -175,7 +175,7 @@ const RequestLeave = () => {
             <label className="block text-sm font-medium text-gray-700 mb-2">Reason</label>
             <textarea
               value={formData.reason}
-              onChange={link => setFormData({ ...formData, reason: e.target.value })}
+              onChange={(e) => setFormData({ ...formData, reason: e.target.value })}
               className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 h-32"
               placeholder="Please provide a reason for your leave request"
             />

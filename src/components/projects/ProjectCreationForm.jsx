@@ -103,7 +103,7 @@ const ProjectCreationForm = ({ onClose, onSave, editProject = null }) => {
     }));
   };
 
-  const handleSubmit = link => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     
     // Validation
@@ -153,7 +153,7 @@ const ProjectCreationForm = ({ onClose, onSave, editProject = null }) => {
                 <input
                   type="text"
                   value={formData.projectName}
-                  onChange={link => handleInputChange('projectName', e.target.value)}
+                  onChange={(e) => handleInputChange('projectName', e.target.value)}
                   className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
                   required
                 />
@@ -167,7 +167,7 @@ const ProjectCreationForm = ({ onClose, onSave, editProject = null }) => {
                   <input
                     type="text"
                     value={formData.projectCode}
-                    onChange={link => handleInputChange('projectCode', e.target.value)}
+                    onChange={(e) => handleInputChange('projectCode', e.target.value)}
                     className="flex-1 border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
                     required
                   />
@@ -187,7 +187,7 @@ const ProjectCreationForm = ({ onClose, onSave, editProject = null }) => {
                 </label>
                 <textarea
                   value={formData.description}
-                  onChange={link => handleInputChange('description', e.target.value)}
+                  onChange={(e) => handleInputChange('description', e.target.value)}
                   rows={3}
                   className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
                 />
@@ -199,7 +199,7 @@ const ProjectCreationForm = ({ onClose, onSave, editProject = null }) => {
                 </label>
                 <select
                   value={formData.projectType}
-                  onChange={link => handleInputChange('projectType', e.target.value)}
+                  onChange={(e) => handleInputChange('projectType', e.target.value)}
                   className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
                 >
                   <option value="waterfall">Waterfall</option>
@@ -215,7 +215,7 @@ const ProjectCreationForm = ({ onClose, onSave, editProject = null }) => {
                 </label>
                 <select
                   value={formData.priority}
-                  onChange={link => handleInputChange('priority', e.target.value)}
+                  onChange={(e) => handleInputChange('priority', e.target.value)}
                   className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
                 >
                   <option value="low">Low</option>
@@ -237,7 +237,7 @@ const ProjectCreationForm = ({ onClose, onSave, editProject = null }) => {
                 <input
                   type="text"
                   value={formData.projectManager}
-                  onChange={link => handleInputChange('projectManager', e.target.value)}
+                  onChange={(e) => handleInputChange('projectManager', e.target.value)}
                   className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
                   required
                 />
@@ -250,7 +250,7 @@ const ProjectCreationForm = ({ onClose, onSave, editProject = null }) => {
                 <input
                   type="text"
                   value={formData.projectSponsor}
-                  onChange={link => handleInputChange('projectSponsor', e.target.value)}
+                  onChange={(e) => handleInputChange('projectSponsor', e.target.value)}
                   className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
                 />
               </div>
@@ -262,7 +262,7 @@ const ProjectCreationForm = ({ onClose, onSave, editProject = null }) => {
                 <input
                   type="text"
                   value={formData.businessOwner}
-                  onChange={link => handleInputChange('businessOwner', e.target.value)}
+                  onChange={(e) => handleInputChange('businessOwner', e.target.value)}
                   className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
                 />
               </div>
@@ -274,7 +274,7 @@ const ProjectCreationForm = ({ onClose, onSave, editProject = null }) => {
                 <input
                   type="text"
                   value={formData.technicalLead}
-                  onChange={link => handleInputChange('technicalLead', e.target.value)}
+                  onChange={(e) => handleInputChange('technicalLead', e.target.value)}
                   className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
                 />
               </div>
@@ -292,7 +292,7 @@ const ProjectCreationForm = ({ onClose, onSave, editProject = null }) => {
                   <input
                     type="date"
                     value={formData.startDate}
-                    onChange={link => handleInputChange('startDate', e.target.value)}
+                    onChange={(e) => handleInputChange('startDate', e.target.value)}
                     className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
                   />
                 </div>
@@ -304,7 +304,7 @@ const ProjectCreationForm = ({ onClose, onSave, editProject = null }) => {
                   <input
                     type="date"
                     value={formData.endDate}
-                    onChange={link => handleInputChange('endDate', e.target.value)}
+                    onChange={(e) => handleInputChange('endDate', e.target.value)}
                     className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
                   />
                 </div>
@@ -316,7 +316,7 @@ const ProjectCreationForm = ({ onClose, onSave, editProject = null }) => {
                   <input
                     type="number"
                     value={formData.plannedDuration}
-                    onChange={link => handleInputChange('plannedDuration', e.target.value)}
+                    onChange={(e) => handleInputChange('plannedDuration', e.target.value)}
                     className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
                   />
                 </div>
@@ -332,7 +332,7 @@ const ProjectCreationForm = ({ onClose, onSave, editProject = null }) => {
                   <input
                     type="number"
                     value={formData.totalBudget}
-                    onChange={link => handleInputChange('totalBudget', e.target.value)}
+                    onChange={(e) => handleInputChange('totalBudget', e.target.value)}
                     className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
                   />
                 </div>
@@ -344,7 +344,7 @@ const ProjectCreationForm = ({ onClose, onSave, editProject = null }) => {
                   <input
                     type="number"
                     value={formData.approvedBudget}
-                    onChange={link => handleInputChange('approvedBudget', e.target.value)}
+                    onChange={(e) => handleInputChange('approvedBudget', e.target.value)}
                     className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
                   />
                 </div>
@@ -355,7 +355,7 @@ const ProjectCreationForm = ({ onClose, onSave, editProject = null }) => {
                   </label>
                   <select
                     value={formData.currency}
-                    onChange={link => handleInputChange('currency', e.target.value)}
+                    onChange={(e) => handleInputChange('currency', e.target.value)}
                     className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
                   >
                     <option value="USD">USD</option>
@@ -380,7 +380,7 @@ const ProjectCreationForm = ({ onClose, onSave, editProject = null }) => {
                     <input
                       type="text"
                       value={objective}
-                      onChange={link => handleArrayFieldChange('projectObjectives', index, e.target.value)}
+                      onChange={(e) => handleArrayFieldChange('projectObjectives', index, e.target.value)}
                       className="flex-1 border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
                       placeholder={`Objective ${index + 1}`}
                     />
@@ -411,7 +411,7 @@ const ProjectCreationForm = ({ onClose, onSave, editProject = null }) => {
                 </label>
                 <textarea
                   value={formData.projectScope}
-                  onChange={link => handleInputChange('projectScope', e.target.value)}
+                  onChange={(e) => handleInputChange('projectScope', e.target.value)}
                   rows={3}
                   className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
                 />
@@ -423,7 +423,7 @@ const ProjectCreationForm = ({ onClose, onSave, editProject = null }) => {
                 </label>
                 <textarea
                   value={formData.outOfScope}
-                  onChange={link => handleInputChange('outOfScope', e.target.value)}
+                  onChange={(e) => handleInputChange('outOfScope', e.target.value)}
                   rows={2}
                   className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
                 />
@@ -440,7 +440,7 @@ const ProjectCreationForm = ({ onClose, onSave, editProject = null }) => {
                 </label>
                 <select
                   value={formData.riskLevel}
-                  onChange={link => handleInputChange('riskLevel', e.target.value)}
+                  onChange={(e) => handleInputChange('riskLevel', e.target.value)}
                   className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
                 >
                   <option value="low">Low</option>
@@ -459,7 +459,7 @@ const ProjectCreationForm = ({ onClose, onSave, editProject = null }) => {
                     <input
                       type="text"
                       value={assumption}
-                      onChange={link => handleArrayFieldChange('assumptions', index, e.target.value)}
+                      onChange={(e) => handleArrayFieldChange('assumptions', index, e.target.value)}
                       className="flex-1 border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
                       placeholder={`Assumption ${index + 1}`}
                     />

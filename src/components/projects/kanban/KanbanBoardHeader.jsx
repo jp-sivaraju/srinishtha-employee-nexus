@@ -27,7 +27,7 @@ const KanbanBoardHeader = ({
             type="text"
             placeholder="Search tasks..."
             value={searchTerm}
-            onChange={link => setSearchTerm(e.target.value)}
+            onChange={(e) => setSearchTerm(e.target.value)}
             className="pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-sm w-64"
           />
         </div>

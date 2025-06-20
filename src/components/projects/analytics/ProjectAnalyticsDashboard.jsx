@@ -133,7 +133,7 @@ const ProjectAnalyticsDashboard = () => {
         <div className="flex gap-3">
           <select
             value={timeframe}
-            onChange={link => setTimeframe(e.target.value)}
+            onChange={(e) => setTimeframe(e.target.value)}
             className="border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800"
           >
             <option value="week">This Week</option>

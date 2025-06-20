@@ -38,7 +38,7 @@ const KanbanColumn = ({
         <div
           className="min-h-[500px] space-y-3"
           onDragOver={onDragOver}
-          onDrop={link => onDrop(e, column.id)}
+          onDrop={(e) => onDrop(e, column.id)}
         >
           {/* Tasks */}
           {column.tasks.map((task) => (

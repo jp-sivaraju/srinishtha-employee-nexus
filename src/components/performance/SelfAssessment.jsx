@@ -154,7 +154,7 @@ const SelfAssessment = () => {
               </label>
               <textarea
                 value={assessmentData.strengths}
-                onChange={link => updateTextArea('strengths', e.target.value)}
+                onChange={(e) => updateTextArea('strengths', e.target.value)}
                 className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
                 rows="4"
                 placeholder="Describe your key strengths demonstrated during this cycle..."
@@ -167,7 +167,7 @@ const SelfAssessment = () => {
               </label>
               <textarea
                 value={assessmentData.improvements}
-                onChange={link => updateTextArea('improvements', e.target.value)}
+                onChange={(e) => updateTextArea('improvements', e.target.value)}
                 className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
                 rows="4"
                 placeholder="What areas would you like to improve in the next cycle?"
@@ -180,7 +180,7 @@ const SelfAssessment = () => {
               </label>
               <textarea
                 value={assessmentData.challenges}
-                onChange={link => updateTextArea('challenges', e.target.value)}
+                onChange={(e) => updateTextArea('challenges', e.target.value)}
                 className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
                 rows="4"
                 placeholder="Describe any challenges you faced and how you addressed them..."
@@ -193,7 +193,7 @@ const SelfAssessment = () => {
               </label>
               <textarea
                 value={assessmentData.achievements}
-                onChange={link => updateTextArea('achievements', e.target.value)}
+                onChange={(e) => updateTextArea('achievements', e.target.value)}
                 className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
                 rows="4"
                 placeholder="List your major achievements and contributions during this cycle..."
@@ -206,7 +206,7 @@ const SelfAssessment = () => {
               </label>
               <textarea
                 value={assessmentData.futureGoals}
-                onChange={link => updateTextArea('futureGoals', e.target.value)}
+                onChange={(e) => updateTextArea('futureGoals', e.target.value)}
                 className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
                 rows="4"
                 placeholder="What goals would you like to set for the next performance cycle?"
@@ -219,7 +219,7 @@ const SelfAssessment = () => {
               </label>
               <textarea
                 value={assessmentData.additionalComments}
-                onChange={link => updateTextArea('additionalComments', e.target.value)}
+                onChange={(e) => updateTextArea('additionalComments', e.target.value)}
                 className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
                 rows="3"
                 placeholder="Any additional comments or feedback..."

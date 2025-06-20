@@ -210,7 +210,7 @@ const ProjectIntegrations = () => {
                 Configure
               </button>
               <button className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 flex items-center">
-                <ExternalLink size={14} className="mr-1" />
+                {/* <External(ExternalLink) size={14} className="mr-1" /> */}
                 Open
               </button>
             </div>
