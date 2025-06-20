@@ -17,7 +17,7 @@ const Login = () => {
   const navigate = useNavigate();
   const { showToast} = useToast();
 
-  const handleSubmit = (e) => 
+  const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
 
@@ -43,8 +43,7 @@ const Login = () => {
       setIsLoading(false);
     }, 1000);
   };
-
-  return (
+return (
     
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Nature-inspired background */}
@@ -211,6 +210,7 @@ const Login = () => {
       
     </div>
   );
+};
 
 
 export default Login;
